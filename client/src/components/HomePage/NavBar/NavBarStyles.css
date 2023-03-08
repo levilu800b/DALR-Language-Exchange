@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    /* hide background color  */
     position: fixed;
     width: 100%;
     height: 90px;
@@ -22,6 +23,7 @@ font-weight: 500;
 .hamburger{
     display: none;
 }
+/* add media to Mobile screen   */
 @media screen and (max-width :1040px){
     .nav-menu{
         flex-direction: column;

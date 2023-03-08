@@ -20,13 +20,13 @@ const NavBar = () => {
     <Link to={"/createprofile"}>Create Profile</Link>
   </li>
   <li>
-    <Link to={"/singup"}>Sing up</Link>
-  </li>
-  <li>
-    <Link to={"/singin"}>Sing In</Link>
+    <Link to={"/signin"}>Sign in</Link>
   </li>
   <li>
     <Link to={"/contact"}>Contact</Link>
+  </li>
+  <li>
+    <Link to={"/invitefriends"}>Invite friends</Link>
   </li>
 </ul>
 <div className="hamburger" onClick={handleClick}>
