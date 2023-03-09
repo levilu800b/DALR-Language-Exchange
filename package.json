@@ -3,7 +3,10 @@
 	"version": "0.0.1",
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
+	"type": "module",
 	"scripts": {
+		"db:createusers": "node -r dotenv ./server/db/scripts/users/createTable.js",
+		"db:papulateusers": "node -r dotenv ./server/db/scripts/users/populateTable.js",
 		"prebuild": "npm run cleanup",
 		"build": "npm run build:server && npm run build:client",
 		"postbuild": "buildinfo dist/static/build-info.txt",
@@ -77,7 +80,8 @@
 		"helmet": "^6.0.1",
 		"morgan": "^1.10.0",
 		"pg": "^8.9.0",
-		"winston": "^3.8.2"
+		"winston": "^3.8.2",
+		"nodemon": "^2.0.15"
 	},
 	"engines": {
 		"node": "^14 || ^16 || ^18",
