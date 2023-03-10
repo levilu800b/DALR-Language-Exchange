@@ -13,7 +13,7 @@
 // export default App;
 import React, { useState, useEffect } from "react";
 import "antd/dist/reset.css";
-import "./assets/css/general.css";
+// import "./assets/css/general.css";
 import { Layout } from "antd";
 import { Routes, Route } from "react-router-dom";
 import Hedear from "./components/generic/Header";

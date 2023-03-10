@@ -1,12 +1,12 @@
-import React from 'react';
-import { Layout, Button, Dropdown, Space } from 'antd';
-import '../../assets/scss/header.scss';
+import React from "react";
+import { Layout, Button, Dropdown, Space } from "antd";
+// import '../../assets/scss/header.scss';
 
 const { Header: AntHeader } = Layout;
 
 const items = [
   {
-    key: '1',
+    key: "1",
     label: (
       <a
         target="_blank"
@@ -18,7 +18,7 @@ const items = [
     ),
   },
   {
-    key: '2',
+    key: "2",
     label: (
       <a
         target="_blank"
@@ -87,10 +87,10 @@ export default function Header() {
   return (
     <AntHeader
       className="header"
-      style={{ display: 'flex', justifyContent: 'space-between' }}
+      style={{ display: "flex", justifyContent: "space-between" }}
     >
       <h2>Language Exchange</h2>
-      <div className="nav" style={{ marginLeft: '0' }}>
+      <div className="nav" style={{ marginLeft: "0" }}>
         <Space direction="vertical">
           <Space wrap>
             <Dropdown

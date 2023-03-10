@@ -1,5 +1,5 @@
-import React from 'react';
-import '../../assets/scss/dashboard.scss';
+import React from "react";
+// import '../../assets/scss/dashboard.scss';
 
 export default function DashboardLogin() {
   return (
