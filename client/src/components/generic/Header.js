@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Button, Dropdown, Space } from "antd";
-// import '../../assets/scss/header.scss';
+// import "../../assets/scss/header.scss";
+import "../../assets/css/general.css";
 
 const { Header: AntHeader } = Layout;
 
