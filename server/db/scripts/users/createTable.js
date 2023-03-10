@@ -17,3 +17,5 @@ createBooksTable();
 // CREATE DATABASE mydatabase;
 
 // \c mydatabase
+
+//push your branch to github=> git push origin your-branch-name
