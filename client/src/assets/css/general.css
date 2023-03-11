@@ -1,0 +1,18 @@
+@font-face {
+	font-family: PlayfairDisplay;
+	src: url(../fonts/PlayfairDisplay.ttf);
+}
+
+body {
+	font-family: PlayfairDisplay !important;
+}
+.content {
+	margin: 2em 5em;
+	background-color: #d4e3e4;
+	padding: 2em;
+}
+.header h2 {
+	color: white;
+	font-size: 25px;
+	text-align: center;
+}

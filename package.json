@@ -4,6 +4,8 @@
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
 	"scripts": {
+		"db:createusers": "node -r dotenv ./server/db/scripts/users/createTable.js",
+		"db:papulateusers": "node -r dotenv ./server/db/scripts/users/populateTable.js",
 		"prebuild": "npm run cleanup",
 		"build": "npm run build:server && npm run build:client",
 		"postbuild": "buildinfo dist/static/build-info.txt",
@@ -71,7 +73,9 @@
 		"webpack": "^5.75.0",
 		"webpack-cli": "^5.0.1",
 		"webpack-dev-server": "^4.11.1",
-		"webpack-merge": "^5.8.0"
+		"webpack-merge": "^5.8.0",
+		"antd": "^5.2.0",
+		"sass": "^1.58.0"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.20.13",
@@ -80,7 +84,6 @@
 		"helmet": "^6.0.1",
 		"morgan": "^1.10.0",
 		"pg": "^8.9.0",
-		"react-icons": "^4.8.0",
 		"winston": "^3.8.2"
 	},
 	"engines": {
