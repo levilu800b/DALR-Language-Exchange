@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import CreateYourProfilePage from "./components/CreateProfile/CreateYourProfilePage";
 import NavBar from "./components/HomePage/NavBar/NavBar";
