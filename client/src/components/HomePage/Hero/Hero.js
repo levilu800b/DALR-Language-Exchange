@@ -12,7 +12,7 @@ const Hero = () => {
     <p>Hi ! , Welcome To Our Website</p>
     <h1>Languages Exchange.</h1>
     <div>
-        <Link to="/createprofile" className="btn">Create Profile</Link>
+        <Link to="/CreateYourProfile" className="btn">Create Profile</Link>
         <Link to="/" className="btn btn-light">Find a Partner</Link>
     </div>
 </div>

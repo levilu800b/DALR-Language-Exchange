@@ -2,10 +2,11 @@ import "./NavBarStyles.css";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
+
+
 const NavBar = () => {
   const [click,setClick]=useState(false);
   const handleClick=()=> setClick(!click);
-
 
   return (
     <div className="header">
@@ -17,16 +18,19 @@ const NavBar = () => {
     <Link to={"/home"}>Home</Link>
   </li>
   <li>
-    <Link to={"/createprofile"}>Create Profile</Link>
-  </li>
-  <li>
-    <Link to={"/signin"}>Sign in</Link>
+    <Link to={"/about"}>About</Link>
   </li>
   <li>
     <Link to={"/contact"}>Contact</Link>
   </li>
   <li>
-    <Link to={"/invitefriends"}>Invite friends</Link>
+    <Link to={"/signin"}>Sign in</Link>
+  </li>
+  <li>
+    <Link to={"/CreateYourProfile"}>Sign up</Link>
+  </li>
+  <li>
+    <Link to={"/dashboard"}>Dashboard</Link>
   </li>
 </ul>
 <div className="hamburger" onClick={handleClick}>
