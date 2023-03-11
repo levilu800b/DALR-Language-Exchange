@@ -1,41 +1,67 @@
-import { Router } from "express";
-const { Pool } = require("pg");
-
+import express from "express";
 import logger from "./utils/logger";
+const router = express.Router();
 
-const router = Router();
+import {
+	getAllLearner,
+	getLearnersByName,
+	getLearnersByLastName,
+	getLearnersByLanguage,
+	postLearners,
+} from "./models/users.js";
 
-const pool = new Pool({
-	// create using the .env file
-	user: process.env.DB_USER,
-	host: process.env.DB_HOST,
-	database: process.env.DB_NAME,
-	password: process.env.DB_PASS,
-	port: process.env.DB_PORT,
-});
+router.use(express.json());
 
-router.get("/", (_, res) => {
-	logger.debug("Welcoming everyone...");
-	res.json({ message: "Hello, world!" });
-});
+router.get("/", async (req, res) => {
+	const { first_name, last_name, languages_speak } = req.query;
 
-router.get("/api", (_, res) => {
-	logger.debug("Welcoming everyone...");
-	res.json({ message: "Hello, world!" });
-});
-
-router.get("/api/profiles", async (_, res) => {
-	try {
-		const client = await pool.connect();
-		const result = await client.query("SELECT * FROM profiles");
-		const results = { results: result ? result.rows : null };
-		res.json(results);
-		client.release();
-	} catch (err) {
-		logger.error(err);
-		res.send("Error " + err);
+	if (first_name) {
+		const searchResults = await getLearnersByName(first_name);
+		res.json({
+			success: true,
+			message: `Searched First name for ${first_name}`,
+			payload: searchResults,
+		});
+		return;
 	}
+	if (last_name) {
+		const searchResults = await getLearnersByLastName(last_name);
+		res.json({
+			success: true,
+			message: `Searched Last name for ${last_name}`,
+			payload: searchResults,
+		});
+		return;
+	}
+	if (languages_speak) {
+		const searchResults = await getLearnersByLanguage(languages_speak);
+		res.json({
+			success: true,
+			message: `Searched Language for ${languages_speak}`,
+			payload: searchResults,
+		});
+		return;
+	}
+
+	const learners = await getAllLearner();
+	logger.debug("Welcoming everyone...");
+	res.json({ success: true, message: "all learner", payload: learners });
 });
 
+router.post("/", async (req, res) => {
+	const { first_name, last_name, languages_speak, languages_interested } =
+		req.body;
+	const newLearner = await postLearners(
+		first_name,
+		last_name,
+		languages_speak,
+		languages_interested
+	);
+	res.json({
+		success: true,
+		message: `Added learner ${first_name} ${last_name}`,
+		payload: newLearner,
+	});
+});
 
 export default router;
