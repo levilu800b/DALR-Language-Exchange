@@ -8,14 +8,7 @@ const sqlString = `CREATE TABLE IF NOT EXISTS learners (
 )`;
 
 async function createBooksTable() {
-	const res = await db.query(sqlString);
-	console.log("created table", res);
+	await db.query(sqlString);
 }
 
 createBooksTable();
-
-// CREATE DATABASE mydatabase;
-
-// \c mydatabase
-
-//push your branch to github=> git push origin your-branch-name

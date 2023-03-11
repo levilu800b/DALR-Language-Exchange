@@ -6,30 +6,30 @@ import "../../assets/css/general.css";
 const { Header: AntHeader } = Layout;
 
 const items = [
-  {
-    key: "1",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.antgroup.com"
-      >
-        log in
-      </a>
-    ),
-  },
-  {
-    key: "2",
-    label: (
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://www.aliyun.com"
-      >
-        sign up
-      </a>
-    ),
-  },
+	{
+		key: "1",
+		label: (
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://www.antgroup.com"
+			>
+				log in
+			</a>
+		),
+	},
+	{
+		key: "2",
+		label: (
+			<a
+				target="_blank"
+				rel="noopener noreferrer"
+				href="https://www.aliyun.com"
+			>
+				sign up
+			</a>
+		),
+	},
 ];
 // const items2 = [
 //   {
@@ -85,45 +85,45 @@ const items = [
 // ];
 
 export default function Header() {
-  return (
-    <AntHeader
-      className="header"
-      style={{ display: "flex", justifyContent: "space-between" }}
-    >
-      <h2>Language Exchange</h2>
-      <div className="nav" style={{ marginLeft: "0" }}>
-        <Space direction="vertical">
-          <Space wrap>
-            <Dropdown
-              menu={{
-                items,
-              }}
-              placement="bottomLeft"
-            >
-              <Button>Dashboard</Button>
-            </Dropdown>
-            <Dropdown
-              menu={{
-                items,
-              }}
-              placement="bottom"
-            >
-              <Button>Users management</Button>
-            </Dropdown>
-            <Dropdown
-              menu={{
-                items,
-              }}
-              placement="bottomRight"
-            >
-              <Button>Search for users</Button>
-            </Dropdown>
-          </Space>
-          <Space wrap></Space>
-        </Space>
-      </div>
-    </AntHeader>
-  );
+	return (
+		<AntHeader
+			className="header"
+			style={{ display: "flex", justifyContent: "space-between" }}
+		>
+			<h2>Language Exchange</h2>
+			<div className="nav" style={{ marginLeft: "0" }}>
+				<Space direction="vertical">
+					<Space wrap>
+						<Dropdown
+							menu={{
+								items,
+							}}
+							placement="bottomLeft"
+						>
+							<Button>Dashboard</Button>
+						</Dropdown>
+						<Dropdown
+							menu={{
+								items,
+							}}
+							placement="bottom"
+						>
+							<Button>Users management</Button>
+						</Dropdown>
+						<Dropdown
+							menu={{
+								items,
+							}}
+							placement="bottomRight"
+						>
+							<Button>Search for users</Button>
+						</Dropdown>
+					</Space>
+					<Space wrap></Space>
+				</Space>
+			</div>
+		</AntHeader>
+	);
 }
 
 //🍉

@@ -20,7 +20,7 @@ export default function AddUsers({ AddUsers }) {
 		}));
 	};
 
-	const onFinish = async (e) => {
+	const onFinish = async () => {
 		// e.preventDefault();
 
 		const res = await fetch("/api", {

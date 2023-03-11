@@ -17,11 +17,11 @@ import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  // <React.StrictMode>
-  <ConfigProvider direction="ltr">
-    <Router>
-      <App />
-    </Router>
-  </ConfigProvider>
-  // </React.StrictMode>
+	// <React.StrictMode>
+	<ConfigProvider direction="ltr">
+		<Router>
+			<App />
+		</Router>
+	</ConfigProvider>
+	// </React.StrictMode>
 );

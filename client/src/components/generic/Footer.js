@@ -3,9 +3,9 @@ import { Layout } from "antd";
 const { Footer: AntFooter } = Layout;
 
 export default function Footer() {
-  return (
-    <AntFooter>
-      <p className="pfooter">CYF 2023</p>
-    </AntFooter>
-  );
+	return (
+		<AntFooter>
+			<p className="pfooter">CYF 2023</p>
+		</AntFooter>
+	);
 }

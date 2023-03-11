@@ -1,20 +1,20 @@
 import db from "../db.js";
 
 export async function getAllLearner() {
-	const data = await db.query(`SELECT * FROM learners;`);
+	const data = await db.query("SELECT * FROM learners;");
 	return data.rows;
 }
 
 export async function getLearnersByName(firstName) {
 	const data = await db.query(
-		`SELECT * FROM learners WHERE first_name ILIKE '%' || $1 || '%'`,
+		"SELECT * FROM learners WHERE first_name ILIKE '%' || $1 || '%'",
 		[firstName]
 	);
 	return data.rows;
 }
 export async function getLearnersByLastName(lastName) {
 	const data = await db.query(
-		`SELECT * FROM learners WHERE last_name ILIKE '%' || $1 || '%'`,
+		"SELECT * FROM learners WHERE last_name ILIKE '%' || $1 || '%'",
 		[lastName]
 	);
 	return data.rows;
@@ -22,7 +22,7 @@ export async function getLearnersByLastName(lastName) {
 
 export async function getLearnersByLanguage(language) {
 	const data = await db.query(
-		`SELECT * FROM learners WHERE $1 ILIKE ANY (languages_speak)`,
+		"SELECT * FROM learners WHERE $1 ILIKE ANY (languages_speak)",
 		[language]
 	);
 	return data.rows;

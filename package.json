@@ -3,7 +3,6 @@
 	"version": "0.0.1",
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
-
 	"scripts": {
 		"db:createusers": "node -r dotenv ./server/db/scripts/users/createTable.js",
 		"db:papulateusers": "node -r dotenv ./server/db/scripts/users/populateTable.js",

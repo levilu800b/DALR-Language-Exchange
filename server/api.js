@@ -1,15 +1,4 @@
-// import { Router } from "express";
-
-// import logger from "./utils/logger";
-
-// const router = Router();
-
-// router.get("/", (_, res) => {
-// 	logger.debug("Welcoming everyone...");
-// 	res.json({ message: "Hello, world!" });
-// });
-
-import express, { Router } from "express";
+import express from "express";
 import logger from "./utils/logger";
 const router = express.Router();
 
@@ -24,8 +13,7 @@ import {
 router.use(express.json());
 
 router.get("/", async (req, res) => {
-	const { first_name, last_name, languages_speak, languages_interested } =
-		req.query;
+	const { first_name, last_name, languages_speak } = req.query;
 
 	if (first_name) {
 		const searchResults = await getLearnersByName(first_name);
@@ -57,7 +45,7 @@ router.get("/", async (req, res) => {
 
 	const learners = await getAllLearner();
 	logger.debug("Welcoming everyone...");
-	res.json({ success: true, message: `all learner`, payload: learners });
+	res.json({ success: true, message: "all learner", payload: learners });
 });
 
 router.post("/", async (req, res) => {
