@@ -11,7 +11,7 @@ import {
 } from "./utils/middleware";
 
 // const apiRoot = "/api";
-const apiRoot = "/users";
+const apiRoot = "/api";
 const app = express();
 
 app.use(express.json());

@@ -14,14 +14,7 @@ const pool = new Pool({
 export const connectDb = async () => {
 	let client;
 	try {
-		// client = await pool.connect();
-		client = new Client({
-			user: process.env.DB_USER,
-			host: process.env.DB_HOST,
-			database: process.env.DATABASE,
-			password: process.env.PASSWORD,
-			port: process.env.PORT,
-		});
+		client = await pool.connect();
 	} catch (err) {
 		logger.error("%O", err);
 		process.exit(1);
@@ -29,6 +22,26 @@ export const connectDb = async () => {
 	logger.info("Postgres connected to %s", client.database);
 	client.release();
 };
+
+// export const connectDb = async () => {
+// 	let client;
+// 	try {
+// 		// client = await pool.connect();
+// 		client = new Client({
+// 			//wher is Client coming from? => import { Client } from "pg";
+// 			user: process.env.DB_USER,
+// 			host: process.env.DB_HOST,
+// 			database: process.env.DATABASE,
+// 			password: process.env.PASSWORD,
+// 			port: process.env.PORT,
+// 		});
+// 	} catch (err) {
+// 		logger.error("%O", err);
+// 		process.exit(1);
+// 	}
+// 	logger.info("Postgres connected to %s", client.database);
+// 	client.release();
+// };
 
 export const disconnectDb = () => pool.end();
 

@@ -30,7 +30,7 @@ function App() {
 	const [users, setUsers] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:3001/users")
+		fetch("/api")
 			.then((res) => res.json())
 			.then((data) => setUsers(data));
 	}, []);
