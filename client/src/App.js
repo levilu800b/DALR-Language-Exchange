@@ -23,6 +23,7 @@ import DashboardLogin from "./components/generic/DashboardLogin";
 import DashboardSignup from "./components/generic/DashboardSignup";
 import ContactForm from "./components/users/AddUsers";
 import UserList from "./components/users/ListUsers";
+import Login from "./components/auth/CreateProfile/Login";
 
 const { Content } = Layout;
 
@@ -35,11 +36,16 @@ function App() {
 			.then((data) => setUsers(data));
 	}, []);
 
-	const AddUsers = (video, id) => {
-		video.id = id;
-		setUsers([...users, video]);
+	const AddUsers = (user, id) => {
+		user.id = id;
+		setUsers([...users, user]);
 	};
 	// console.log(users);
+	return (
+		<div className="App">
+			<Login />
+		</div>
+	);
 	return (
 		<div className="App">
 			<Layout>

@@ -12,6 +12,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ConfigProvider } from "antd";
+// import { Provider as ReduxProvider } from "react-redux";
+// import store from "./redux/store/index";
 
 import App from "./App";
 
@@ -25,3 +27,14 @@ root.render(
 	</ConfigProvider>
 	// </React.StrictMode>
 );
+// root.render(
+// 	// <React.StrictMode>
+// 	<ConfigProvider direction="rtl">
+// 		<ReduxProvider store={store}>
+// 			<Router>
+// 				<App />
+// 			</Router>
+// 		</ReduxProvider>
+// 	</ConfigProvider>
+// 	// </React.StrictMode>
+// );

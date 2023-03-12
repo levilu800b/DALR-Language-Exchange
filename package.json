@@ -72,7 +72,15 @@
 		"webpack-dev-server": "^4.11.1",
 		"webpack-merge": "^5.8.0",
 		"antd": "^5.2.0",
-		"sass": "^1.58.0"
+		"sass": "^1.58.0",
+		"@reduxjs/toolkit": "^1.8.3",
+		"react-redux": "^8.0.2",
+		"redux": "^4.2.0",
+		"redux-thunk": "^2.4.1",
+		"axios": "^0.27.2",
+		"react-select": "^5.7.0",
+		"react-bootstrap": "2.7.2",
+		"react-router": "6.8.2"
 	},
 	"dependencies": {
 		"@babel/runtime": "^7.20.13",
@@ -82,7 +90,8 @@
 		"morgan": "^1.10.0",
 		"pg": "^8.9.0",
 		"winston": "^3.8.2",
-		"nodemon": "^2.0.15"
+		"nodemon": "^2.0.15",
+		"react-icons": "^4.8.0"
 	},
 	"engines": {
 		"node": "^14 || ^16 || ^18",
