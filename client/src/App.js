@@ -41,11 +41,11 @@ function App() {
 		setUsers([...users, user]);
 	};
 	// console.log(users);
-	return (
-		<div className="App">
-			<Login />
-		</div>
-	);
+	// return (
+	// 	<div className="App">
+	// 		<Login />
+	// 	</div>
+	// );
 	return (
 		<div className="App">
 			<Layout>
