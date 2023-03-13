@@ -5,11 +5,11 @@
     align-items: center;
     padding: 1rem;
     /* hide background color  */
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     height: 90px;
-    z-index: 10;
-    background: transparent;
+    /* z-index: 10; */
+    /* background: transparent; */
 }
 
 .nav-menu{

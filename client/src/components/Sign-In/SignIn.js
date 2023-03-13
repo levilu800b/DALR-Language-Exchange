@@ -22,7 +22,7 @@ function SignIn() {
 
 	return (
 		<div>
-			<h1>Sign In</h1>
+			<h1 className="sign_in">Sign In</h1>
 			<form>
 				<label>
 					Email:
