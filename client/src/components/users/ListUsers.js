@@ -67,7 +67,11 @@ function importAllImages(requiredImages) {
 }
 
 const allImages = importAllImages(
-	require.context("../../../../server/public", false, /\.(png|jpe?g|svg)$/)
+	require.context(
+		"../../../../server/public/images",
+		false,
+		/\.(png|jpe?g|svg)$/
+	)
 );
 
 function UserList({ users }) {
@@ -89,7 +93,8 @@ function UserList({ users }) {
 							// 	alt={`${user.first_name} ${user.last_name}`}
 							// 	src={user.imageUrl}
 							// />
-							<img src={allImages["image-1.jpg"].default} alt="EXAMPLE" />
+							<img src={allImages["image-1.jpg"]?.default} alt="EXAMPLE" />
+							// <img src={allImages[user.imageUrl]?.default} alt="EXAMPLE" />
 						}
 					>
 						<Meta
