@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 import SignInPage from "./components/Sign-In/SignIn";
 import SignUpPage from "./components/Sign-Up/SignUp";
 import Sidebar from "./components/SideBar/SideBar";
-import Profile from "./components/profile/Profile";
+// import Profile from "./components/profile/Profile";
 import NavBar from "./components/HomePage/NavBar/NavBar";
 
 
@@ -21,7 +21,7 @@ const App = () => (
 			<Route path="/contact" element={<Contact />} />
 			<Route path="/signup" element={<SignUpPage />} />
 			<Route path="/sidebar" element={<Sidebar />} />
-			<Route path="/profile" element={<Profile />} />
+			{/* <Route path="/profile" element={<Profile />} /> */}
 		</Routes>
 	</div>
 );

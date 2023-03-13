@@ -35,7 +35,7 @@ function App() {
 					<Sidebar />
 					<Content className="content">
 						<Routes>
-							<Route path="/login" element={<DashboardLogin />} />
+							<Route path="/profile/profile" element={<DashboardLogin />} />
 							<Route path="/signup" element={<DashboardSignup />} />
 							<Route
 								path="/users/addUsers"
