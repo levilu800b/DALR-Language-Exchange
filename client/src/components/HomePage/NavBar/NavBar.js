@@ -27,10 +27,7 @@ const NavBar = () => {
     <Link to={"/signin"}>Sign in</Link>
   </li>
   <li>
-    <Link to={"/CreateYourProfile"}>Sign up</Link>
-  </li>
-  <li>
-    <Link to={"/dashboard"}>Dashboard</Link>
+    <Link to={"/signup"}>Sign up</Link>
   </li>
 </ul>
 <div className="hamburger" onClick={handleClick}>

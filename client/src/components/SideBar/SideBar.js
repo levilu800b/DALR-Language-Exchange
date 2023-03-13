@@ -1,12 +1,12 @@
 import {
-	UserOutlined,
+	LogoutOutlined,
 	SettingOutlined,
 	UsergroupAddOutlined,
 	UserSwitchOutlined,
 	OrderedListOutlined,
 	SearchOutlined,
 	DashboardOutlined,
-	LoginOutlined,
+	ProfileOutlined,
 } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
 // import Link from "antd/es/typography/Link";
@@ -27,12 +27,12 @@ function getItem(label, key, icon, children, type) {
 
 const items = [
 	getItem("Dashboard", "dashboard", <DashboardOutlined />, [
-		getItem(<Link to="/login">log in</Link>, "login", <LoginOutlined />),
-		getItem(<Link to="/signup">sign up</Link>, "signup", <UserOutlined />),
+		getItem(<Link to="/profile">Profile</Link>, "profile", <ProfileOutlined />),
+		getItem(<Link to="/logout">Logout</Link>, "logout", <LogoutOutlined />),
 	]),
 	getItem("Users management", "users", <UserSwitchOutlined />, [
 		getItem(
-			<Link to="/users/addUsers">Add users</Link>,
+			<Link to="/adduser/adduser">Add users</Link>,
 			"post",
 			<UsergroupAddOutlined />
 		),
