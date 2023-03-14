@@ -1,14 +1,38 @@
+.content{
+
+}
 header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     background-color: #0077B5;
     color: #fff;
+    box-shadow: 5px 10px #dad9d9;
+  }
+  
+  .profile-header{
+    border: 1px solid black;
+    width: 300px;
+  }
+  .profile-info{
+    text-align: center;
+  }
+  .bt-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
   .profile-header img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     margin-right: 2rem;
+    
+  }
+  .main-profile{
+    border: 1px solid black;
+    width: 300px;
+  
   }
