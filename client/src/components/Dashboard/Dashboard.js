@@ -18,12 +18,12 @@ function Dashboard() {
 		switch (selectedMenu) {
 			case "profile":
 				return <Profile />;
-			case "post":
+			case "add-users":
 				return <AddUsers />;
-			case "list":
+			case "user-list":
 				return <UserList />;
 			default:
-				return null;
+				return <Profile />;
 		}
 	};
 

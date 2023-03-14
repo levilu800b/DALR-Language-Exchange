@@ -1,3 +1,5 @@
+import React from "react";
+import { Menu, Layout } from "antd";
 import {
 	LogoutOutlined,
 	SettingOutlined,
@@ -8,63 +10,81 @@ import {
 	DashboardOutlined,
 	ProfileOutlined,
 } from "@ant-design/icons";
-import { Menu, Layout } from "antd";
-import { useState } from "react";
 
 const { Sider } = Layout;
 
-function getItem(label, key, icon, children, type) {
-	return {
-		key,
-		icon,
-		children,
-		label,
-		type,
-	};
-}
-
 const items = [
-	getItem("Dashboard", "dashboard", <DashboardOutlined />, [
-		getItem("Profile", "profile", <ProfileOutlined />),
-		getItem("Logout", "logout", <LogoutOutlined />),
-	]),
-	getItem("Users management", "users", <UserSwitchOutlined />, [
-		getItem("Add users", "post", <UsergroupAddOutlined />),
-		getItem("List of users", "list", <OrderedListOutlined />),
-	]),
-	getItem("Search for users", "search", <SearchOutlined />, [
-		getItem("Search by language", "search", <SearchOutlined />),
-		getItem("Search by country", "search", <SearchOutlined />),
-		getItem("Search by city", "search", <SearchOutlined />),
-	]),
-	getItem("Settings", "setting", <SettingOutlined />, [getItem("Option", "9")]),
+	{ key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
+	{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
+	{
+		key: "users",
+		icon: <UserSwitchOutlined />,
+		label: "Users management",
+		children: [
+			{ key: "add-users", icon: <UsergroupAddOutlined />, label: "Add users" },
+			{
+				key: "user-list",
+				icon: <OrderedListOutlined />,
+				label: "List of users",
+			},
+		],
+	},
+	{
+		key: "search",
+		icon: <SearchOutlined />,
+		label: "Search for users",
+		children: [
+			{
+				key: "search-language",
+				icon: <SearchOutlined />,
+				label: "Search by language",
+			},
+			{
+				key: "search-country",
+				icon: <SearchOutlined />,
+				label: "Search by country",
+			},
+			{ key: "search-city", icon: <SearchOutlined />, label: "Search by city" },
+		],
+	},
+	{
+		key: "setting",
+		icon: <SettingOutlined />,
+		label: "Settings",
+		children: [{ key: "option", label: "Option" }],
+	},
+	{ key: "logout", icon: <LogoutOutlined />, label: "Logout" },
 ];
 
-const rootSubmenuKeys = ["dashboard", "users", "search", "setting"];
+const Sidebar = ({ onMenuClick }) => {
+	const renderMenuItems = (menuItems) =>
+		menuItems.map((menuItem) =>
+			menuItem.children ? (
+				<Menu.SubMenu
+					key={menuItem.key}
+					icon={menuItem.icon}
+					title={menuItem.label}
+				>
+					{renderMenuItems(menuItem.children)}
+				</Menu.SubMenu>
+			) : (
+				<Menu.Item
+					key={menuItem.key}
+					icon={menuItem.icon}
+					onClick={() => onMenuClick(menuItem.key)}
+				>
+					{menuItem.label}
+				</Menu.Item>
+			)
+		);
 
-export default function Sidebar() {
-	const [openKeys, setOpenKeys] = useState(["search", "users", "dashboard"]);
-	const onOpenChange = (keys) => {
-		const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
-		if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
-			setOpenKeys(keys);
-		} else {
-			setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
-		}
-	};
 	return (
-		<div>
-			<Sider>
-				<Menu
-					mode="inline"
-					openKeys={openKeys}
-					onOpenChange={onOpenChange}
-					style={{
-						width: 256,
-					}}
-					items={items}
-				/>
-			</Sider>
-		</div>
+		<Sider>
+			<Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
+				{renderMenuItems(items)}
+			</Menu>
+		</Sider>
 	);
-}
+};
+
+export default Sidebar;
