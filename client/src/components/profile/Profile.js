@@ -27,13 +27,11 @@ const Profile = () => {
     <Descriptions.Item label="Email"><a href="#" style={{ color:"black" }}>Ahmed@gmail.com</a></Descriptions.Item>
     <Descriptions.Item label="Language Speak">Arabic</Descriptions.Item>
     <Descriptions.Item label="Language Interest">English</Descriptions.Item>
+    <Descriptions.Item label="city">Manchester</Descriptions.Item>
+    <Descriptions.Item label="Country">UK</Descriptions.Item>
 
   </Descriptions>
     </main>
-    <footer>
-      {/* Add footer content here */}
-      <h1>fooo</h1>
-    </footer>
   </div>
   );
 };

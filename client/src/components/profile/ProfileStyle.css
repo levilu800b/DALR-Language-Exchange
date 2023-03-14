@@ -1,5 +1,7 @@
 .content{
-
+display: flex;
+justify-content: center;
+margin-top: 15rem;
 }
 header {
     display: flex;
@@ -10,11 +12,12 @@ header {
     background-color: #0077B5;
     color: #fff;
     box-shadow: 5px 10px #dad9d9;
+    border-radius: 10px;
+
   }
   
   .profile-header{
-    border: 1px solid black;
-    width: 300px;
+   
   }
   .profile-info{
     text-align: center;
@@ -34,5 +37,8 @@ header {
   .main-profile{
     border: 1px solid black;
   width: 50rem;
-
+  height: 10rem;
+  margin-left: 30px;
+  background-color: #eaeff1;
+  border-radius: 10px;
   }
