@@ -1,47 +1,37 @@
-import React, { useState, useEffect } from "react";
-// import "antd/dist/reset.css";
-// import "../assets/css/general.css";
+import React, { useState } from "react";
 import { Layout } from "antd";
-import { Routes, Route } from "react-router-dom";
-import Sidebar from "../SideBar/SideBar";
-import ContactForm from "../components/users/AddUsers";
-import UserList from "../components/users/ListUsers";
+import Sidebar from "../../components/SideBar/SideBar";
+import Profile from "../../components/Profile/Profile";
+import AddUsers from "../../components/AddUser/AddUser";
+import UserList from "../../components/ListUsers/ListUsers";
 
 const { Content } = Layout;
 
 function Dashboard() {
-	const [users, setUsers] = useState([]);
+	const [selectedMenu, setSelectedMenu] = useState("profile");
 
-	useEffect(() => {
-		fetch("/api")
-			.then((res) => res.json())
-			.then((data) => setUsers(data));
-	}, []);
+	const handleMenuClick = (key) => {
+		setSelectedMenu(key);
+	};
 
-	const AddUser = (video, id) => {
-		video.id = id;
-		setUsers([...users, video]);
+	const renderContent = () => {
+		switch (selectedMenu) {
+			case "profile":
+				return <Profile />;
+			case "add-users":
+				return <AddUsers />;
+			case "user-list":
+				return <UserList />;
+			default:
+				return <Profile />;
+		}
 	};
 
 	return (
-		<Layout>
-			<Layout>
-				<Sidebar />
-				<Content className="content">
-					<Routes>
-						{/* <Route path="/login" element={<DashboardLogin />} />
-						<Route path="/signup" element={<DashboardSignup />} /> */}
-						<Route
-							path="/adduser/addUser"
-							element={<ContactForm AddUsers={AddUser} />}
-						/>
-
-						<Route
-							path="/users/listUsers"
-							element={<UserList users={users} />}
-						/>
-					</Routes>
-				</Content>
+		<Layout style={{ minHeight: "100vh" }}>
+			<Sidebar onMenuClick={handleMenuClick} />
+			<Layout className="site-layout">
+				<Content style={{ margin: "0 16px" }}>{renderContent()}</Content>
 			</Layout>
 		</Layout>
 	);
