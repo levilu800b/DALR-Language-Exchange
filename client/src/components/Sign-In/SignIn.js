@@ -17,7 +17,7 @@ function SignIn() {
 
 	const handleSignIn = () => {
 		// TODO: handle sign-in logic
-		navigate("/sidebar");
+		navigate("/dashboard");
 	};
 
 	return (

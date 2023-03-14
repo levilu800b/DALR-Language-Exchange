@@ -5,8 +5,7 @@ import Contact from "./components/Contact/Contact";
 import Home from "./pages/Home";
 import SignInPage from "./components/Sign-In/SignIn";
 import SignUpPage from "./components/Sign-Up/SignUp";
-import Sidebar from "./components/SideBar/SideBar";
-// import Profile from "./components/profile/Profile";
+import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/HomePage/NavBar/NavBar";
 
 
@@ -20,8 +19,7 @@ const App = () => (
 			<Route path="/about" element={<About />} />
 			<Route path="/contact" element={<Contact />} />
 			<Route path="/signup" element={<SignUpPage />} />
-			<Route path="/sidebar" element={<Sidebar />} />
-			{/* <Route path="/profile" element={<Profile />} /> */}
+			<Route path="/dashboard" element={<Dashboard />} />
 		</Routes>
 	</div>
 );

@@ -1,49 +1,40 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Layout } from "antd";
-import { Route, Switch } from "react-router-dom";
-
-import SideBar from "../SideBar/SideBar";
+import Sidebar from "../../components/SideBar/SideBar";
+import Profile from "../../components/Profile/Profile";
+import AddUsers from "../../components/AddUser/AddUser";
+import UserList from "../../components/ListUsers/ListUsers";
 
 const { Content } = Layout;
 
-function App() {
-	const [selectedKey, setSelectedKey] = useState(null);
+function Dashboard() {
+	const [selectedMenu, setSelectedMenu] = useState("profile");
+
+	const handleMenuClick = (key) => {
+		setSelectedMenu(key);
+	};
+
+	const renderContent = () => {
+		switch (selectedMenu) {
+			case "profile":
+				return <Profile />;
+			case "post":
+				return <AddUsers />;
+			case "list":
+				return <UserList />;
+			default:
+				return null;
+		}
+	};
 
 	return (
-		<Layout>
-			<SideBar setSelectedKey={setSelectedKey} />
-			<Layout>
-				<Content>
-					<Switch>
-						<Route exact path="/dashboard">
-							<h1>Dashboard</h1>
-						</Route>
-						<Route exact path="/profile">
-							<h1>Profile</h1>
-						</Route>
-						<Route exact path="/adduser/adduser">
-							<h1>Add users</h1>
-						</Route>
-						<Route exact path="/users/listUsers">
-							<h1>List of users</h1>
-						</Route>
-						<Route exact path="/users/language">
-							<h1>Search by language</h1>
-						</Route>
-						<Route exact path="/users/country">
-							<h1>Search by country</h1>
-						</Route>
-						<Route exact path="/users/city">
-							<h1>Search by city</h1>
-						</Route>
-						<Route exact path="/logout">
-							<h1>Logout</h1>
-						</Route>
-					</Switch>
-				</Content>
+		<Layout style={{ minHeight: "100vh" }}>
+			<Sidebar onMenuClick={handleMenuClick} />
+			<Layout className="site-layout">
+				<Content style={{ margin: "0 16px" }}>{renderContent()}</Content>
 			</Layout>
 		</Layout>
 	);
 }
 
-export default App;
+export default Dashboard;

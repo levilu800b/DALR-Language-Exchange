@@ -9,8 +9,6 @@ import {
 	ProfileOutlined,
 } from "@ant-design/icons";
 import { Menu, Layout } from "antd";
-// import Link from "antd/es/typography/Link";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const { Sider } = Layout;
@@ -27,37 +25,17 @@ function getItem(label, key, icon, children, type) {
 
 const items = [
 	getItem("Dashboard", "dashboard", <DashboardOutlined />, [
-		getItem(<Link to="/profile">Profile</Link>, "profile", <ProfileOutlined />),
-		getItem(<Link to="/logout">Logout</Link>, "logout", <LogoutOutlined />),
+		getItem("Profile", "profile", <ProfileOutlined />),
+		getItem("Logout", "logout", <LogoutOutlined />),
 	]),
 	getItem("Users management", "users", <UserSwitchOutlined />, [
-		getItem(
-			<Link to="/adduser/adduser">Add users</Link>,
-			"post",
-			<UsergroupAddOutlined />
-		),
-		getItem(
-			<Link to="/users/listUsers">List of users</Link>,
-			"list",
-			<OrderedListOutlined />
-		),
+		getItem("Add users", "post", <UsergroupAddOutlined />),
+		getItem("List of users", "list", <OrderedListOutlined />),
 	]),
 	getItem("Search for users", "search", <SearchOutlined />, [
-		getItem(
-			<Link to="/users/language">Search by language</Link>,
-			"search",
-			<SearchOutlined />
-		),
-		getItem(
-			<Link to="/users/country">Search by country</Link>,
-			"search",
-			<SearchOutlined />
-		),
-		getItem(
-			<Link to="/users/city">Search by city</Link>,
-			"search",
-			<SearchOutlined />
-		),
+		getItem("Search by language", "search", <SearchOutlined />),
+		getItem("Search by country", "search", <SearchOutlined />),
+		getItem("Search by city", "search", <SearchOutlined />),
 	]),
 	getItem("Settings", "setting", <SettingOutlined />, [getItem("Option", "9")]),
 ];
