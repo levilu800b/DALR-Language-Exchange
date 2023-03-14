@@ -1,57 +1,48 @@
-import React, { useState, useEffect } from "react";
-import "antd/dist/reset.css";
-import "./assets/css/general.css";
+import { useState } from "react";
 import { Layout } from "antd";
-import { Routes, Route } from "react-router-dom";
-import Hedear from "./components/generic/Header";
-import Footer from "./components/generic/Footer";
-import Sidebar from "./components/generic/Sidebar";
-import DashboardLogin from "./components/generic/DashboardLogin";
-import DashboardSignup from "./components/generic/DashboardSignup";
-import ContactForm from "./components/users/AddUsers";
-import UserList from "./components/users/ListUsers";
+import { Route, Switch } from "react-router-dom";
+
+import SideBar from "../SideBar/SideBar";
 
 const { Content } = Layout;
 
 function App() {
-	const [users, setUsers] = useState([]);
+	const [selectedKey, setSelectedKey] = useState(null);
 
-	useEffect(() => {
-		fetch("/api")
-			.then((res) => res.json())
-			.then((data) => setUsers(data));
-	}, []);
-
-	const AddUsers = (video, id) => {
-		video.id = id;
-		setUsers([...users, video]);
-	};
-	// console.log(users);
 	return (
-		<div className="App">
+		<Layout>
+			<SideBar setSelectedKey={setSelectedKey} />
 			<Layout>
-				<Hedear />
-				<Layout>
-					<Sidebar />
-					<Content className="content">
-						<Routes>
-							<Route path="/profile/profile" element={<DashboardLogin />} />
-							<Route path="/signup" element={<DashboardSignup />} />
-							<Route
-								path="/users/addUsers"
-								element={<ContactForm AddUsers={AddUsers} />}
-							/>
-
-							<Route
-								path="/users/listUsers"
-								element={<UserList users={users} />}
-							/>
-						</Routes>
-					</Content>
-				</Layout>
-				<Footer />
+				<Content>
+					<Switch>
+						<Route exact path="/dashboard">
+							<h1>Dashboard</h1>
+						</Route>
+						<Route exact path="/profile">
+							<h1>Profile</h1>
+						</Route>
+						<Route exact path="/adduser/adduser">
+							<h1>Add users</h1>
+						</Route>
+						<Route exact path="/users/listUsers">
+							<h1>List of users</h1>
+						</Route>
+						<Route exact path="/users/language">
+							<h1>Search by language</h1>
+						</Route>
+						<Route exact path="/users/country">
+							<h1>Search by country</h1>
+						</Route>
+						<Route exact path="/users/city">
+							<h1>Search by city</h1>
+						</Route>
+						<Route exact path="/logout">
+							<h1>Logout</h1>
+						</Route>
+					</Switch>
+				</Content>
 			</Layout>
-		</div>
+		</Layout>
 	);
 }
 
