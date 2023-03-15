@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Select from "react-select";
 import "./SignUp.css";
 import languageOptions from "./LanguageOptions.json";
@@ -171,7 +171,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="languagesInterested">Languages you are interested in</label>
+				<label htmlFor="languagesInterested">
+					Languages you are interested in
+				</label>
 				<Select
 					id="languagesInterested"
 					name="languagesInterested"
@@ -182,10 +184,13 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<button type="submit" onClick={handleSubmit}>Sign Up</button>
+				<button type="submit" onClick={handleSubmit}>
+					Sign Up
+				</button>
 				<button type="button" onClick={handleCancel}>
 					Cancel
 				</button>
+				<Link to="/signin">Already have an account? Log in</Link>
 			</div>
 		</form>
 	</div>
