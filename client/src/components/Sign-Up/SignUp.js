@@ -105,7 +105,9 @@ return (
 		<h1>Sign Up</h1>
 		<form onSubmit={handleSubmit}>
 			<div className="form-group">
-				<label htmlFor="firstName">First Name</label>
+				<label className="first_name" htmlFor="firstName">
+					First Name
+				</label>
 				<input
 					type="text"
 					id="firstName"
@@ -116,7 +118,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="lastName">Last Name</label>
+				<label className="last_name" htmlFor="lastName">
+					Last Name
+				</label>
 				<input
 					type="text"
 					id="lastName"
@@ -127,7 +131,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="email">Email</label>
+				<label className="email" htmlFor="email">
+					Email
+				</label>
 				<input
 					type="email"
 					id="email"
@@ -138,7 +144,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="password">Password</label>
+				<label className="password" htmlFor="password">
+					Password
+				</label>
 				<input
 					type="password"
 					id="password"
@@ -149,7 +157,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="country">Country</label>
+				<label className="country" htmlFor="country">
+					Country
+				</label>
 				<input
 					type="text"
 					id="country"
@@ -160,7 +170,9 @@ return (
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="languagesKnow">Languages you know</label>
+				<label className="language" htmlFor="languagesKnow">
+					Languages you know
+				</label>
 				<Select
 					id="languagesKnow"
 					name="languagesKnow"
@@ -168,10 +180,11 @@ return (
 					onChange={handleLanguagesKnowChange}
 					options={languageOptions}
 					isMulti
+					required
 				/>
 			</div>
 			<div className="form-group">
-				<label htmlFor="languagesInterested">
+				<label className="language" htmlFor="languagesInterested">
 					Languages you are interested in
 				</label>
 				<Select
@@ -181,16 +194,17 @@ return (
 					onChange={handleLanguagesInterestedChange}
 					options={languageOptions}
 					isMulti
+					required
 				/>
 			</div>
 			<div className="form-group">
-				<button type="submit" onClick={handleSubmit}>
+				<button className="signup" type="submit" onClick={handleSubmit}>
 					Sign Up
 				</button>
-				<button type="button" onClick={handleCancel}>
+				<button className="cancel" type="button" onClick={handleCancel}>
 					Cancel
 				</button>
-				<Link to="/signin">Already have an account? Log in</Link>
+				<Link className="login_butoon" to="/signin">Already have an account? Log in</Link>
 			</div>
 		</form>
 	</div>

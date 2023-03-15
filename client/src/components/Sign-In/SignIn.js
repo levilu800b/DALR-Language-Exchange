@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./SignIn.css";
 
 function SignIn() {
@@ -42,14 +42,6 @@ function SignIn() {
 					Sign In
 				</button>
 			</form>
-			<div>
-				<button>Google Sign In</button>
-			</div>
-			<div>
-				<p>
-					Do not have an account? <Link to="/signup">Sign up here</Link>.
-				</p>
-			</div>
 		</div>
 	);
 }
