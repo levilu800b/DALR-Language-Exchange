@@ -93,16 +93,19 @@ function UserList({ users }) {
 							// 	alt={`${user.first_name} ${user.last_name}`}
 							// 	src={user.imageUrl}
 							// />
-							<img src={allImages["image-1.jpg"]?.default} alt="EXAMPLE" />
+							<img
+								alt={`${user.first_name} ${user.last_name}`}
+								src={allImages["image-1.jpg"]?.default}
+							/>
 							// <img src={allImages[user.imageUrl]?.default} alt="EXAMPLE" />
 						}
 					>
 						<Meta
 							title={`${user.first_name} ${user.last_name}`}
-							description={`Languages spoken: ${user.languages_speak.first}, ${user.languages_speak.second}`}
+							description={`Languages spoken: ${user.languages_speak}, ${user.languages_speak}`}
 						/>
 						<Meta
-							description={`Languages interested: ${user.languages_interested.first}, ${user.languages_interested.second}`}
+							description={`Languages interested: ${user.languages_interested}, ${user.languages_interested}`}
 						/>
 					</Card>
 				))
