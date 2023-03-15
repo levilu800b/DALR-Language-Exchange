@@ -102,10 +102,10 @@ function UserList({ users }) {
 					>
 						<Meta
 							title={`${user.first_name} ${user.last_name}`}
-							description={`Languages spoken: ${user.languages_speak}, ${user.languages_speak}`}
+							description={`Languages spoken: ${user.languages_speak}`}
 						/>
 						<Meta
-							description={`Languages interested: ${user.languages_interested}, ${user.languages_interested}`}
+							description={`Languages interested: ${user.languages_interested}`}
 						/>
 					</Card>
 				))
