@@ -23,22 +23,23 @@ function SignIn() {
 	return (
 		<div>
 			<h1 className="sign_in">Sign In</h1>
-			<form>
-				<label>
+			<form className="form">
+				<label className="signin_email">
 					Email:
-					<input type="email" value={email} onChange={handleEmailChange} />
+					<input id="email_sign" type="email" value={email} onChange={handleEmailChange} />
 				</label>
 				<br />
-				<label>
+				<label className="signin_password">
 					Password:
 					<input
+					id="password_sign"
 						type="password"
 						value={password}
 						onChange={handlePasswordChange}
 					/>
 				</label>
 				<br />
-				<button type="button" onClick={handleSignIn}>
+				<button className="sign_in-button" type="button" onClick={handleSignIn}>
 					Sign In
 				</button>
 			</form>
