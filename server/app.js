@@ -1,6 +1,7 @@
 import express from "express";
 
 import apiRouter from "./api";
+import jwtAuth from "./routerAuth/jwtAuth";
 import config from "./utils/config";
 import {
 	clientRouter,
@@ -10,8 +11,8 @@ import {
 	logErrors,
 } from "./utils/middleware";
 
-// const apiRoot = "/api";
 const apiRoot = "/api";
+
 const app = express();
 
 app.use(express.json());
@@ -24,7 +25,15 @@ if (config.production) {
 }
 
 app.use(apiRoot, apiRouter);
+app.use(apiRoot, jwtAuth);
+
 app.use("/health", (_, res) => res.sendStatus(200));
+
+app.use(apiRoot, require("./routerAuth/jwtAuth"));
+app.use(apiRoot, require("./routerAuth/dashboard"));
+
+// app.use("/authentication", require("./routerAuth/jwtAuth"));
+// app.use("/dashboard", require("./routerAuth/dashboard"));
 app.use(clientRouter(apiRoot));
 
 app.use(logErrors());
