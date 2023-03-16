@@ -7,6 +7,7 @@ import UserList from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
+import Logout from "../../components/Logout/Logout";
 
 const { Content } = Layout;
 
@@ -31,6 +32,8 @@ function Dashboard({ setAuth }) {
 				return <SearchLanguage />;
 			case "search-country":
 				return <SearchCountry />;
+			case "logout":
+				return <Logout setAuth={setAuth} />;
 			default:
 				return <Profile />;
 		}
