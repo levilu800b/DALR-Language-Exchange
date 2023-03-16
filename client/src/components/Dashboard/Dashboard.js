@@ -10,7 +10,7 @@ import SearchCountry from "../../components/SearchCountry/SearchCountry";
 
 const { Content } = Layout;
 
-function Dashboard() {
+function Dashboard({ setAuth }) {
 	const [selectedMenu, setSelectedMenu] = useState("profile");
 
 	const handleMenuClick = (key) => {
@@ -20,7 +20,7 @@ function Dashboard() {
 	const renderContent = () => {
 		switch (selectedMenu) {
 			case "profile":
-				return <Profile />;
+				return <Profile setAuth={setAuth} />;
 			case "add-users":
 				return <AddUsers />;
 			case "user-list":
