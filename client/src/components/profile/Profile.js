@@ -1,29 +1,3 @@
-// import React from "react";
-// import "./ProfileStyle.css";
-// import profile from "../../assets/profile.jpg";
-
-// const Profile = () => {
-//   return (
-//     <div>
-//     <header className="profile-header">
-//       <img src={profile} alt="Profile picture" />
-//     <div className="profile-info">
-//       <h1>Ahmed Mohamed</h1>
-//       <h2>Software Engineer</h2>
-//     </div>
-//     </header>
-//     <main>
-//       {/* Add main content here */}
-//     </main>
-//     <footer>
-//       {/* Add footer content here */}
-//     </footer>
-//   </div>
-//   );
-// };
-
-// export default Profile;
-
 //🍉
 import React, { useEffect, useState } from "react";
 
@@ -62,17 +36,6 @@ const Profile = ({ setAuth }) => {
 		getProfile();
 	}, []);
 
-	// return (
-	// 	<div className="text-center">
-	// 		{/* <h1 className="mt-5 text-info">Your Profile</h1>
-	// 		<h2>Welcome </h2>
-	// 		<h3 className=" text-success">{name}</h3> */}
-
-	// 		<button onClick={(e) => logout(e)} className="btn btn-primary text-center">
-	// 			Logout
-	// 		</button>
-	// 	</div>
-	// );
 	return (
 		<>
 			<div className="text-center mt-4">
