@@ -44,7 +44,7 @@ const SignIn = ({ setAuth }) => {
 	return (
 		<div className="container">
 			<h1 className="mt-5 text-center">Login</h1>
-			<form onSubmit={onSubmitForm}>
+			<form className="col-md-4" onSubmit={onSubmitForm}>
 				<input
 					type="text"
 					name="email"
@@ -59,7 +59,7 @@ const SignIn = ({ setAuth }) => {
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
-				<button class="btn btn-success btn-block">Submit</button>
+				<button class="btn btn-success btn-block">Log in</button>
 			</form>
 			<Link to="/signup">register</Link>
 		</div>
