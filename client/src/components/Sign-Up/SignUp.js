@@ -4,7 +4,7 @@ import Select from "react-select";
 import "./SignUp.css";
 import languageOptions from "./LanguageOptions.json";
 
-function SignupPage() {
+function SignUpPage() {
 const navigate = useNavigate();
 const [firstName, setFirstName] = useState("");
 const [lastName, setLastName] = useState("");
@@ -211,4 +211,4 @@ return (
 );
 }
 
-export default SignupPage;
+export default SignUpPage;
