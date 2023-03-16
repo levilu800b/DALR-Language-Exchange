@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 
 const SignIn = ({ setAuth }) => {
 	const [inputs, setInputs] = useState({
@@ -61,7 +62,7 @@ const SignIn = ({ setAuth }) => {
 				/>
 				<button class="btn btn-success btn-block">Submit</button>
 			</form>
-			<Link to="/register">register</Link>
+			<Link to="/signup">register</Link>
 		</div>
 	);
 };
