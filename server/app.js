@@ -29,11 +29,9 @@ app.use(apiRoot, jwtAuth);
 
 app.use("/health", (_, res) => res.sendStatus(200));
 
-app.use(apiRoot, require("./routerAuth/jwtAuth"));
-app.use(apiRoot, require("./routerAuth/dashboard"));
+app.use(apiRoot + "/authentication", require("./routerAuth/jwtAuth"));
+app.use(apiRoot + "/dashboard", require("./routerAuth/dashboard"));
 
-// app.use("/authentication", require("./routerAuth/jwtAuth"));
-// app.use("/dashboard", require("./routerAuth/dashboard"));
 app.use(clientRouter(apiRoot));
 
 app.use(logErrors());
