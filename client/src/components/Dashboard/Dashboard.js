@@ -7,10 +7,11 @@ import UserList from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
+import Logout from "../../components/Logout/Logout";
 
 const { Content } = Layout;
 
-function Dashboard() {
+function Dashboard({ setAuth }) {
 	const [selectedMenu, setSelectedMenu] = useState("profile");
 
 	const handleMenuClick = (key) => {
@@ -20,7 +21,7 @@ function Dashboard() {
 	const renderContent = () => {
 		switch (selectedMenu) {
 			case "profile":
-				return <Profile />;
+				return <Profile setAuth={setAuth} />;
 			case "add-users":
 				return <AddUsers />;
 			case "user-list":
@@ -31,6 +32,8 @@ function Dashboard() {
 				return <SearchLanguage />;
 			case "search-country":
 				return <SearchCountry />;
+			case "logout":
+				return <Logout setAuth={setAuth} />;
 			default:
 				return <Profile />;
 		}
