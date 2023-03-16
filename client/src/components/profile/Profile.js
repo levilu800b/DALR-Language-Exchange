@@ -73,4 +73,3 @@ const Profile = ({ setAuth }) => {
 };
 
 export default Profile;
-//🍉
