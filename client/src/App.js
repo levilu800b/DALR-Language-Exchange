@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
 import {
 	BrowserRouter as Router,
 	Routes,
 	Route,
 	Navigate,
 } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import CreateYourProfilePage from "./components/CreateProfile/CreateYourProfilePage";
 import About from "./components/About/About";
@@ -15,6 +17,8 @@ import Register from "./components/Sign-Up/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/HomePage/NavBar/NavBar";
 
+toast.configure();
+
 function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -22,7 +26,7 @@ function App() {
 		try {
 			const res = await fetch("/api/verify", {
 				method: "GET",
-				headers: { jwt_token: localStorage.token },
+				headers: { token: localStorage.token },
 			});
 
 			const parseRes = await res.json();

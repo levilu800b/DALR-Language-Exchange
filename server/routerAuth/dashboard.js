@@ -17,7 +17,6 @@ router.get("/", authorize, async (req, res) => {
 	}
 });
 
-//get all just user_name for list user_name in ListUsers.js
 router.get("/all", authorize, async (req, res) => {
 	try {
 		const user = await db.query("SELECT user_name FROM users");
