@@ -13,22 +13,22 @@ import {
 router.use(express.json());
 
 router.get("/", async (req, res) => {
-	const { firstname, secondname, language_speak } = req.query;
+	const { first_name, last_name, language_speak } = req.query;
 
-	if (firstname) {
-		const searchResults = await getLearnersByName(firstname);
+	if (first_name) {
+		const searchResults = await getLearnersByName(first_name);
 		res.json({
 			success: true,
-			message: `Searched First name for ${firstname}`,
+			message: `Searched First name for ${first_name}`,
 			payload: searchResults,
 		});
 		return;
 	}
-	if (secondname) {
-		const searchResults = await getLearnersByLastName(secondname);
+	if (last_name) {
+		const searchResults = await getLearnersByLastName(last_name);
 		res.json({
 			success: true,
-			message: `Searched Last name for ${secondname}`,
+			message: `Searched Last name for ${last_name}`,
 			payload: searchResults,
 		});
 		return;
@@ -50,8 +50,8 @@ router.get("/", async (req, res) => {
 
 router.post("/", async (req, res) => {
 	const {
-		firstname,
-		secondname,
+		first_name,
+		last_name,
 		email,
 		language_speak,
 		language_interest,
@@ -59,8 +59,8 @@ router.post("/", async (req, res) => {
 		country,
 	} = req.body;
 	const newLearner = await postLearners(
-		firstname,
-		secondname,
+		first_name,
+		last_name,
 		email,
 		language_speak,
 		language_interest,

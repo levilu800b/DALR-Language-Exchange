@@ -1,14 +1,14 @@
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #0077B5;
-    color: #fff;
-  }
-  .profile-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 2rem;
-  }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background-color: #0077b5;
+	color: #fff;
+}
+.profile-header img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-right: 2rem;
+}

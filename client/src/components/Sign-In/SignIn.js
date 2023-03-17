@@ -59,7 +59,7 @@ const SignIn = ({ setAuth }) => {
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
-				<button class="btn btn-success btn-block">Log in</button>
+				<button className="btn btn-success btn-block">Log in</button>
 			</form>
 			<Link to="/signup">register</Link>
 		</div>

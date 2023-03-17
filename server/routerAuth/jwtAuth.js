@@ -48,7 +48,6 @@ router.post("/register", validInfo, async (req, res) => {
 
 		res.json({ jwtToken });
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).send("Server error");
 	}
 });
@@ -69,14 +68,12 @@ router.post("/login", validInfo, async (req, res) => {
 			password,
 			user.rows[0].user_password
 		);
-		console.log(validPassword);
 		if (!validPassword) {
 			return res.status(401).json("Invalid Credential");
 		}
 		const jwtToken = jwtGenerator(user.rows[0].user_id);
 		return res.json({ jwtToken });
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).send("Server error");
 	}
 });
@@ -85,7 +82,6 @@ router.get("/verify", authorize, (req, res) => {
 	try {
 		res.json(true);
 	} catch (err) {
-		console.error(err.message);
 		res.status(500).send("Server error");
 	}
 });

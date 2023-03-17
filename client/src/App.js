@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import {
-	BrowserRouter as Router,
-	Routes,
-	Route,
-	Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 import CreateYourProfilePage from "./components/CreateProfile/CreateYourProfilePage";

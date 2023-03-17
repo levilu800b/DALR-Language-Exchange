@@ -3,7 +3,6 @@ import Select from "react-select";
 import "./CreateYourProfilePage.css";
 import languageOptions from "./LanguageOptions.json";
 
-
 function CreateYourProfilePage() {
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
@@ -168,7 +167,9 @@ function CreateYourProfilePage() {
 					/>
 				</div>
 				<div className="form-group">
-					<label htmlFor="languagesInterested">Languages You are Interested In</label>
+					<label htmlFor="languagesInterested">
+						Languages You are Interested In
+					</label>
 					<Select
 						id="languagesInterested"
 						name="languagesInterested"
@@ -179,7 +180,9 @@ function CreateYourProfilePage() {
 					/>
 				</div>
 				<div className="form-group">
-					<button className="button" type="submit">Create Profile</button>
+					<button className="button" type="submit">
+						Create Profile
+					</button>
 					<button className="button" type="button" onClick={handleCancel}>
 						Cancel
 					</button>
