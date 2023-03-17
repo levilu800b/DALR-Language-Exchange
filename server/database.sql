@@ -39,4 +39,4 @@ CREATE TABLE todo(
 );
 
 
-// hwo to delete user_profiles table in postgresql=> drop table user_profiles;
+// how to delete user_profiles table in postgresql=> drop table user_profiles;

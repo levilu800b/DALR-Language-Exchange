@@ -7,8 +7,6 @@ import {
 	Navigate,
 } from "react-router-dom";
 import { toast } from "react-toastify";
-
-import CreateYourProfilePage from "./components/CreateProfile/CreateYourProfilePage";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Home from "./pages/Home";
@@ -50,7 +48,6 @@ function App() {
 			<NavBar isAuthenticated={isAuthenticated} setAuth={setAuth} />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/createprofile" element={<CreateYourProfilePage />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
 
@@ -70,7 +67,7 @@ function App() {
 						!isAuthenticated ? (
 							<Register setAuth={setAuth} />
 						) : (
-							<Navigate to="/dashboard" replace />
+							<Navigate to="/signin" replace />
 						)
 					}
 				/>
