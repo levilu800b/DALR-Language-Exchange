@@ -70,7 +70,7 @@ function App() {
 						!isAuthenticated ? (
 							<Register setAuth={setAuth} />
 						) : (
-							<Navigate to="/dashboard" replace />
+							<Navigate to="/signin" replace />
 						)
 					}
 				/>
