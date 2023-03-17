@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SignIn.css";
 
 import { toast } from "react-toastify";
 
@@ -63,7 +64,7 @@ const SignIn = ({ setAuth }) => {
 				/>
 				<button className="btn btn-success btn-block">Log in</button>
 			</form>
-			<Link to="/signup">register</Link>
+			<Link to="/signup" className="register">register</Link>
 		</div>
 	);
 };
