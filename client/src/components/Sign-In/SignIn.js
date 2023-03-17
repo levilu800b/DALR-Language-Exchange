@@ -51,6 +51,7 @@ const SignIn = ({ setAuth }) => {
 					value={email}
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
+					placeholder="Email"
 				/>
 				<input
 					type="password"
@@ -58,6 +59,7 @@ const SignIn = ({ setAuth }) => {
 					value={password}
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
+					placeholder="Password"
 				/>
 				<button className="btn btn-success btn-block">Log in</button>
 			</form>
