@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 function Logout({ setAuth }) {
 	try {
 		localStorage.removeItem("token");
