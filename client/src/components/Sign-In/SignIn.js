@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./SignIn.css";
 
 import { toast } from "react-toastify";
 
@@ -51,6 +52,7 @@ const SignIn = ({ setAuth }) => {
 					value={email}
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
+					placeholder="Email"
 				/>
 				<input
 					type="password"
@@ -58,10 +60,11 @@ const SignIn = ({ setAuth }) => {
 					value={password}
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
+					placeholder="Password"
 				/>
-				<button class="btn btn-success btn-block">Log in</button>
+				<button className="btn btn-success btn-block">Log in</button>
 			</form>
-			<Link to="/signup">register</Link>
+			<Link to="/signup" className="register">I do not have an Account. Please, register.</Link>
 		</div>
 	);
 };

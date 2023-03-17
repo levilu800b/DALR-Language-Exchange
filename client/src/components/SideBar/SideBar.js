@@ -17,9 +17,9 @@ const items = [
 	{ key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
 	{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
 	{
-		key: "users",
+		key: "user",
 		icon: <UserSwitchOutlined />,
-		label: "Users management",
+		label: "User management",
 		children: [
 			{ key: "add-users", icon: <UsergroupAddOutlined />, label: "Add users" },
 			{
