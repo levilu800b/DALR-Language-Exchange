@@ -21,7 +21,7 @@ const items = [
 		icon: <UserSwitchOutlined />,
 		label: "User management",
 		children: [
-			{ key: "edit-users", icon: <UsergroupAddOutlined />, label: "Edit users" },
+			{ key: "add-users", icon: <UsergroupAddOutlined />, label: "Add users" },
 			{
 				key: "user-list",
 				icon: <OrderedListOutlined />,
