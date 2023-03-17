@@ -8,10 +8,20 @@ const authorize = require("../middleware/authorize");
 
 router.post("/register", validInfo, async (req, res) => {
 	try {
-		const { email, name, password } = req.body;
-		const user = await db.query("SELECT * FROM users WHERE user_email = $1", [
+		const {
+			firstname,
+			secondname,
 			email,
-		]);
+			password,
+			language_speak,
+			language_interest,
+			city,
+			country,
+		} = req.body;
+		const user = await db.query(
+			"SELECT * FROM user_profiles WHERE user_email = $1",
+			[email]
+		);
 
 		if (user.rows.length > 0) {
 			return res.status(401).json("User already exist!");
@@ -21,8 +31,17 @@ router.post("/register", validInfo, async (req, res) => {
 		const bcryptPassword = await bcrypt.hash(password, salt);
 
 		let newUser = await db.query(
-			"INSERT INTO users (user_name, user_email, user_password) VALUES ($1, $2, $3) RETURNING *",
-			[name, email, bcryptPassword]
+			"INSERT INTO user_profiles (user_firstname, user_secondname, user_email, user_password, user_language_speak, user_language_interest, user_city, user_country) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+			[
+				firstname,
+				secondname,
+				email,
+				bcryptPassword,
+				language_speak,
+				language_interest,
+				city,
+				country,
+			]
 		);
 
 		const jwtToken = jwtGenerator(newUser.rows[0].user_id);
@@ -37,9 +56,10 @@ router.post("/register", validInfo, async (req, res) => {
 router.post("/login", validInfo, async (req, res) => {
 	try {
 		const { email, password } = req.body;
-		const user = await db.query("SELECT * FROM users WHERE user_email = $1", [
-			email,
-		]);
+		const user = await db.query(
+			"SELECT * FROM user_profiles WHERE user_email = $1",
+			[email]
+		);
 
 		if (user.rows.length === 0) {
 			return res.status(401).json("password or email is incorrect");

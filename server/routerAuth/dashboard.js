@@ -5,7 +5,7 @@ import db from "../db.js";
 router.get("/", authorize, async (req, res) => {
 	try {
 		const user = await db.query(
-			"SELECT user_name FROM users WHERE user_id = $1",
+			"SELECT user_firstname, user_secondname, user_email, user_language_speak, user_language_interest, user_city, user_country FROM user_profiles WHERE user_id = $1 ",
 			[req.user]
 		);
 
@@ -19,7 +19,9 @@ router.get("/", authorize, async (req, res) => {
 
 router.get("/all", authorize, async (req, res) => {
 	try {
-		const user = await db.query("SELECT user_name FROM users");
+		const user = await db.query(
+			"SELECT user_firstname, user_secondname, user_email, user_language_speak, user_language_interest, user_city, user_country FROM user_profiles"
+		);
 
 		res.json(user.rows);
 		// res.json(req.user);
