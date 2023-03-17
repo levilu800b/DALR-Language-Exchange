@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import profile from "../../assets/bg1.jpg";
+import profile from "../../assets/profile.jpg";
 
 import "./ProfileStyle.css";
 
 import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
-const Profile = ({ setAuth }) => {
+const Profile = () => {
 	const [data, setData] = useState("");
 
 	const getProfile = async () => {
@@ -23,16 +22,6 @@ const Profile = ({ setAuth }) => {
 		}
 	};
 
-	const logout = async (e) => {
-		e.preventDefault();
-		try {
-			localStorage.removeItem("token");
-			setAuth(false);
-			toast.success("Logout successfully");
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
 
 	useEffect(() => {
 		getProfile();
@@ -89,12 +78,7 @@ const Profile = ({ setAuth }) => {
 						</Descriptions.Item>
 					</Descriptions>
 				</main>
-				<button
-					onClick={(e) => logout(e)}
-					className="mt-5 btn btn-primary text-buttom bg-info"
-				>
-					Logout
-				</button>
+
 			</div>
 		</>
 	);
