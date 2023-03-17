@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import Sidebar from "../../components/SideBar/SideBar";
 import Profile from "../../components/Profile/Profile";
-import AddUsers from "../../components/AddUser/AddUser";
+import EditUser from "../../components/EditUser/EditUser";
 import UserList from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
@@ -23,7 +23,7 @@ function Dashboard({ setAuth }) {
 			case "profile":
 				return <Profile setAuth={setAuth} />;
 			case "add-users":
-				return <AddUsers />;
+				return <EditUser />;
 			case "user-list":
 				return <UserList />;
 			case "search-city":

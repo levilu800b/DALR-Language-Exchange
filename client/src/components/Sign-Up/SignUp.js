@@ -1,214 +1,72 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import Select from "react-select";
-import "./SignUp.css";
-import languageOptions from "./LanguageOptions.json";
-
-function SignUpPage() {
-const navigate = useNavigate();
-const [firstName, setFirstName] = useState("");
-const [lastName, setLastName] = useState("");
-const [email, setEmail] = useState("");
-const [password, setPassword] = useState("");
-const [country, setCountry] = useState("");
-const [languagesKnow, setLanguagesKnow] = useState([]);
-const [languagesInterested, setLanguagesInterested] = useState([]);
-
-const handleFirstNameChange = (event) => {
-	setFirstName(event.target.value);
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+const SignUp = ({ setAuth }) => {
+    const [inputs, setInputs] = useState({
+        email: "",
+        password: "",
+        name: "",
+    });
+    const { email, password, name } = inputs;
+    const onChange = (e) =>
+        setInputs({ ...inputs, [e.target.name]: e.target.value });
+    const onSubmitForm = async (e) => {
+        e.preventDefault();
+        try {
+            const body = { email, password, name };
+            const response = await fetch("/api/register", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json",
+                },
+                body: JSON.stringify(body),
+            });
+            const parseRes = await response.json();
+            console.log(parseRes);
+            if (parseRes.jwtToken) {
+                localStorage.setItem("token", parseRes.jwtToken);
+                setAuth(true);
+                toast.success("Register Successfully");
+            } else {
+                setAuth(false);
+                toast.error(parseRes);
+            }
+        } catch (err) {
+            console.error(err.message);
+        }
+    };
+    return (
+        <div className="container">
+            <h1 className="mt-5 text-center">Register</h1>
+            <form className="col-md-4" onSubmit={onSubmitForm}>
+                <input
+                    type="text"
+                    name="email"
+                    value={email}
+                    placeholder="email"
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                />
+                <input
+                    type="password"
+                    name="password"
+                    value={password}
+                    placeholder="password"
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                />
+                <input
+                    type="text"
+                    name="name"
+                    value={name}
+                    placeholder="name"
+                    onChange={(e) => onChange(e)}
+                    className="form-control my-3"
+                />
+                <button className="btn btn-success btn-block">Sign up</button>
+            </form>
+            <Link to="/signin">login</Link>
+        </div>
+    );
 };
-
-const handleLastNameChange = (event) => {
-	setLastName(event.target.value);
-};
-
-const handleEmailChange = (event) => {
-	setEmail(event.target.value);
-};
-
-const handlePasswordChange = (event) => {
-	setPassword(event.target.value);
-};
-
-const handleCountryChange = (event) => {
-	setCountry(event.target.value);
-};
-
-const handleLanguagesKnowChange = (selectedOptions) => {
-	setLanguagesKnow(selectedOptions);
-};
-
-const handleLanguagesInterestedChange = (selectedOptions) => {
-	setLanguagesInterested(selectedOptions);
-};
-
-const handleSubmit = async (event) => {
-	event.preventDefault();
-	navigate("/dashboard");
-
-	// Prepare form data
-	// const formData = {
-	// 	firstName,
-	// 	lastName,
-	// 	email,
-	// 	password,
-	// 	country,
-	// 	languagesKnow: languagesKnow.map((language) => language.value),
-	// 	languagesInterested: languagesInterested.map(
-	// 		(language) => language.value
-	// 	),
-	// };
-
-	// Send form data to the server for processing
-	// try {
-	// 	const response = await fetch("/api/signup", {
-	// 		method: "POST",
-	// 		headers: {
-	// 			"Content-Type": "application/json",
-	// 		},
-	// 		body: JSON.stringify(formData),
-	// 	});
-
-	// 	// Handle response from the server
-	// 	if (response.ok) {
-	// 		// Navigate to the dashboard page
-	// 		navigate("/dashboard");
-	// 		// Clear the form
-	// 		setFirstName("");
-	// 		setLastName("");
-	// 		setEmail("");
-	// 		setPassword("");
-	// 		setCountry("");
-	// 		setLanguagesKnow([]);
-	// 		setLanguagesInterested([]);
-	// 	} else {
-	// 		console.error("Failed to sign up");
-	// 	}
-	// } catch (error) {
-	// 	console.error(error);
-	// }
-};
-
-const handleCancel = () => {
-	// Clear the form
-	setFirstName("");
-	setLastName("");
-	setEmail("");
-	setPassword("");
-	setCountry("");
-	setLanguagesKnow([]);
-	setLanguagesInterested([]);
-};
-
-return (
-	<div className="signup-page">
-		<h1>Sign Up</h1>
-		<form onSubmit={handleSubmit}>
-			<div className="form-group">
-				<label className="first_name" htmlFor="firstName">
-					First Name
-				</label>
-				<input
-					type="text"
-					id="firstName"
-					name="firstName"
-					value={firstName}
-					onChange={handleFirstNameChange}
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="last_name" htmlFor="lastName">
-					Last Name
-				</label>
-				<input
-					type="text"
-					id="lastName"
-					name="lastName"
-					value={lastName}
-					onChange={handleLastNameChange}
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="email" htmlFor="email">
-					Email
-				</label>
-				<input
-					type="email"
-					id="email"
-					name="email"
-					value={email}
-					onChange={handleEmailChange}
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="password" htmlFor="password">
-					Password
-				</label>
-				<input
-					type="password"
-					id="password"
-					name="password"
-					value={password}
-					onChange={handlePasswordChange}
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="country" htmlFor="country">
-					Country
-				</label>
-				<input
-					type="text"
-					id="country"
-					name="country"
-					value={country}
-					onChange={handleCountryChange}
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="language" htmlFor="languagesKnow">
-					Languages you know
-				</label>
-				<Select
-					id="languagesKnow"
-					name="languagesKnow"
-					value={languagesKnow}
-					onChange={handleLanguagesKnowChange}
-					options={languageOptions}
-					isMulti
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<label className="language" htmlFor="languagesInterested">
-					Languages you are interested in
-				</label>
-				<Select
-					id="languagesInterested"
-					name="languagesInterested"
-					value={languagesInterested}
-					onChange={handleLanguagesInterestedChange}
-					options={languageOptions}
-					isMulti
-					required
-				/>
-			</div>
-			<div className="form-group">
-				<button className="signup" type="submit" onClick={handleSubmit}>
-					Sign Up
-				</button>
-				<button className="cancel" type="button" onClick={handleCancel}>
-					Cancel
-				</button>
-				<Link className="login_butoon" to="/signin">Already have an account? Log in</Link>
-			</div>
-		</form>
-	</div>
-);
-}
-
-export default SignUpPage;
+export default SignUp;
