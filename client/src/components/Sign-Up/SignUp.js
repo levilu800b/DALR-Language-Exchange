@@ -140,3 +140,4 @@ const SignUp = ({ setAuth }) => {
 };
 
 export default SignUp;
+//npm run build
