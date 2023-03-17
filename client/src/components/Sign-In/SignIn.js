@@ -64,7 +64,7 @@ const SignIn = ({ setAuth }) => {
 				/>
 				<button className="btn btn-success btn-block">Log in</button>
 			</form>
-			<Link to="/signup" className="register">register</Link>
+			<Link to="/signup" className="register">I do not have an Account. Please, register.</Link>
 		</div>
 	);
 };

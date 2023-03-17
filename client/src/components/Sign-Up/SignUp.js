@@ -104,7 +104,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="language_speak"
 					value={language_speak}
-					placeholder="language speak"
+					placeholder="language I speak"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -112,7 +112,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="language_interest"
 					value={language_interest}
-					placeholder="language interest"
+					placeholder="language of interest"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -135,7 +135,7 @@ const SignUp = ({ setAuth }) => {
 
 				<button className="btn btn-success btn-block">Sign up</button>
 			</form>
-			<Link className="login_button" to="/signin">I already Have an Account, Please Login</Link>
+			<Link className="login_button" to="/signin">I already Have an Account, Please Login.</Link>
 		</div>
 	);
 };
