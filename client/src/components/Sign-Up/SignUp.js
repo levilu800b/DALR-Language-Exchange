@@ -134,7 +134,7 @@ const SignUp = ({ setAuth }) => {
 
 				<button className="btn btn-success btn-block">Sign up</button>
 			</form>
-			<Link to="/signin">login</Link>
+			<Link className="login_button" to="/signin">I already Have an Account, Please Login</Link>
 		</div>
 	);
 };
