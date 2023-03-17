@@ -1,69 +1,90 @@
-// import { Route, Routes } from "react-router-dom";
+import { useState, useEffect } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import {
+	BrowserRouter as Router,
+	Routes,
+	Route,
+	Navigate,
+} from "react-router-dom";
+import { toast } from "react-toastify";
 
-// import About from "./pages/About";
-// import Home from "./pages/Home";
+import CreateYourProfilePage from "./components/CreateProfile/CreateYourProfilePage";
+import About from "./components/About/About";
+import Contact from "./components/Contact/Contact";
+import Home from "./pages/Home";
+import Login from "./components/Sign-In/SignIn";
+import Register from "./components/Sign-Up/SignUp";
+import Dashboard from "./components/Dashboard/Dashboard";
+import NavBar from "./components/HomePage/NavBar/NavBar";
 
-// const App = () => (
-// 	<Routes>
-// 		<Route path="/" element={<Home />} />
-// 		<Route path="/about/this/site" element={<About />} />
-// 	</Routes>
-// );
-
-// export default App;
-import React, { useState, useEffect } from "react";
-import "antd/dist/reset.css";
-import "./assets/css/general.css";
-import { Layout } from "antd";
-import { Routes, Route } from "react-router-dom";
-import Hedear from "./components/generic/Header";
-import Footer from "./components/generic/Footer";
-import Sidebar from "./components/generic/Sidebar";
-import DashboardLogin from "./components/generic/DashboardLogin";
-import DashboardSignup from "./components/generic/DashboardSignup";
-import ContactForm from "./components/users/AddUsers";
-import UserList from "./components/users/ListUsers";
-
-const { Content } = Layout;
+toast.configure();
 
 function App() {
-	const [users, setUsers] = useState([]);
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+	const checkAuthenticated = async () => {
+		try {
+			const res = await fetch("/api/verify", {
+				method: "GET",
+				headers: { token: localStorage.token },
+			});
+
+			const parseRes = await res.json();
+
+			parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
 
 	useEffect(() => {
-		fetch("/api")
-			.then((res) => res.json())
-			.then((data) => setUsers(data));
+		checkAuthenticated();
 	}, []);
 
-	const AddUsers = (video, id) => {
-		video.id = id;
-		setUsers([...users, video]);
+	const setAuth = (boolean) => {
+		setIsAuthenticated(boolean);
 	};
-	// console.log(users);
-	return (
-		<div className="App">
-			<Layout>
-				<Hedear />
-				<Layout>
-					<Sidebar />
-					<Content className="content">
-						<Routes>
-							<Route path="/login" element={<DashboardLogin />} />
-							<Route path="/signup" element={<DashboardSignup />} />
-							<Route
-								path="/users/addUsers"
-								element={<ContactForm AddUsers={AddUsers} />}
-							/>
 
-							<Route
-								path="/users/listUsers"
-								element={<UserList users={users} />}
-							/>
-						</Routes>
-					</Content>
-				</Layout>
-				<Footer />
-			</Layout>
+	return (
+		<div>
+			<NavBar isAuthenticated={isAuthenticated} setAuth={setAuth} />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="/createprofile" element={<CreateYourProfilePage />} />
+				<Route path="/about" element={<About />} />
+				<Route path="/contact" element={<Contact />} />
+
+				<Route
+					path="/signin"
+					element={
+						!isAuthenticated ? (
+							<Login setAuth={setAuth} />
+						) : (
+							<Navigate to="/dashboard" replace />
+						)
+					}
+				/>
+				<Route
+					path="/signup"
+					element={
+						!isAuthenticated ? (
+							<Register setAuth={setAuth} />
+						) : (
+							<Navigate to="/dashboard" replace />
+						)
+					}
+				/>
+				<Route
+					path="/dashboard"
+					element={
+						isAuthenticated ? (
+							<Dashboard setAuth={setAuth} />
+						) : (
+							<Navigate to="/signin" replace />
+						)
+					}
+				/>
+			</Routes>
 		</div>
 	);
 }

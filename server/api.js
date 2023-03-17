@@ -13,31 +13,31 @@ import {
 router.use(express.json());
 
 router.get("/", async (req, res) => {
-	const { first_name, last_name, languages_speak } = req.query;
+	const { firstname, secondname, language_speak } = req.query;
 
-	if (first_name) {
-		const searchResults = await getLearnersByName(first_name);
+	if (firstname) {
+		const searchResults = await getLearnersByName(firstname);
 		res.json({
 			success: true,
-			message: `Searched First name for ${first_name}`,
+			message: `Searched First name for ${firstname}`,
 			payload: searchResults,
 		});
 		return;
 	}
-	if (last_name) {
-		const searchResults = await getLearnersByLastName(last_name);
+	if (secondname) {
+		const searchResults = await getLearnersByLastName(secondname);
 		res.json({
 			success: true,
-			message: `Searched Last name for ${last_name}`,
+			message: `Searched Last name for ${secondname}`,
 			payload: searchResults,
 		});
 		return;
 	}
-	if (languages_speak) {
-		const searchResults = await getLearnersByLanguage(languages_speak);
+	if (language_speak) {
+		const searchResults = await getLearnersByLanguage(language_speak);
 		res.json({
 			success: true,
-			message: `Searched Language for ${languages_speak}`,
+			message: `Searched Language for ${language_speak}`,
 			payload: searchResults,
 		});
 		return;
@@ -49,13 +49,23 @@ router.get("/", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
-	const { first_name, last_name, languages_speak, languages_interested } =
-		req.body;
+	const {
+		firstname,
+		secondname,
+		email,
+		language_speak,
+		language_interest,
+		city,
+		country,
+	} = req.body;
 	const newLearner = await postLearners(
-		first_name,
-		last_name,
-		languages_speak,
-		languages_interested
+		firstname,
+		secondname,
+		email,
+		language_speak,
+		language_interest,
+		city,
+		country
 	);
 	res.json({
 		success: true,
