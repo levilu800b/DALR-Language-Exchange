@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/bg2.jpg";
 
 import "./ProfileStyle.css";
 
@@ -21,7 +21,6 @@ const Profile = () => {
 			console.error(err.message);
 		}
 	};
-
 
 	useEffect(() => {
 		getProfile();
@@ -78,7 +77,6 @@ const Profile = () => {
 						</Descriptions.Item>
 					</Descriptions>
 				</main>
-
 			</div>
 		</>
 	);
