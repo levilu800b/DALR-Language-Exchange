@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../../assets/css/general.css";
 import { Card } from "antd";
+import "./ListUsers.css";
 
 const { Meta } = Card;
 
