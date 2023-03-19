@@ -3,12 +3,13 @@ import { Menu, Layout } from "antd";
 import {
 	LogoutOutlined,
 	SettingOutlined,
-	UsergroupAddOutlined,
+	CalendarOutlined,
 	UserSwitchOutlined,
 	OrderedListOutlined,
 	SearchOutlined,
 	DashboardOutlined,
 	ProfileOutlined,
+	EditOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
@@ -16,16 +17,26 @@ const { Sider } = Layout;
 const items = [
 	{ key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
 	{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
+	{ key: "edit-profile", icon: <EditOutlined />, label: "Edit Profile" },
 	{
 		key: "user",
 		icon: <UserSwitchOutlined />,
 		label: "User management",
 		children: [
-			{ key: "add-users", icon: <UsergroupAddOutlined />, label: "Add users" },
 			{
-				key: "user-list",
+				key: "user-lists",
 				icon: <OrderedListOutlined />,
 				label: "List of users",
+			},
+			{
+				key: "create-events",
+				icon: <CalendarOutlined />,
+				label: "Create Events",
+			},
+			{
+				key: "event-lists",
+				icon: <OrderedListOutlined />,
+				label: "List of Events",
 			},
 		],
 	},
