@@ -7,6 +7,8 @@ import UserLists from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
+import CreateEvents from "../../components/CreateEvents/CreateEvents";
+import EventLists from "../../components/EventLists/EventLists";
 import Logout from "../../components/Logout/Logout";
 
 const { Content } = Layout;
@@ -26,6 +28,10 @@ function Dashboard({ setAuth }) {
 				return <EditProfile />;
 			case "user-lists":
 				return <UserLists />;
+			case "create-events":
+				return <CreateEvents />;
+			case "event-lists":
+				return <EventLists />;
 			case "search-city":
 				return <SearchCity />;
 			case "search-language":

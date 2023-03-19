@@ -26,7 +26,7 @@ const items = [
 			{
 				key: "user-lists",
 				icon: <OrderedListOutlined />,
-				label: "List of users",
+				label: "List of Users",
 			},
 			{
 				key: "create-events",
