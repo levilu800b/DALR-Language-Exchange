@@ -9,13 +9,26 @@ import {
 	SearchOutlined,
 	DashboardOutlined,
 	ProfileOutlined,
+	ContainerOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
 
 const items = [
-	{ key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
-	{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
+	{
+		key: "dashboard2",
+		icon: <DashboardOutlined />,
+		label: "Dashboard",
+		children: [
+			{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
+			{
+				key: "manageProfile",
+				icon: <UsergroupAddOutlined />,
+				label: "manage profile",
+			},
+		],
+	},
+
 	{
 		key: "user",
 		icon: <UserSwitchOutlined />,
@@ -26,6 +39,11 @@ const items = [
 				key: "user-list",
 				icon: <OrderedListOutlined />,
 				label: "List of users",
+			},
+			{
+				key: "massages",
+				icon: <ContainerOutlined />,
+				label: "Send massages",
 			},
 		],
 	},

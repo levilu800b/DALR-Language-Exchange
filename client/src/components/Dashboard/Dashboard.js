@@ -7,12 +7,14 @@ import UserList from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
+import Manage_profile from "../../components/manage-profile/Manage_profile";
 import Logout from "../../components/Logout/Logout";
+// import Massages from "../../components/massages/Massage";
 
 const { Content } = Layout;
 
-function Dashboard({ setAuth }) {
-	const [selectedMenu, setSelectedMenu] = useState("profile");
+function Head({ setAuth }) {
+	const [selectedMenu, setSelectedMenu] = useState("");
 
 	const handleMenuClick = (key) => {
 		setSelectedMenu(key);
@@ -22,6 +24,8 @@ function Dashboard({ setAuth }) {
 		switch (selectedMenu) {
 			case "profile":
 				return <Profile setAuth={setAuth} />;
+			case "manageProfile":
+				return <Manage_profile />;
 			case "add-users":
 				return <AddUser />;
 			case "user-list":
@@ -34,8 +38,10 @@ function Dashboard({ setAuth }) {
 				return <SearchCountry />;
 			case "logout":
 				return <Logout setAuth={setAuth} />;
+			// case "massages":
+			// 	return <Massages />;
 			default:
-				return <Profile />;
+				return <Manage_profile />;
 		}
 	};
 
@@ -49,4 +55,4 @@ function Dashboard({ setAuth }) {
 	);
 }
 
-export default Dashboard;
+export default Head;
