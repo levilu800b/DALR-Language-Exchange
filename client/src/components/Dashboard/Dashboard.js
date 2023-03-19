@@ -9,7 +9,7 @@ import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
 import Manage_profile from "../../components/manage-profile/Manage_profile";
 import Logout from "../../components/Logout/Logout";
-// import Massages from "../../components/massages/Massage";
+import Massages from "../../components/massages/Massage";
 
 const { Content } = Layout;
 
@@ -38,8 +38,8 @@ function Head({ setAuth }) {
 				return <SearchCountry />;
 			case "logout":
 				return <Logout setAuth={setAuth} />;
-			// case "massages":
-			// 	return <Massages />;
+			case "massages":
+				return <Massages />;
 			default:
 				return <Manage_profile />;
 		}
