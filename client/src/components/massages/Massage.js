@@ -93,9 +93,10 @@ export default function Massage({ data, selectedUser }) {
 					</Menu>
 				</Header>
 				<Content className="contentMessage">
-					<Routes>
+					{/* <Routes>
 						<Route path="/friends" element={<Friends />} />
-					</Routes>
+					</Routes> */}
+					<Friends />
 				</Content>
 				<Footer className="footerMessage">Footer</Footer>
 			</Layout>
