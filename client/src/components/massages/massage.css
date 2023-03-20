@@ -29,7 +29,7 @@
 .contentMessage {
 	margin: 0;
 	padding: 0;
-	height: 50rem;
+	height: auto;
 	width: 100%;
 	color: rgb(62, 58, 58);
 	font-size: 18px;
@@ -40,10 +40,11 @@
 	font-size: 1.5rem;
 }
 .a:hover {
-	background-color: #e6e5e5;
+	background-color: #e2e0e0;
 	text-decoration: none;
 }
 .a {
+	background-color: #eeecec;
 	margin: 0 0.5rem 0 0.5rem;
 	padding: 0.7em;
 	border-radius: 5px;

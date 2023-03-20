@@ -59,7 +59,7 @@ export default function Massage({ data, selectedUser }) {
 							key={"friends"}
 							style={{ width: "25%" }}
 						>
-							<Link to="/friends" className="a">
+							<Link to="#" className="a">
 								Friends
 							</Link>
 						</Menu.Item>
@@ -131,26 +131,6 @@ export default function Massage({ data, selectedUser }) {
 									<p>{selectedUser.user_language_speak}</p>
 									<p>{selectedUser.user_language_interest}</p>
 								</div>
-								{/* <p>
-									<span>First name:</span> {selectedUser.user_firstname}
-								</p>
-								<p>
-									<span>Last name:</span> {selectedUser.user_secondname}
-								</p>
-								<p>
-									<span>City:</span> {selectedUser.user_city}
-								</p>
-								<p>
-									<span>Native country:</span> {selectedUser.user_country}
-								</p>
-								<p>
-									<span>Native language:</span>
-									{selectedUser.user_language_speak}
-								</p>
-								<p>
-									<span>Studied language:</span>
-									{selectedUser.user_language_interest}
-								</p> */}
 							</div>
 						</div>
 					</section>
@@ -163,6 +143,16 @@ export default function Massage({ data, selectedUser }) {
 							preferably in English, but I'll gladly help with Polish. Also I'll
 							gladly pick up some words in Italian, French and Arabic.
 						</p>
+					</div>
+					<div class="icon">
+						<h3>New message</h3>
+						<textarea
+							name="message"
+							id="message"
+							cols="30"
+							rows="10"
+						></textarea>
+						<button>Send</button>
 					</div>
 				</Content>
 				<Footer className="footerMessage">Footer</Footer>

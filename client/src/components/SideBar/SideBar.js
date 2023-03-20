@@ -40,11 +40,6 @@ const items = [
 				icon: <OrderedListOutlined />,
 				label: "List of users",
 			},
-			{
-				key: "massages",
-				icon: <ContainerOutlined />,
-				label: "Send massages",
-			},
 		],
 	},
 	{
@@ -106,3 +101,4 @@ const Sidebar = ({ onMenuClick }) => {
 };
 
 export default Sidebar;
+//how to push branch to github=>git push -u origin master
