@@ -51,7 +51,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
-				<Route path="/editProfile" element={<EditProfile />} />
+				<Route path="/editProfile" element={<EditProfile setAuth={setAuth} />} />
 				<Route
 					path="/signin"
 					element={

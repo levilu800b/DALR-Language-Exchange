@@ -20,7 +20,7 @@ const props = {
  }
 	},
   };
-const EditProfile = () => {
+const EditProfile = ({ setAuth }) => {
 	const [inputs, setInputs] = useState({
 		firstname: "",
 		secondname: "",
@@ -64,11 +64,10 @@ const EditProfile = () => {
 					body: JSON.stringify(body),
 				});
 				const parseRes = await response.json();
-				console.log(parseRes);
 				if (parseRes.jwtToken) {
 					localStorage.setItem("token", parseRes.jwtToken);
 					setAuth(true);
-					toast.success("Register Successfully");
+					toast.success("Edit Successfully");
 				} else {
 					setAuth(false);
 					toast.error(parseRes);
