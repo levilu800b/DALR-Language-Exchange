@@ -145,6 +145,9 @@ const EditProfile = () => {
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
+				 <Upload {...props}>
+    <Button icon={<UploadOutlined />}>Upload Your Profile Image</Button>
+  </Upload>
 
 				<button className="btn btn-success btn-block">Edit Profile</button>
 			</form>
