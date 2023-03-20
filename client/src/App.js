@@ -9,7 +9,7 @@ import {
 import { toast } from "react-toastify";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
-import Home from "./pages/Home";
+import Home from "./components/HomePage/Home";
 import Login from "./components/Sign-In/SignIn";
 import Register from "./components/Sign-Up/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard";
