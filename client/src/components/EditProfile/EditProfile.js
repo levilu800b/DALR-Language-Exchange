@@ -56,8 +56,8 @@ const EditProfile = ({ setAuth }) => {
 					city,
 					country,
 				};
-				const response = await fetch("/api/register", {
-					method: "POST",
+				const response = await fetch("/api/profile/${user.id}", {
+					method: "PUT",
 					headers: {
 						"Content-type": "application/json",
 					},
