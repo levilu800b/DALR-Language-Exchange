@@ -45,10 +45,7 @@ const Profile = () => {
 						<br />
 						<div className="bt-profile">
 							<Link to="/" className="btn-light">
-								Follow
-							</Link>
-							<Link to="/" className="btn-light">
-								Chat
+								Edit Profile
 							</Link>
 						</div>
 					</div>

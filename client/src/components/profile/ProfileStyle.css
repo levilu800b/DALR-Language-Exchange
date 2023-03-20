@@ -25,7 +25,8 @@ header {
   .bt-profile{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content:center;
+   
   }
   .profile-header img {
     width: 150px;
