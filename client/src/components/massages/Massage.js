@@ -38,7 +38,7 @@ import { Link, Routes, Route } from "react-router-dom";
 import Friends from "./Users/Friends";
 
 const { Header, Footer, Content } = Layout;
-
+import imfg from "../../assets/bg1.jpg";
 import "./massage.css";
 import "./navbar.css";
 
@@ -96,7 +96,74 @@ export default function Massage({ data, selectedUser }) {
 					{/* <Routes>
 						<Route path="/friends" element={<Friends />} />
 					</Routes> */}
-					<Friends />
+					<section className="recipe_all">
+						<div className="overall_ditail">
+							<div className="img">
+								<img src={imfg} alt="" width="150px" height="200px" />
+							</div>
+
+							<div className="text">
+								<div>
+									<p>
+										<span>First name:</span>
+									</p>
+									<p>
+										<span>Last name:</span>
+									</p>
+									<p>
+										<span>City:</span>
+									</p>
+									<p>
+										<span>Native country:</span>
+									</p>
+									<p>
+										<span>Native language:</span>
+									</p>
+									<p>
+										<span>Studied language:</span>
+									</p>
+								</div>
+								<div>
+									<p>{selectedUser.user_firstname}</p>
+									<p>{selectedUser.user_secondname}</p>
+									<p>{selectedUser.user_city}</p>
+									<p>{selectedUser.user_country}</p>
+									<p>{selectedUser.user_language_speak}</p>
+									<p>{selectedUser.user_language_interest}</p>
+								</div>
+								{/* <p>
+									<span>First name:</span> {selectedUser.user_firstname}
+								</p>
+								<p>
+									<span>Last name:</span> {selectedUser.user_secondname}
+								</p>
+								<p>
+									<span>City:</span> {selectedUser.user_city}
+								</p>
+								<p>
+									<span>Native country:</span> {selectedUser.user_country}
+								</p>
+								<p>
+									<span>Native language:</span>
+									{selectedUser.user_language_speak}
+								</p>
+								<p>
+									<span>Studied language:</span>
+									{selectedUser.user_language_interest}
+								</p> */}
+							</div>
+						</div>
+					</section>
+					<div class="icon">
+						<h3>Description</h3>
+						<p>
+							There's nobody to talk to in my village, so maybe with a bit of
+							luck I'll meet some talkative people here. I'm into languages,
+							travelling, and meaningful or meaningless conversations,
+							preferably in English, but I'll gladly help with Polish. Also I'll
+							gladly pick up some words in Italian, French and Arabic.
+						</p>
+					</div>
 				</Content>
 				<Footer className="footerMessage">Footer</Footer>
 			</Layout>

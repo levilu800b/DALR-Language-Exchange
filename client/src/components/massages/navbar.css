@@ -41,3 +41,63 @@ a:hover {
 	display: flex;
 	justify-content: flex-start;
 } */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+.contentMessage {
+}
+.recipe_all {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 2rem 0 3rem 0;
+}
+
+input {
+	text-align: center;
+}
+.overall_ditail {
+	margin-top: 20px;
+	width: 80%;
+	height: auto;
+	background-color: #efeeee;
+	display: flex;
+}
+.img {
+	margin: 2rem 2rem 0 2.5rem;
+}
+
+.text {
+	display: flex;
+	margin-top: 2rem;
+}
+.text h2 {
+	margin-bottom: 2rem;
+	color: #000;
+}
+.text p {
+	color: #000;
+}
+.text span {
+	margin-right: 3rem;
+}
+.icon {
+	background-color: #efeeee;
+	margin-top: 10px;
+	width: 80%;
+	height: auto;
+	margin-left: 5px;
+	padding: 10px;
+	margin-top: 2rem;
+	margin: auto;
+}
+.icon p {
+	color: #000;
+	font-size: 1rem;
+	line-height: 24px;
+	line-height: 1.5rem;
+}
