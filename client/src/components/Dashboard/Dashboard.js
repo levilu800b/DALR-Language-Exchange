@@ -10,6 +10,7 @@ import SearchCountry from "../../components/SearchCountry/SearchCountry";
 import Manage_profile from "../../components/manage-profile/Manage_profile";
 import Logout from "../../components/Logout/Logout";
 import Massages from "../../components/massages/Massage";
+import Friends from "../../components/massages/Users/Friends";
 
 const { Content } = Layout;
 
@@ -40,6 +41,8 @@ function Head({ setAuth }) {
 				return <Logout setAuth={setAuth} />;
 			case "massages":
 				return <Massages />;
+			case "friends":
+				return <Friends />;
 			default:
 				return <Manage_profile />;
 		}

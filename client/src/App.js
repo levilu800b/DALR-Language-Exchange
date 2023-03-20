@@ -16,6 +16,7 @@ import Head from "./components/Dashboard/Dashboard";
 import Manage_profile from "./components/manage-profile/Manage_profile";
 import NavBar from "./components/HomePage/NavBar/NavBar";
 import Massage from "./components/massages/Massage";
+import Friends from "./components/massages/Users/Friends";
 
 toast.configure();
 
@@ -54,6 +55,7 @@ function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/manageProfile" element={<Manage_profile />} />
 				<Route path="/massages" element={<Massage />} />
+				<Route path="/friends" element={<Friends />} />
 
 				<Route
 					path="/signin"
