@@ -36,6 +36,7 @@
 import React, { useState } from "react";
 import { Menu, Layout } from "antd";
 import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { TextArea, SendButton } from "./Users/textErea/TextErea";
 import Friends from "./Users/Friends";
 import Exam from "./Users/Exam";
 import imfg from "../../assets/bg1.jpg";
@@ -45,6 +46,15 @@ import "./navbar.css";
 const { Header, Footer, Content } = Layout;
 
 export default function Massage({ data, selectedUser }) {
+	const [text, setText] = useState("");
+
+	const handleChange = (event) => {
+		setText(event.target.value);
+	};
+	const handleClick = () => {
+		// Send the message to the server or do something else
+		console.log(`Sending message: ${text}`);
+	};
 	const [showExam, setShowExam] = useState(false);
 	const { userId } = useParams();
 	const user = data.find((u) => u.user_id === parseInt(userId));
@@ -105,45 +115,54 @@ export default function Massage({ data, selectedUser }) {
 					{showExam ? (
 						<Friends />
 					) : (
-						<section className="recipe_all">
-							<div className="overall_ditail">
-								<div className="img">
-									<img src={imfg} alt="" width="150px" height="200px" />
-								</div>
+						<>
+							<section className="recipe_all">
+								<div className="overall_ditail">
+									<div className="img">
+										<img src={imfg} alt="" width="150px" height="200px" />
+									</div>
 
-								<div className="text">
-									<div>
-										<p>
-											<span>First name:</span>
-										</p>
-										<p>
-											<span>Last name:</span>
-										</p>
-										<p>
-											<span>City:</span>
-										</p>
-										<p>
-											<span>Native country:</span>
-										</p>
-										<p>
-											<span>Native language:</span>
-										</p>
-										<p>
-											<span>Studied language:</span>
-										</p>
-									</div>
-									<div>
-										<p>{selectedUser.user_firstname}</p>
-										<p>{selectedUser.user_secondname}</p>
-										<p>{selectedUser.user_city}</p>
-										<p>{selectedUser.user_country}</p>
-										<p>{selectedUser.user_language_speak}</p>
-										<p>{selectedUser.user_language_interest}</p>
+									<div className="text">
+										<div>
+											<p>
+												<span>First name:</span>
+											</p>
+											<p>
+												<span>Last name:</span>
+											</p>
+											<p>
+												<span>City:</span>
+											</p>
+											<p>
+												<span>Native country:</span>
+											</p>
+											<p>
+												<span>Native language:</span>
+											</p>
+											<p>
+												<span>Studied language:</span>
+											</p>
+										</div>
+										<div>
+											<p>{selectedUser.user_firstname}</p>
+											<p>{selectedUser.user_secondname}</p>
+											<p>{selectedUser.user_city}</p>
+											<p>{selectedUser.user_country}</p>
+											<p>{selectedUser.user_language_speak}</p>
+											<p>{selectedUser.user_language_interest}</p>
+										</div>
 									</div>
 								</div>
+							</section>
+							<div style={{ marginLeft: "10%" }}>New message</div>
+							<div className="ereaText">
+								<h1>My Text Area</h1>
+								<TextArea value={text} onChange={handleChange} />
 							</div>
-							<Exam />
-						</section>
+							<div style={{ marginLeft: "10%" }}>
+								<SendButton onClick={handleClick} />
+							</div>
+						</>
 					)}
 				</Content>
 				<Footer className="footerMessage">Footer</Footer>
