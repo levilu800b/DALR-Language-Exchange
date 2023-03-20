@@ -44,7 +44,7 @@ const Profile = () => {
 						</h3>
 						<br />
 						<div className="bt-profile">
-							<Link to="/" className="btn-light">
+							<Link to="/editProfile" className="btn-light">
 								Edit Profile
 							</Link>
 						</div>

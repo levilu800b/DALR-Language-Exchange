@@ -14,6 +14,7 @@ import Login from "./components/Sign-In/SignIn";
 import Register from "./components/Sign-Up/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/HomePage/NavBar/NavBar";
+import EditProfile from "./components/EditProfile/EditProfile";
 
 toast.configure();
 
@@ -50,7 +51,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
-
+				<Route path="/editProfile" element={<EditProfile />} />
 				<Route
 					path="/signin"
 					element={
