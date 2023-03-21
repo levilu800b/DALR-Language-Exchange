@@ -36,6 +36,9 @@ const Contact = () => {
     <Form.Item name={["user", "name"]} label="Name" rules={[{ required: true }]}>
       <Input />
     </Form.Item>
+    <Form.Item name={["user", "email"]} label="Email" rules={[{ type: "email" }]}>
+      <Input />
+    </Form.Item>
 
   </Form>
   </div>
