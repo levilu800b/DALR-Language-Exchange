@@ -1,5 +1,7 @@
-import React from "react";
-import { Button, Form, Input, InputNumber } from "antd";
+import React , { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
+import { Button, Form, Input } from "antd";
 import "./Contact.css";
 const layout = {
   labelCol: { span: 8 },
@@ -19,39 +21,40 @@ const validateMessages = {
 };
 /* eslint-enable no-template-curly-in-string */
 
-const onFinish = (values, any) => {
-  console.log(values);
-};
 const Contact = () => {
+  const form = useRef();
+  const onFinish = (values) => {
+    values.preventDefault();
+    emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
+    .then((result) => {
+        console.log(result.text);
+    }, (error) => {
+        console.log(error.text);
+    });
+  };
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
+      .then((result) => {
+          console.log(result.text);
+          console.log("Your Message has been sented");
+      }, (error) => {
+          console.log(error.text);
+      });
+  };
+
   return (
     <div className="cont">
       <h1 style={{ color :"black", marginLeft:250 }} >contact</h1>
-  <Form
-    {...layout}
-    name="nest-messages"
-    onFinish={onFinish}
-    style={{ maxWidth: 600 }}
-    validateMessages={validateMessages}
-  >
-    <Form.Item name={["user", "name"]} label="Name" rules={[{ required: true }]}>
-      <Input />
-    </Form.Item>
-    <Form.Item name={["user", "email"]} label="Email" rules={[{ type: "email" }]}>
-      <Input />
-    </Form.Item>
-    <Form.Item name={["user", "age"]} label="Age" rules={[{ type: "number", min: 0, max: 99 }]}>
-      <InputNumber />
-    </Form.Item>
-
-    <Form.Item name={["user", "introduction"]} label="Massges">
-      <Input.TextArea />
-    </Form.Item>
-    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-      <Button type="primary" htmlType="submit">
-        Send
-      </Button>
-    </Form.Item>
-  </Form>
+      <form ref={form} onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </form>
   </div>
 );
 };
