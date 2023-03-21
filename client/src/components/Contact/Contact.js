@@ -33,6 +33,9 @@ const Contact = () => {
     style={{ maxWidth: 600 }}
     validateMessages={validateMessages}
   >
+    <Form.Item name={["user", "name"]} label="Name" rules={[{ required: true }]}>
+      <Input />
+    </Form.Item>
 
   </Form>
   </div>
