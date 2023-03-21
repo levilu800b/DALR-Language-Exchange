@@ -46,7 +46,11 @@ const Contact = () => {
     <Form.Item name={["user", "introduction"]} label="Massges">
       <Input.TextArea />
     </Form.Item>
-
+    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+      <Button type="primary" htmlType="submit">
+        Send
+      </Button>
+    </Form.Item>
   </Form>
   </div>
 );
