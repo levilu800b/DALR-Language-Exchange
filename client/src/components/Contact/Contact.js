@@ -1,37 +1,10 @@
 import React , { useRef } from "react";
 import emailjs from "@emailjs/browser";
-
-import { Button, Form, Input } from "antd";
 import "./Contact.css";
-const layout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 },
-};
 
-/* eslint-disable no-template-curly-in-string */
-const validateMessages = {
-  required: "${label} is required!",
-  types: {
-    email: "${label} is not a valid email!",
-    number: "${label} is not a valid number!",
-  },
-  number: {
-    range: "${label} must be between ${min} and ${max}",
-  },
-};
-/* eslint-enable no-template-curly-in-string */
 
 const Contact = () => {
   const form = useRef();
-  const onFinish = (values) => {
-    values.preventDefault();
-    emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
-    .then((result) => {
-        console.log(result.text);
-    }, (error) => {
-        console.log(error.text);
-    });
-  };
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
