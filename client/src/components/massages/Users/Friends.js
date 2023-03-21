@@ -1,13 +1,7 @@
-// import React from "react";
-
-// export default function Friends() {
-// 	return <div>Friends</div>;
-// }
-// import navbar from "../navbar.css";
 import React from "react";
 
 import { useParams } from "react-router-dom";
-import imfg from "../../../assets/bg1.jpg";
+import imfg from "../../../assets/faceImoje.png";
 
 const Friends = ({ data, selectedUser }) => {
 	const { userId } = useParams();

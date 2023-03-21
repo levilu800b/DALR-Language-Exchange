@@ -1,0 +1,74 @@
+.container-textArea-message {
+	margin-top: 2rem;
+	width: 80%;
+	margin-left: 10%;
+}
+
+.textArea-message {
+	width: 100%;
+	height: 200px;
+	padding: 10px;
+	border: 2px solid rgba(103, 2, 2, 0.1);
+	border-radius: 10px;
+	box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+	font-size: 16px;
+	line-height: 1.5;
+	font-family: Helvetica, sans-serif;
+}
+.textArea-message:hover {
+	border: 1px solid rgba(103, 2, 2, 0.1);
+}
+
+.button-message {
+	background-color: #008cba;
+	color: white;
+	border-radius: 10px;
+	padding: 10px 20px;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	margin-top: 10px;
+}
+.text-message {
+	display: flex;
+}
+
+.contentMessage-message {
+}
+.container_all-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 2rem 0 3rem 0;
+}
+
+.overall_ditail-message {
+	width: 80%;
+	height: auto;
+	background-color: #efeeee;
+	display: flex;
+}
+.img-message {
+	margin: 1rem 2rem 0 2.5rem;
+	width: 100px;
+	height: 100px;
+	line-height: 15px;
+	font-size: 1rem;
+}
+
+.text-message {
+	display: flex;
+	margin-top: 0.5rem;
+	margin-left: 2rem;
+}
+.text-message h2 {
+	margin-bottom: 2rem;
+	color: #000;
+}
+.text-message p {
+	color: #000;
+}
+.text-message span {
+	margin-right: 3rem;
+}

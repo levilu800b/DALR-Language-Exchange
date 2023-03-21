@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import { Menu, Layout } from "antd";
 import { useParams } from "react-router-dom";
 import Friends from "./Users/Friends";
-import Exam from "./Users/Exam";
-import Profile from "./Users/Profile";
 
-import imfg from "../../assets/bg1.jpg";
+import Profile from "./Users/Profile";
+import MessageSend from "./Users/messageSend/MessageSend";
+
 import "./massage.css";
 import "./navbar.css";
 
@@ -34,7 +34,7 @@ export default function Massage({ data, selectedUser }) {
 			path: "/message",
 			component: (
 				<div>
-					<Exam />
+					<MessageSend data={data} selectedUser={selectedUser} />
 				</div>
 			),
 		},

@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { TextArea, SendButton } from "../Users/textErea/TextErea";
-import imfg from "../../../assets/bg1.jpg";
+import imfg from "../../../assets/faceImoje.png";
 import "../massage.css";
 import "../navbar.css";
 import "./textErea/textErea.css";
 
 export default function Profile({ data, selectedUser }) {
 	const [text, setText] = useState("");
-
 	const handleChangeText = (event) => {
 		setText(event.target.value);
 	};
@@ -20,10 +19,10 @@ export default function Profile({ data, selectedUser }) {
 	const user = data.find((u) => u.user_id === parseInt(userId));
 	return (
 		<div>
-			<section className="recipe_all">
+			<section className="container_all">
 				<div className="overall_ditail">
 					<div className="img">
-						<img src={imfg} alt="" width="150px" height="200px" />
+						<img src={imfg} alt="" />
 					</div>
 
 					<div className="text">

@@ -8,7 +8,12 @@
 	font-size: 2em;
 	color: #356aa0;
 } */
-
+img {
+	width: 150px;
+	height: 200px;
+	margin-left: 5%;
+	border: #d5d4d4 solid 1px;
+}
 .p {
 	color: black;
 	font-size: 20px;
