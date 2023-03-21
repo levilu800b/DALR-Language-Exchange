@@ -12,9 +12,12 @@ import Contact from "./components/Contact/Contact";
 import Home from "./pages/Home";
 import Login from "./components/Sign-In/SignIn";
 import Register from "./components/Sign-Up/SignUp";
-import Dashboard from "./components/Dashboard/Dashboard";
+import Head from "./components/Dashboard/Dashboard";
+import Manage_profile from "./components/manage-profile/Manage_profile";
 import NavBar from "./components/HomePage/NavBar/NavBar";
 import CreateEvents from "./components/CreateEvents/CreateEvents";
+import Massage from "./components/massages/Massage";
+import Friends from "./components/massages/Users/Friends";
 
 toast.configure();
 
@@ -52,6 +55,9 @@ function App() {
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/events" element={<CreateEvents />} />
+				<Route path="/manageProfile" element={<Manage_profile />} />
+				<Route path="/massages" element={<Massage />} />
+				<Route path="/friends" element={<Friends />} />
 
 				<Route
 					path="/signin"
@@ -77,7 +83,7 @@ function App() {
 					path="/dashboard"
 					element={
 						isAuthenticated ? (
-							<Dashboard setAuth={setAuth} />
+							<Head setAuth={setAuth} />
 						) : (
 							<Navigate to="/signin" replace />
 						)

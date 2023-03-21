@@ -9,10 +9,12 @@ module.exports = function (req, res, next) {
 		}
 		const payload = jwt.verify(jwtToken, process.env.jwtSecret);
 		req.user = payload.user;
-		console.log(req);
+
 		next();
 	} catch (error) {
 		console.error(error.message);
 		res.status(403).json("Not Authorize");
 	}
 };
+
+//decode the token =>atob('token')
