@@ -1,0 +1,45 @@
+.profile-content{
+display: flex;
+justify-content: center;
+margin-top: 15rem;
+}
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #0077B5;
+    color: #fff;
+    box-shadow: 5px 10px #dad9d9;
+    border-radius: 10px;
+
+  }
+  
+  .profile-header{
+   
+  }
+  .profile-info{
+    text-align: center;
+  }
+  .bt-profile{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+   
+  }
+  .profile-header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 2rem;
+    
+   }
+  .main-profile{
+    border: 1px solid black;
+  width: 50rem;
+  height: 10rem; 
+  margin-left: 30px;
+   background-color: #eaeff1;
+  border-radius: 10px;
+  } 
