@@ -101,3 +101,7 @@ input {
 	line-height: 24px;
 	line-height: 1.5rem;
 }
+.ul {
+	width: 100%;
+	margin-left: 10%;
+}
