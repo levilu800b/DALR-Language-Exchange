@@ -36,7 +36,7 @@ export default function Manage_profile() {
 
 	const getProfile = async () => {
 		try {
-			const res = await fetch("api/dashboard/", {
+			const res = await fetch("/api/dashboard/send-message", {
 				method: "GET",
 				headers: { token: localStorage.token },
 			});

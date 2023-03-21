@@ -36,31 +36,6 @@ const MessageSend = ({ data, selectedUser }) => {
 		setMessage(event.target.value);
 	};
 
-	// const handleClick = async () => {
-	// 	// Create a new message object
-	// 	const newMessage = {
-	// 		senderId: sender.user_id, // Sender's user ID
-	// 		recipientId: selectedUser.user_id, // Recipient's user ID from URL parameters
-	// 		text: message, // Message text
-	// 	};
-
-	// 	try {
-	// 		// Send the message to the server
-	// 		const response = await fetch("/api/dashboard/send-message", {
-	// 			method: "POST",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 			body: JSON.stringify(newMessage),
-	// 		});
-
-	// 		// Clear the message text area
-	// 		setMessage("");
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
-
 	//🏆
 
 	const handleClick = async (e) => {
