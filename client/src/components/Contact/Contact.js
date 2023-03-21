@@ -43,6 +43,10 @@ const Contact = () => {
       <InputNumber />
     </Form.Item>
 
+    <Form.Item name={["user", "introduction"]} label="Massges">
+      <Input.TextArea />
+    </Form.Item>
+
   </Form>
   </div>
 );
