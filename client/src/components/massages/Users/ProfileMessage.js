@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import { TextArea, SendButton } from "../Users/textErea/TextErea";
 import imfg from "../../../assets/faceImoje.png";
 import "../massage.css";
 import "../navbar.css";
@@ -83,14 +82,6 @@ export default function Profile({ data, selectedUser }) {
 				</div>
 			</section>
 			<div style={{ marginLeft: "10%" }}>New message</div>
-			{/* <div className="ereaText">
-				<h1>My Text Area</h1>
-
-				<TextArea value={message} onChange={handleChangeText} />
-			</div>
-			<div style={{ marginLeft: "10%" }}>
-				<SendButton onClick={handleClickMessage} />
-			</div> */}
 			<form className="container-textArea-message" onSubmit={handleClick}>
 				<textarea
 					className="textArea-message"

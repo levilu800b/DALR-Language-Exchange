@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
 
 import "./ProfileStyle.css";
-import Manage_profile from "../manage-profile/Manage_profile";
 
 import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
@@ -79,7 +78,6 @@ const Profile = () => {
 					</Descriptions>
 				</main>
 			</div>
-			{/* Pass parseData as a prop to Manage_profile component */}
 		</>
 	);
 };

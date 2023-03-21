@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import "./messageSend.css";
 import imfg from "../../../../assets/faceImoje.png";
@@ -16,6 +17,7 @@ const MessageSend = ({ data, selectedUser }) => {
 
 			const parseData = await res.json();
 			setSender(parseData);
+			// if else statement to check if the message was sent use toast to display a message to the user=>
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -83,8 +85,14 @@ const MessageSend = ({ data, selectedUser }) => {
 
 			// Clear the message text area
 			setMessage("");
+			if (response.ok) {
+				toast.success("Message Sent Successfully");
+			} else {
+				toast.error("Message Not Sent");
+			}
 		} catch (error) {
 			console.error(error);
+			toast.error("Message Not Sent");
 		}
 	};
 

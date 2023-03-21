@@ -38,6 +38,7 @@ input {
 }
 .text p {
 	color: #000;
+	font-weight: 300;
 }
 .text span {
 	margin-right: 3rem;
