@@ -35,7 +35,7 @@
 //🍉🍉🍉🍉🍉🍉🍉🍉
 import React, { useState } from "react";
 import { Menu, Layout } from "antd";
-import { Link, Routes, Route, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { TextArea, SendButton } from "./Users/textErea/TextErea";
 import Friends from "./Users/Friends";
 import Exam from "./Users/Exam";
@@ -48,7 +48,7 @@ const { Header, Footer, Content } = Layout;
 export default function Massage({ data, selectedUser }) {
 	const [text, setText] = useState("");
 
-	const handleChange = (event) => {
+	const handleChangeText = (event) => {
 		setText(event.target.value);
 	};
 	const handleClick = () => {
@@ -67,7 +67,7 @@ export default function Massage({ data, selectedUser }) {
 	};
 
 	const handleProfileClick = () => {
-		setShowExam(true);
+		setShowExam(false);
 		navigate("/profile");
 	};
 
@@ -77,7 +77,7 @@ export default function Massage({ data, selectedUser }) {
 	};
 
 	const handleCorrectionsClick = () => {
-		setShowExam(false);
+		setShowExam(true);
 		navigate("/corrections");
 	};
 
@@ -113,7 +113,7 @@ export default function Massage({ data, selectedUser }) {
 				</Header>
 				<Content className="contentMessage">
 					{showExam ? (
-						<Friends />
+						<Friends data={data} selectedUser={selectedUser} />
 					) : (
 						<>
 							<section className="recipe_all">
@@ -157,7 +157,7 @@ export default function Massage({ data, selectedUser }) {
 							<div style={{ marginLeft: "10%" }}>New message</div>
 							<div className="ereaText">
 								<h1>My Text Area</h1>
-								<TextArea value={text} onChange={handleChange} />
+								<TextArea value={text} onChange={handleChangeText} />
 							</div>
 							<div style={{ marginLeft: "10%" }}>
 								<SendButton onClick={handleClick} />
@@ -165,7 +165,13 @@ export default function Massage({ data, selectedUser }) {
 						</>
 					)}
 				</Content>
-				<Footer className="footerMessage">Footer</Footer>
+				<Footer className="footerMessage">
+					<p>©2023 All Rights Reserved | Language.Exchange Language Exchange</p>
+					<p>
+						Websites | Contact us | Privacy & Cookies | Terms of Use | Thanks |
+						Pen Pal
+					</p>
+				</Footer>
 			</Layout>
 		</>
 	);

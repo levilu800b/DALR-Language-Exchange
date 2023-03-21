@@ -49,3 +49,10 @@
 	padding: 0.7em;
 	border-radius: 5px;
 }
+.footerMessage {
+	text-align: center;
+	font-size: 0.7rem;
+}
+.footerMessage p {
+	color: #000;
+}
