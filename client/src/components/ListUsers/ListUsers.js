@@ -55,7 +55,7 @@ function UserList() {
 						cover={
 							<img
 								alt={`${user.user_firstname} `}
-								src={allImages["bg1.jpg"]?.default}
+								src={allImages["faceImoje.png"]?.default}
 							/>
 						}
 					>

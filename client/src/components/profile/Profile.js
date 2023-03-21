@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/bg2.jpg";
 
 import "./ProfileStyle.css";
 
