@@ -25,7 +25,7 @@ const onFinish = (values, any) => {
 const Contact = () => {
   return (
     <div className="cont">
-      <h1 style={{ color :"black" }}>contact</h1>
+      <h1 style={{ color :"black", marginLeft:250 }} >contact</h1>
   <Form
     {...layout}
     name="nest-messages"
