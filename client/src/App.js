@@ -14,6 +14,7 @@ import Login from "./components/Sign-In/SignIn";
 import Register from "./components/Sign-Up/SignUp";
 import Dashboard from "./components/Dashboard/Dashboard";
 import NavBar from "./components/HomePage/NavBar/NavBar";
+import CreateEvents from "./components/CreateEvents/CreateEvents";
 
 toast.configure();
 
@@ -50,6 +51,7 @@ function App() {
 				<Route path="/" element={<Home />} />
 				<Route path="/about" element={<About />} />
 				<Route path="/contact" element={<Contact />} />
+				<Route path="/events" element={<CreateEvents />} />
 
 				<Route
 					path="/signin"

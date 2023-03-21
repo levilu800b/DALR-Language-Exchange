@@ -1,6 +1,7 @@
 import express from "express";
 import logger from "./utils/logger";
 const router = express.Router();
+import db from "./db";
 
 import {
 	getAllLearner,

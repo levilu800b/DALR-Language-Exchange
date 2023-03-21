@@ -1,54 +1,106 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./CreateEvents.css";
 
 const CreateEvents = () => {
-	const [formData, setFormData] = useState({
-		languages: "",
-		location: "",
-		link: "",
-		title: "",
-		description: "",
-		datetime: "",
-	});
+  const [formData, setFormData] = useState({
+    languages: "",
+    location: "",
+    link: "",
+    title: "",
+    description: "",
+    datetime: "",
+  });
 
-	const [formErrors, setFormErrors] = useState({});
+  const [formErrors, setFormErrors] = useState({});
+  const [formSuccess, setFormSuccess] = useState(false);
 
-	const handleInputChange = (event) => {
-		const { name, value } = event.target;
-		setFormData({
-			...formData,
-			[name]: value,
-		});
-	};
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value });
 
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-		try {
-			const response = await axios.post("/api/events", formData);
-			if (response.status === 201) {
-				setFormData({
-					languages: "",
-					location: "",
-					link: "",
-					title: "",
-					description: "",
-					datetime: "",
-				});
-				setFormErrors({});
-				// Add the newly created event to a list of events displayed on the page
-			}
-		} catch (error) {
-			if (error.response) {
-				setFormErrors(error.response.data);
-			} else {
-				setFormErrors({
-					submit: "Something went wrong. Please try again later.",
-				});
-			}
-		}
-	};
+    if (formErrors[name]) {
+      setFormErrors({ ...formErrors, [name]: "" });
+    }
 
-  const handleCancel = () => {
+    if (formSuccess) {
+      setFormSuccess(false);
+    }
+
+    if (formErrors.submit) {
+      setFormErrors({ ...formErrors, submit: "" });
+    }
+
+    if (formErrors.cancel) {
+      setFormErrors({ ...formErrors, cancel: "" });
+    }
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { languages, location, link, title, description, datetime } = formData;
+
+    const errors = {};
+
+    if (!languages) {
+      errors.languages = "Languages is required";
+    }
+
+    if (!location) {
+      errors.location = "Location is required";
+    }
+
+    if (!link) {
+      errors.link = "Link is required";
+    }
+
+    if (!title) {
+      errors.title = "Title is required";
+    }
+
+    if (!description) {
+      errors.description = "Description is required";
+    }
+
+    if (!datetime) {
+      errors.datetime = "Date and time is required";
+    }
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+    } else {
+      try {
+        const result = await axios.post("/api/dashboard/create_events", {
+          languages,
+          location,
+          link,
+          title,
+          description,
+          datetime,
+        });
+
+        if (result.status === 201) {
+          setFormSuccess(true);
+          setFormData({
+            languages: "",
+            location: "",
+            link: "",
+            title: "",
+            description: "",
+            datetime: "",
+          });
+        }
+      } catch (error) {
+        console.error(error);
+        setFormErrors({ submit: "Something went wrong, please try again." });
+      }
+    }
+  };
+
+  const handleCancel = (event) => {
+    event.preventDefault();
+
     setFormData({
       languages: "",
       location: "",
@@ -57,7 +109,10 @@ const CreateEvents = () => {
       description: "",
       datetime: "",
     });
-    setFormErrors({});
+
+    if (formErrors.cancel) {
+      setFormErrors({ ...formErrors, cancel: "" });
+    }
   };
 
 	return (
