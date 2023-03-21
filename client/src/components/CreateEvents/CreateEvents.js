@@ -48,6 +48,18 @@ const CreateEvents = () => {
 		}
 	};
 
+  const handleCancel = () => {
+    setFormData({
+      languages: "",
+      location: "",
+      link: "",
+      title: "",
+      description: "",
+      datetime: "",
+    });
+    setFormErrors({});
+  };
+
 	return (
 		<form onSubmit={handleSubmit}>
 			<div>
@@ -119,6 +131,7 @@ const CreateEvents = () => {
 			</div>
 			<button type="submit">Submit</button>
 			{formErrors.submit && <span>{formErrors.submit}</span>}
+      <button type="cancel" onClick={handleCancel}>Cancel</button>
 		</form>
 	);
 };

@@ -28,6 +28,18 @@ CREATE TABLE user_profiles (
 INSERT INTO user_profiles (user_firstName,user_secondName, user_email,user_password, user_language_speak, user_language_interest, user_city, user_country)
 VALUES ('Ahmed BahBah','Mohamed BahBah', 'Ahmed-BahBah@gmail.com','kthl8822', 'Arabic BahBah', 'English BahBah', 'Manchester BahBah', 'UK BahBah');
 
+CREATE TABLE create_events (
+  id SERIAL PRIMARY KEY,
+  languages TEXT NOT NULL,
+  location TEXT NOT NULL,
+  link TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  datetime TIMESTAMP NOT NULL
+);
+INSERT INTO create_events (languages, location, link, title, description, datetime)
+VALUES ('Arabic BahBah', 'Manchester BahBah', 'https://www.meetup.com/Manchester-Arabic-Language-Meetup/', 'Manchester Arabic Language Meetup', 'Manchester Arabic Language Meetup', '2020-10-10 10:00:00');
+
 
 
 CREATE TABLE todo(
