@@ -48,9 +48,13 @@ router.post("/send-message", authorize, async (req, res) => {
 		}
 
 		// Insert message into database
+		// const newMessage = await db.query(
+		// 	"INSERT INTO messages (sender_id, recipient_id, message) VALUES ($1, $2, $3) RETURNING *",
+		// 	[senderId, recipient.rows[0].user_id, message]
+		// );
 		const newMessage = await db.query(
-			"INSERT INTO messages (sender_id, recipient_id, message) VALUES ($1, $2, $3) RETURNING *",
-			[senderId, recipient.rows[0].user_id, message]
+			"INSERT INTO messages (sender_id, recipient_id, recipient_email, message) VALUES ($1, $2, $3, $4) RETURNING *",
+			[senderId, recipient.rows[0].user_id, recipientEmail, message]
 		);
 		if (!newMessage.rows[0]) {
 			return res
@@ -66,3 +70,5 @@ router.post("/send-message", authorize, async (req, res) => {
 });
 
 module.exports = router;
+
+//how to delete table in postgresql=> DROP TABLE messages;
