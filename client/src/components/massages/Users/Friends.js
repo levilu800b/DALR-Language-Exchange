@@ -1,4 +1,6 @@
 import React from "react";
+import "../massage.css";
+import "../navbar.css";
 
 import { useParams } from "react-router-dom";
 import imfg from "../../../assets/faceImoje.png";
@@ -7,7 +9,7 @@ const Friends = ({ data, selectedUser }) => {
 	const { userId } = useParams();
 	const user = data.find((u) => u.user_id === parseInt(userId));
 	return (
-		<section className="recipe_all">
+		<section className="container">
 			<div className="overall_ditail">
 				<div className="img">
 					<img src={imfg} alt="" width="150px" height="200px" />

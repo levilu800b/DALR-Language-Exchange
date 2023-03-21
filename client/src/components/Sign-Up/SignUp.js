@@ -33,6 +33,7 @@ const SignUp = ({ setAuth }) => {
 		e.preventDefault();
 		try {
 			const body = {
+				user_id,
 				firstname,
 				secondname,
 				email,
@@ -135,7 +136,9 @@ const SignUp = ({ setAuth }) => {
 
 				<button className="btn btn-success btn-block">Sign up</button>
 			</form>
-			<Link className="login_button" to="/signin">I already Have an Account, Please Login.</Link>
+			<Link className="login_button" to="/signin">
+				I already Have an Account, Please Login.
+			</Link>
 		</div>
 	);
 };
