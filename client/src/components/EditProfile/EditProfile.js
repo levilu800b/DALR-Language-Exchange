@@ -25,7 +25,6 @@ const EditProfile = ({ setAuth }) => {
 		firstname: "",
 		secondname: "",
 		email: "",
-		password: "",
 		language_speak: "",
 		language_interest: "",
 		city: "",
@@ -35,7 +34,6 @@ const EditProfile = ({ setAuth }) => {
 		firstname,
 		secondname,
 		email,
-		password,
 		language_speak,
 		language_interest,
 		city,
@@ -50,13 +48,12 @@ const EditProfile = ({ setAuth }) => {
 					firstname,
 					secondname,
 					email,
-					password,
 					language_speak,
 					language_interest,
 					city,
 					country,
 				};
-				const response = await fetch("/api/profile/${user.id}", {
+				const response = await fetch("/api/dashboard/update/${user.id}", {
 					method: "PUT",
 					headers: {
 						"Content-type": "application/json",
@@ -104,14 +101,7 @@ const EditProfile = ({ setAuth }) => {
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
-				<input
-					type="password"
-					name="password"
-					value={password}
-					placeholder="password"
-					onChange={(e) => onChange(e)}
-					className="form-control my-3"
-				/>
+
 				<input
 					type="text"
 					name="language_speak"
