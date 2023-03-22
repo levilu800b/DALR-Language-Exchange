@@ -9,12 +9,15 @@ import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
 import SearchCountry from "../../components/SearchCountry/SearchCountry";
 import CreateEvents from "../../components/CreateEvents/CreateEvents";
 import EventLists from "../../components/EventLists/EventLists";
+import Manage_profile from "../../components/manage-profile/Manage_profile";
 import Logout from "../../components/Logout/Logout";
+import Massages from "../../components/massages/Massage";
+import Friends from "../../components/massages/Users/Friends";
 
 const { Content } = Layout;
 
-function Dashboard({ setAuth }) {
-	const [selectedMenu, setSelectedMenu] = useState("profile");
+function Head({ setAuth }) {
+	const [selectedMenu, setSelectedMenu] = useState("");
 
 	const handleMenuClick = (key) => {
 		setSelectedMenu(key);
@@ -28,20 +31,24 @@ function Dashboard({ setAuth }) {
 				return <EditProfile />;
 			case "user-lists":
 				return <UserLists />;
-			case "create-events":
-				return <CreateEvents />;
-			case "event-lists":
-				return <EventLists />;
 			case "search-city":
 				return <SearchCity />;
 			case "search-language":
 				return <SearchLanguage />;
 			case "search-country":
 				return <SearchCountry />;
-			case "logout":
+			case "create-events":
+				return <CreateEvents />;
+			case "event-lists":
+				return <EventLists />;
+				case "logout":
 				return <Logout setAuth={setAuth} />;
+			case "massages":
+				return <Massages />;
+			case "friends":
+				return <Friends />;
 			default:
-				return <Profile />;
+				return <Manage_profile />;
 		}
 	};
 
@@ -55,4 +62,4 @@ function Dashboard({ setAuth }) {
 	);
 }
 
-export default Dashboard;
+export default Head;

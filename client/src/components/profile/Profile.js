@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/profile.jpg";
+import profile from "../../assets/bg2.jpg";
 
 import "./ProfileStyle.css";
+import Manage_profile from "../manage-profile/Manage_profile";
 
 import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
+
 const Profile = () => {
 	const [data, setData] = useState("");
 
@@ -22,11 +24,9 @@ const Profile = () => {
 		}
 	};
 
-
 	useEffect(() => {
 		getProfile();
 	}, []);
-	console.log(data);
 
 	return (
 		<>
@@ -75,9 +75,10 @@ const Profile = () => {
 						</Descriptions.Item>
 					</Descriptions>
 				</main>
-
 			</div>
+			{/* Pass parseData as a prop to Manage_profile component */}
 		</>
 	);
 };
+
 export default Profile;
