@@ -10,7 +10,7 @@ const Contact = () => {
     emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
       .then((result) => {
           console.log(result.text);
-          console.log("Your Message has been sented");
+          console.log("Your Message has been sent");
       }, (error) => {
           console.log(error.text);
       });
