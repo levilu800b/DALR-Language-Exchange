@@ -77,7 +77,7 @@ function UserList() {
 							>
 								<Meta
 									Link
-									to={`/profile`}
+									to={"/profile"}
 									title={`${user.user_secondname} `}
 									description={`Languages spoken: ${user.user_language_speak}`}
 								/>

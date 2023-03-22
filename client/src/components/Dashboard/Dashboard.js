@@ -29,22 +29,19 @@ function Head({ setAuth }) {
 				return <Profile setAuth={setAuth} />;
 			case "edit-profile":
 				return <EditProfile />;
+			case "user-lists":
 				return <UserLists />;
+			case "search-city":
+				return <SearchCity />;
+			case "search-language":
+				return <SearchLanguage />;
+			case "search-country":
+				return <SearchCountry />;
 			case "create-events":
 				return <CreateEvents />;
 			case "event-lists":
 				return <EventLists />;
-			case "manageProfile":
-				return <Manage_profile />;
-				return <AddUser />;
-			case "user-list":
-				return <UserList />;
-			case "search-city":
-				return <SearchCity />;
-				return <SearchLanguage />;
-			case "search-country":
-				return <SearchCountry />;
-			case "logout":
+				case "logout":
 				return <Logout setAuth={setAuth} />;
 			case "massages":
 				return <Massages />;

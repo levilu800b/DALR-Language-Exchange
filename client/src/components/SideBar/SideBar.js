@@ -10,21 +10,19 @@ import {
 	DashboardOutlined,
 	ProfileOutlined,
 	EditOutlined,
-	ContainerOutlined,
+	UsergroupAddOutlined,
 } from "@ant-design/icons";
 
 const { Sider } = Layout;
 
 const items = [
-	{ key: "dashboard", icon: <DashboardOutlined />, label: "Dashboard" },
-	{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
-	{ key: "edit-profile", icon: <EditOutlined />, label: "Edit Profile" },
 	{
-		key: "dashboard2",
+		key: "dashboard",
 		icon: <DashboardOutlined />,
 		label: "Dashboard",
 		children: [
 			{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
+			{ key: "edit-profile", icon: <EditOutlined />, label: "Edit Profile" },
 			{
 				key: "manageProfile",
 				icon: <UsergroupAddOutlined />,

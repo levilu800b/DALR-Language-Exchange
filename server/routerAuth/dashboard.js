@@ -48,6 +48,7 @@ router.post("/create_events", async (req, res) => {
 	}
 });
 
+
 // router.put("/update/:userId", async (req, res) => {
 // 	const { userId } = req.params;
 // 	const {
@@ -141,5 +142,7 @@ router.post("/send-message", authorize, async (req, res) => {
 		res.status(500).send("Server error");
 	}
 });
+});
+
 
 module.exports = router;
