@@ -63,6 +63,21 @@ router.post("/send-message", authorize, async (req, res) => {
 	}
 });
 
+router.get("/messages", authorize, async (req, res) => {
+	try {
+		const userId = req.user;
+		const messages = await db.query(
+			"SELECT * FROM messages WHERE sender_id = $1 OR recipient_id = $1 ORDER BY created_at DESC",
+			[userId]
+		);
+		//sender_id = $1 OR
+		res.json(messages.rows);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send("Server error");
+	}
+});
+
 module.exports = router;
 
 //how to delete table in postgresql=> DROP TABLE messages;

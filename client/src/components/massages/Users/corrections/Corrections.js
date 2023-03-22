@@ -67,51 +67,73 @@
 
 // export default MessageTable;
 //🌧
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { Table } from "antd";
-import axios from "axios";
 
-const columns = [
-	{
-		title: "Email",
-		dataIndex: "email",
-		key: "email",
-		render: (text, record) => <div>{record.recipient_email}</div>,
-	},
-	{
-		title: "Message",
-		dataIndex: "message",
-		key: "message",
-		render: (text, record) => <div>{record.message}</div>,
-	},
-	{
-		title: "Date",
-		dataIndex: "date",
-		key: "date",
-		render: (text, record) => <div>{record.created_at}</div>,
-	},
-];
+const MessageTable = ({ data, selectedUser }) => {
+	const [messageData, setMessageData] = useState([]);
+	const { userId } = useParams();
+	const user = data.find((u) => u.user_id === parseInt(userId));
 
-const MessageTable = () => {
-	const [data, setData] = useState([]);
+	// const fetchMessages = async () => {
+	// 	try {
+	// 		const response = await fetch("/api/dashboard/messages", {
+	// 			headers: {
+	// 				token: localStorage.token,
+	// 			},
+	// 		});
+	// 		const data = await response.json();
+	// 		setMessageData(data);
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 	}
+	// };
+	const fetchMessages = async () => {
+		try {
+			const response = await fetch("/api/dashboard/messages", {
+				headers: {
+					token: localStorage.token,
+				},
+			});
+			const data = await response.json();
+			const messages = data.filter((message) => {
+				return message.sender_id === selectedUser.user_id;
+			});
+			setMessageData(messages);
+		} catch (error) {
+			console.error(error);
+		}
+	};
+
 	useEffect(() => {
-		// Fetch data from backend when component mounts
-		const fetchData = async () => {
-			try {
-				const response = await axios.get("api/dashboard/send-message");
-				setData(response.data);
-			} catch (error) {
-				console.log(error);
-			}
-		};
-
-		fetchData();
+		fetchMessages();
 	}, []);
-	console.log(data);
+
+	const columns = [
+		{
+			title: "Recipient Email",
+			dataIndex: "recipient_email",
+			key: "recipient_email",
+		},
+		{
+			title: "Message",
+			dataIndex: "message",
+			key: "message",
+		},
+		{
+			title: "Created At",
+			dataIndex: "created_at",
+			key: "created_at",
+		},
+	];
+
 	return (
-		<div>
-			<Table dataSource={data} columns={columns} />
-		</div>
+		<Table
+			columns={columns}
+			dataSource={messageData}
+			rowKey={(record) => record.id}
+		/>
 	);
 };
 

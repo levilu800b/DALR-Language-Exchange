@@ -33,7 +33,6 @@ const SignUp = ({ setAuth }) => {
 		e.preventDefault();
 		try {
 			const body = {
-				user_id,
 				firstname,
 				secondname,
 				email,
@@ -144,3 +143,5 @@ const SignUp = ({ setAuth }) => {
 };
 
 export default SignUp;
+
+//how to delete all data from a table in postgresql use this command=> DELETE FROM table_name;
