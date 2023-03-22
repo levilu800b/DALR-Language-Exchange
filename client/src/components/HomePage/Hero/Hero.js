@@ -6,9 +6,9 @@ const Hero = () => {
   return (
     <div className="hero">
 <div className="mask">
-<img className="into-img" src={bg1} alt="backgroungImg" />
+<img className="hero-img"  src={bg1} alt="backgroungImg" />
 </div>
-<div className="content">
+<div className="content_hero">
     <p>Hi ! , Welcome To Our Website</p>
     <h1>Languages Exchange.</h1>
     <div>
