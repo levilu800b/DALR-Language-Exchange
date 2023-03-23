@@ -116,7 +116,7 @@ const CreateEvents = () => {
   };
 //className="create_form"
 	return (
-		<form onSubmit={handleSubmit} className="create_form">
+		<form onSubmit={handleSubmit} className="cont-form">
 			<div>
 				<label htmlFor="languages">Language(s):</label>
 				<input

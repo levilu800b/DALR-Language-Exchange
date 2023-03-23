@@ -1,4 +1,7 @@
-/* .cont{
+.cont-form{
+  margin-top: 7rem;
+}
+.cont{
     margin-left: 10rem;
     margin-top: 10rem;
 }
@@ -40,4 +43,4 @@
       color: white;
       border: none;
     }
-   */
+  
