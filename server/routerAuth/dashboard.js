@@ -47,7 +47,15 @@ router.post("/create_events", async (req, res) => {
 		res.status(500).json({ error: "Server error" });
 	}
 });
-
+router.get("/events", async (req, res) => {
+	try {
+	 const result = await db.query("SELECT * FROM create_events");
+	 res.status(200).json(result.rows);
+	} catch (error) {
+	 console.error(error.message);
+	 res.status(500).json({ error: "Server error" });
+	}
+   });
 
 // router.put("/update/:userId", async (req, res) => {
 // 	const { userId } = req.params;
