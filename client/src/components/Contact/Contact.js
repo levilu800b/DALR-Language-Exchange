@@ -18,7 +18,7 @@ const Contact = () => {
 
   return (
     <div className="cont">
-      <h1 style={{ color :"black", marginLeft:250 }} >contact</h1>
+      <h1 className="con_text" >contact</h1>
       <form ref={form} onSubmit={sendEmail}>
       <label>Name</label>
       <input type="text" name="user_name" />
@@ -26,7 +26,9 @@ const Contact = () => {
       <input type="email" name="user_email" />
       <label>Message</label>
       <textarea name="message" />
-      <input type="submit" value="Send" />
+      {/* <input type="submit" value="Send" className="sub" /> */}
+      <button  className="btn btn-success btn-block">Send</button>
+
     </form>
   </div>
 );
