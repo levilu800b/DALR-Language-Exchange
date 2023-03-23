@@ -1,7 +1,36 @@
 import React, { useState, useEffect } from "react";
 import "./About.css";
 
-const teamMembers = [  {    id: 1,    name: "AHMED",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/ahmed-mohamed-193005242/",    image: require("./ahm.jpg")  },  {    id: 2,    name: "REBWAR",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/anvar-azizi/",    image: require("./reb.jpg")  },  {    id: 3,    name: "LEVI",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/leviudeh/",    image: require("./levi.jpg")  },  {    id: 4,    name: "DAVOOD",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/davood-moradi-2279539a/",    image: require("./dav.jpg")  }];
+const teamMembers = [
+	{
+		id: 1,
+		name: "AHMED",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/ahmed-mohamed-193005242/",
+		image: require("./ahm.jpg"),
+	},
+	{
+		id: 2,
+		name: "REBWAR",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/anvar-azizi/",
+		image: require("./reb.jpg"),
+	},
+	{
+		id: 3,
+		name: "LEVI",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/leviudeh/",
+		image: require("./levi.jpg"),
+	},
+	{
+		id: 4,
+		name: "DAVOOD",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/davood-moradi-2279539a/",
+		image: require("./dav.jpg"),
+	},
+];
 
 function About() {
   const [showMembers, setShowMembers] = useState(false);
