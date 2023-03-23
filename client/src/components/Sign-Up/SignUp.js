@@ -66,7 +66,7 @@ const SignUp = ({ setAuth }) => {
 	};
 
 	return (
-		<div className="container">
+		<div className="signip_container">
 			<h1 className="mt-5 text-center">Register</h1>
 			<form className="col-md-4" onSubmit={onSubmitForm}>
 				<input

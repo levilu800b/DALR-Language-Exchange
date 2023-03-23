@@ -43,7 +43,7 @@ const SignIn = ({ setAuth }) => {
 	};
 
 	return (
-		<div className="container">
+		<div className="sigin_container">
 			<h1 className="mt-5 text-center">Login</h1>
 			<form className="col-md-4" onSubmit={onSubmitForm}>
 				<input

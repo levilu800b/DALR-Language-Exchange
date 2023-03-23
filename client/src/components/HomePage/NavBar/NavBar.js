@@ -9,7 +9,8 @@ const NavBar = () => {
   const handleClick=()=> setClick(!click);
 
   return (
-    <div className="header">
+    <div className="nav_cont">
+    <div className="nav_header">
 <Link to={"/"}>
     <h1>Languages Exchange.</h1>
 </Link>
@@ -33,6 +34,7 @@ const NavBar = () => {
 <div className="hamburger" onClick={handleClick}>
   {click?(<FaTimes size={20} style={{ color:"fff" }} />):(<FaBars size={20} style={{ color:"fff" }} />)}
 </div>
+    </div>
     </div>
   );
 };

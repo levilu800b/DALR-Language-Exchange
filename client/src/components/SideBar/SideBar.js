@@ -12,7 +12,7 @@ import {
 	EditOutlined,
 	UsergroupAddOutlined,
 } from "@ant-design/icons";
-
+import "./SideBar.css";
 const { Sider } = Layout;
 
 const items = [
@@ -103,7 +103,7 @@ const Sidebar = ({ onMenuClick }) => {
 		);
 
 	return (
-		<Sider>
+		<Sider className="sider">
 			<Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
 				{renderMenuItems(items)}
 			</Menu>

@@ -1,14 +1,19 @@
-.header{
+.nav_cont{
+    /* position: relative; */
+
+}
+.nav_header{
     display: flex;
     background-color: black;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
     /* hide background color  */
-    /* position: fixed; */
+    position: fixed;
     width: 100%;
     height: 90px;
-    /* z-index: 10; */
+    z-index: 10;
+    top: 0;
     /* background: transparent; */
 }
 
@@ -27,6 +32,7 @@ font-weight: 500;
 }
 /* add media to Mobile screen   */
 @media screen and (max-width :1040px){
+    
     .nav-menu{
         flex-direction: column;
         justify-content: center;
