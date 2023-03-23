@@ -5,7 +5,7 @@ import db from "../db.js";
 router.get("/", authorize, async (req, res) => {
 	try {
 		const user = await db.query(
-			"SELECT user_id, user_firstname, user_secondname, user_email, user_language_speak, user_language_interest, user_city, user_country FROM user_profiles WHERE user_id = $1 ",
+			"SELECT User_id, User_firstname, User_secondname, User_email, User_language_speak, User_language_interest, User_city, user_country FROM user_profiles WHERE user_id = $1 ",
 			[req.user]
 		);
 
@@ -33,12 +33,12 @@ router.get("/all", authorize, async (req, res) => {
 //💫
 
 router.post("/create_events", async (req, res) => {
-	const { languages, location, link, title, description, datetime } = req.body;
+	const { Languages, Location, Link, Title, Description, Datetime } = req.body;
 
 	try {
 		const result = await db.query(
-			"INSERT INTO create_events (languages, location, link, title, description, datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-			[languages, location, link, title, description, datetime]
+			"INSERT INTO create_events (Languages, Location, Link, Title, Description, Datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+			[Languages, Location, Link, Title, Description, atetime]
 		);
 
 		res.status(201).json(result.rows[0]);
@@ -48,6 +48,15 @@ router.post("/create_events", async (req, res) => {
 	}
 });
 
+router.get("/events", async (req, res) => {
+ try {
+  const result = await db.query("SELECT * FROM create_events");
+  res.status(200).json(result.rows);
+ } catch (error) {
+  console.error(error.message);
+  res.status(500).json({ error: "Server error" });
+ }
+});
 
 // router.put("/update/:userId", async (req, res) => {
 // 	const { userId } = req.params;
