@@ -173,6 +173,10 @@ export default function Manage_profile() {
     fetchMessages();
   }, []);
 
+  const filteredSenderMessage = messageData.filter((message) => message.sender_email === data.user_email);
+//   .map((message) => ({ recipient_email: message.recipient_email, message: message.message }));
+const filteredRecipientMessage = messageData.filter((message) => message.recipient_email === data.user_email);
+
   console.log(data);
   console.log(messageData);
 
@@ -186,16 +190,22 @@ export default function Manage_profile() {
         </div>
         <Table
           columns={columns}
-		dataSource={messageData}
+		dataSource={""}
           rowKey={(record) => record.id}
         />
       </div>
 
       <div className="containerTable">
         <div className="bordered-box">
-          <h3 className="section-title">Messages not answered</h3>
+          <h3 className="section-title">Message sent</h3>
         </div>
-        <Table columns={columns} dataSource={messageData} rowKey={(record) => record.id} />
+        <Table columns={columns} dataSource={filteredSenderMessage} rowKey={(record) => record.id} />
+      </div>
+	  <div className="containerTable">
+        <div className="bordered-box">
+          <h3 className="section-title">Messages received </h3>
+        </div>
+        <Table columns={columns} dataSource={filteredRecipientMessage} rowKey={(record) => record.id} />
       </div>
     </div>
   );
