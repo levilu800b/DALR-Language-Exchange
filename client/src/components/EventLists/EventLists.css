@@ -2,3 +2,51 @@
     margin-top: 7rem;
  
 }
+.text-message {
+	display: flex;
+}
+
+.contentMessage-message {
+}
+.container_all-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	margin: 2rem 0 3rem 0;
+}
+
+.overall_ditail-message {
+	width: 80%;
+	height: auto;
+	background-color: #efeeee;
+	display: flex;
+}
+.img-message {
+	margin: 1rem 2rem 0 2.5rem;
+	width: 100px;
+	height: 100px;
+	line-height: 15px;
+	font-size: 1rem;
+}
+
+.text-message {
+	display: flex;
+	margin-top: 0.5rem;
+	margin-left: 2rem;
+	font-size: 16px;
+	font-weight: 300;
+}
+.text-message h2 {
+	margin-bottom: 2rem;
+	color: #000;
+}
+.text-message p {
+	color: #000;
+}
+.text-message span {
+	margin-right: 1rem;
+}
+.Native {
+	margin-left: 6rem;
+}
