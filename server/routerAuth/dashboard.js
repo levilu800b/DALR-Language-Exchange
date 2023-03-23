@@ -34,7 +34,7 @@ router.get("/all", authorize, async (req, res) => {
 
 router.post("/send-message", authorize, async (req, res) => {
 	try {
-		const { recipientEmail, message } = req.body;
+		const { recipientEmail, message, senderEmail } = req.body;
 		const senderId = req.user;
 
 		// Check if recipient exists
@@ -47,8 +47,8 @@ router.post("/send-message", authorize, async (req, res) => {
 			return res.status(404).json("Recipient not found");
 		}
 		const newMessage = await db.query(
-			"INSERT INTO messages (sender_id, recipient_id, recipient_email, message) VALUES ($1, $2, $3, $4) RETURNING *",
-			[senderId, recipient.rows[0].user_id, recipientEmail, message]
+			"INSERT INTO messages (sender_id, sender_email, recipient_id, recipient_email, message) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+			[senderId, senderEmail, recipient.rows[0].user_id, recipientEmail, message]
 		);
 		if (!newMessage.rows[0]) {
 			return res

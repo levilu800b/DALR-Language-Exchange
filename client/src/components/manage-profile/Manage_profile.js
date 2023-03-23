@@ -31,6 +31,28 @@ const columnsMessages = [
 	},
 ];
 
+// const columns = [
+// 	{
+// 		title: "Sender Email",
+// 		dataIndex: "sender_email",
+// 		key: "sender_email",
+// 	},
+// 	{
+// 		title: "Recipient Email",
+// 		dataIndex: "recipient_email",
+// 		key: "recipient_email",
+// 	},
+// 	{
+// 		title: "Message",
+// 		dataIndex: "message",
+// 		key: "message",
+// 	},
+// 	{
+// 		title: "Created At",
+// 		dataIndex: "created_at",
+// 		key: "created_at",
+// 	},
+// ];
 export default function Manage_profile() {
 	const [data, setData] = useState("");
 

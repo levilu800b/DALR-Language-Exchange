@@ -8,8 +8,6 @@ import "../navbar.css";
 import "./textErea/textErea.css";
 
 export default function Profile({ data, selectedUser }) {
-	const { userId } = useParams();
-	const user = data.find((u) => u.user_id === parseInt(userId));
 	const [sender, setSender] = useState("");
 
 	const getProfile = async () => {
@@ -33,7 +31,8 @@ export default function Profile({ data, selectedUser }) {
 
 	const [message, setMessage] = useState("");
 	// const [text, setText] = useState("");
-
+	const { userId } = useParams();
+	const user = data.find((u) => u.user_id === parseInt(userId));
 
 	const handleChangeText = (event) => {
 		setMessage(event.target.value);
@@ -46,6 +45,7 @@ export default function Profile({ data, selectedUser }) {
 		// Create a new message object
 		const newMessage = {
 			senderId: sender.user_id, // Sender's user ID
+			senderEmail: sender.user_email, // Sender's email
 			recipientEmail: selectedUser.user_email, // Recipient's email
 			message: message, // Message text
 		};
@@ -58,10 +58,11 @@ export default function Profile({ data, selectedUser }) {
 					"Content-Type": "application/json",
 					token: localStorage.token,
 				},
-				body: JSON.stringify(newMessage),// body data type must match "Content-Type" header => "Content-Type": "application/json",the body takes a JSON string so we need to stringify the object and log it to the console to see what it looks like
-
+				body: JSON.stringify(newMessage),
 			});
 
+			const parseRes = await response.json();
+			console.log(parseRes);
 			// Clear the message text area
 			setMessage("");
 			if (response.ok) {
@@ -74,8 +75,6 @@ export default function Profile({ data, selectedUser }) {
 			toast.error("Message Not Sent");
 		}
 	};
-
-	console.log(sender);
 	// selectedUser(selectedUser.user_firstname);
 	return (
 		<div>

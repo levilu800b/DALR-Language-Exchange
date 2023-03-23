@@ -43,6 +43,7 @@ const MessageSend = ({ data, selectedUser }) => {
 		// Create a new message object
 		const newMessage = {
 			senderId: sender.user_id, // Sender's user ID
+			senderEmail: sender.user_email, // Sender's email
 			recipientEmail: selectedUser.user_email, // Recipient's email
 			message: message, // Message text
 		};
@@ -58,7 +59,8 @@ const MessageSend = ({ data, selectedUser }) => {
 				body: JSON.stringify(newMessage),
 			});
 
-
+			const parseRes = await response.json();
+			console.log(parseRes);
 			// Clear the message text area
 			setMessage("");
 			if (response.ok) {
@@ -72,12 +74,12 @@ const MessageSend = ({ data, selectedUser }) => {
 		}
 	};
 
-	console.log("senderId:" + sender.user_id, sender.user_firstname);
+	console.log("senderId:" + sender.user_email);
 	console.log(
 		"user_email:" + selectedUser.user_email,
 		selectedUser.user_firstname
 	);
-	console.log("text:" + message);
+
 	return (
 		<>
 			<section className="container_all-message">

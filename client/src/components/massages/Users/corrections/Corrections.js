@@ -31,6 +31,11 @@ const MessageTable = ({ data, selectedUser }) => {
 
 	const columns = [
 		{
+			title: "Sender Email",
+			dataIndex: "sender_email",
+			key: "sender_email",
+		},
+		{
 			title: "Recipient Email",
 			dataIndex: "recipient_email",
 			key: "recipient_email",
