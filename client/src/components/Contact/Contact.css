@@ -1,7 +1,16 @@
 .cont-form{
   margin-top: 7rem;
 }
+.con_text{
+  color:black;
+  /* margin-top: 7rem; */
+  /* margin: auto; */
+  text-align: center;
+}
 .cont{
+display: flex;
+justify-content: center;
+flex-direction: column;
     margin-left: 10rem;
     margin-top: 10rem;
 }
