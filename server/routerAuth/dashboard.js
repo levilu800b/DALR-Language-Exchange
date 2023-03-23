@@ -98,17 +98,17 @@ router.post("/create_events", async (req, res) => {
 // });
 
 //💫💫💫💫💫💫
-router.put("/update/:userId", async (req, res) => {
-	const { userId } = req.params;
-	const {
-		user_firstname,
-		user_secondname,
-		user_email,
-		user_language_speak,
-		user_language_interest,
-		user_city,
-		user_country,
-	} = req.body;
+// router.put("/update/:userId", async (req, res) => {
+// 	const { userId } = req.params;
+// 	const {
+// 		user_firstname,
+// 		user_secondname,
+// 		user_email,
+// 		user_language_speak,
+// 		user_language_interest,
+// 		user_city,
+// 		user_country,
+// 	} = req.body;
 
 router.post("/send-message", authorize, async (req, res) => {
 	try {
@@ -139,7 +139,6 @@ router.post("/send-message", authorize, async (req, res) => {
 		console.error(err.message);
 		res.status(500).send("Server error");
 	}
-});
 });
 
 router.get("/messages", authorize, async (req, res) => {
