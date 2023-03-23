@@ -12,7 +12,6 @@ module.exports = function (req, res, next) {
 
 		next();
 	} catch (error) {
-		console.error(error.message);
 		res.status(403).json("Not Authorize");
 	}
 };

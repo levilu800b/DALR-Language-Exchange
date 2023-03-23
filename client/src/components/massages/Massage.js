@@ -7,7 +7,6 @@ import Friends from "./Users/Friends";
 import Corrections from "./Users/corrections/Corrections";
 import Profile from "./Users/ProfileMessage";
 import MessageSend from "./Users/messageSend/MessageSend";
-import Manage_profile from "../manage-profile/Manage_profile";
 
 import "./massage.css";
 import "./navbar.css";

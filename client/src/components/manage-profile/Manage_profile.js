@@ -92,7 +92,7 @@ const filteredRecipientMessage = messageData.filter((message) => message.recipie
         </div>
         <Table columns={columns} dataSource={filteredSenderMessage} rowKey={(record) => record.id} />
       </div>
-	  <div className="containerTable">
+	<div className="containerTable">
         <div className="bordered-box">
           <h3 className="section-title">Messages received </h3>
         </div>

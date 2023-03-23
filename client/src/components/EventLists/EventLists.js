@@ -26,7 +26,7 @@ const EventsList = () => {
     dataSource={events}
     renderItem={(event) => (
      <section className="container_all-message" key={event.id} >
-      <div className="overall_ditail-message">
+      <div className="overall_detail-message">
        <div>
         <img className="img-message" src={img} alt="" />
        </div>

@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
 import {
-	BrowserRouter as Router,
 	Routes,
 	Route,
 	Navigate,
