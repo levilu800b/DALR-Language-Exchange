@@ -4,8 +4,10 @@ import { Menu, Layout } from "antd";
 import { useParams } from "react-router-dom";
 import Friends from "./Users/Friends";
 
-import Profile from "./Users/Profile";
+import Corrections from "./Users/corrections/Corrections";
+import Profile from "./Users/ProfileMessage";
 import MessageSend from "./Users/messageSend/MessageSend";
+import Manage_profile from "../manage-profile/Manage_profile";
 
 import "./massage.css";
 import "./navbar.css";
@@ -41,7 +43,11 @@ export default function Massage({ data, selectedUser }) {
 		{
 			name: "Corrections",
 			path: "/corrections",
-			component: <div>Corrections Component</div>,
+			component: (
+				<div>
+					<Corrections data={data} selectedUser={selectedUser} />
+				</div>
+			),
 		},
 	];
 
@@ -70,7 +76,7 @@ export default function Massage({ data, selectedUser }) {
 				<Content className="contentMessage">
 					{
 						navigationItems.find((item) => item.name === activeNavItem)
-							?.component
+							?.component //? is optional chaining operator this use for if the value is null or undefined then it will not throw an error
 					}
 				</Content>
 				<Footer className="footerMessage">

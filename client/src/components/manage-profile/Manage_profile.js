@@ -1,74 +1,103 @@
+
 import "./Manage_profile.css";
 import React, { useEffect, useState } from "react";
 import Table from "../utils/Table";
+// import { useParams } from "react-router-dom";
 
-const columnsEvents = [
-	{ title: "Location", key: "id" },
-	{ title: "Event", key: "title" },
-	{ title: "Languages	", key: "Languages" },
-	{ title: "Date", key: "Date" },
-	{
-		key: "action",
-		//   render: (f, record) => (
-		// 	<Link to={`/post/${record.id}`}>
-		// 	  <EyeOutlined />
-		// 	</Link>
-		//   )
-	},
-];
-
-const columnsMessages = [
-	{ title: "Member", key: "id" },
-	{ title: "Message", key: "title" },
-	{ title: "Date	", key: "Languages" },
-	{
-		key: "action",
-		//   render: (f, record) => (
-		// 	<Link to={`/post/${record.id}`}>
-		// 	  <EyeOutlined />
-		// 	</Link>
-		//   )
-	},
+const columns = [
+  {
+    title: "Sender Email",
+    dataIndex: "sender_email",
+    key: "sender_email",
+  },
+  {
+    title: "Recipient Email",
+    dataIndex: "recipient_email",
+    key: "recipient_email",
+  },
+  {
+    title: "Message",
+    dataIndex: "message",
+    key: "message",
+  },
+  {
+    title: "Created At",
+    dataIndex: "created_at",
+    key: "created_at",
+  },
 ];
 
 export default function Manage_profile() {
-	const [data, setData] = useState("");
+  const [messageData, setMessageData] = useState([]);
+  const [data, setData] = useState([]);
 
-	const getProfile = async () => {
-		try {
-			const res = await fetch("api/dashboard/", {
-				method: "GET",
-				headers: { token: localStorage.token },
-			});
+  const getProfile = async () => {
+    try {
+      const res = await fetch("api/dashboard/", {
+        method: "GET",
+        headers: { token: localStorage.token },
+      });
 
-			const parseData = await res.json();
-			setData(parseData);
-		} catch (err) {
-			console.error(err.message);
-		}
-	};
+      const parseData = await res.json();
+      setData(parseData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-	useEffect(() => {
-		getProfile();
-	}, []);
-	console.log(data);
-	return (
-		<div>
-			<h1 className="Manage">Dashboard</h1>
-			<h3>Welcome {data.user_firstname}</h3>
-			<div className="containerTable">
-				<div className="bordered-box">
-					<h3 className="section-title">Events proposals</h3>
-				</div>
-				<Table columns={columnsEvents} />
-			</div>
+  const fetchMessages = async () => {
+    try {
+      const response = await fetch("/api/dashboard/messages", {
+        headers: {
+          token: localStorage.token,
+        },
+      });
+      const data = await response.json();
+      setMessageData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-			<div className="containerTable">
-				<div className="bordered-box">
-					<h3 className="section-title">Messages not answered</h3>
-				</div>
-				<Table columns={columnsMessages} />
-			</div>
-		</div>
-	);
+  useEffect(() => {
+    getProfile();
+    fetchMessages();
+  }, []);
+
+  const filteredSenderMessage = messageData.filter((message) => message.sender_email === data.user_email);
+//   .map((message) => ({ recipient_email: message.recipient_email, message: message.message }));
+const filteredRecipientMessage = messageData.filter((message) => message.recipient_email === data.user_email);
+
+  console.log(data);
+  console.log(messageData);
+
+  return (
+    <div>
+      <h1 className="Manage">Dashboard</h1>
+      <h3>Welcome {data.user_firstname}</h3>
+      <div className="containerTable">
+        <div className="bordered-box">
+          <h3 className="section-title">Events proposals</h3>
+        </div>
+        <Table
+          columns={columns}
+		dataSource={""}
+          rowKey={(record) => record.id}
+        />
+      </div>
+
+      <div className="containerTable">
+        <div className="bordered-box">
+          <h3 className="section-title">Message sent</h3>
+        </div>
+        <Table columns={columns} dataSource={filteredSenderMessage} rowKey={(record) => record.id} />
+      </div>
+	  <div className="containerTable">
+        <div className="bordered-box">
+          <h3 className="section-title">Messages received </h3>
+        </div>
+        <Table columns={columns} dataSource={filteredRecipientMessage} rowKey={(record) => record.id} />
+      </div>
+    </div>
+  );
 }

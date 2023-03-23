@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import "./messageSend.css";
 import imfg from "../../../../assets/faceImoje.png";
@@ -16,6 +17,7 @@ const MessageSend = ({ data, selectedUser }) => {
 
 			const parseData = await res.json();
 			setSender(parseData);
+			// if else statement to check if the message was sent use toast to display a message to the user=>
 		} catch (err) {
 			console.error(err.message);
 		}
@@ -34,31 +36,6 @@ const MessageSend = ({ data, selectedUser }) => {
 		setMessage(event.target.value);
 	};
 
-	// const handleClick = async () => {
-	// 	// Create a new message object
-	// 	const newMessage = {
-	// 		senderId: sender.user_id, // Sender's user ID
-	// 		recipientId: selectedUser.user_id, // Recipient's user ID from URL parameters
-	// 		text: message, // Message text
-	// 	};
-
-	// 	try {
-	// 		// Send the message to the server
-	// 		const response = await fetch("/api/dashboard/send-message", {
-	// 			method: "POST",
-	// 			headers: {
-	// 				"Content-Type": "application/json",
-	// 			},
-	// 			body: JSON.stringify(newMessage),
-	// 		});
-
-	// 		// Clear the message text area
-	// 		setMessage("");
-	// 	} catch (error) {
-	// 		console.error(error);
-	// 	}
-	// };
-
 	//🏆
 
 	const handleClick = async (e) => {
@@ -66,6 +43,7 @@ const MessageSend = ({ data, selectedUser }) => {
 		// Create a new message object
 		const newMessage = {
 			senderId: sender.user_id, // Sender's user ID
+			senderEmail: sender.user_email, // Sender's email
 			recipientEmail: selectedUser.user_email, // Recipient's email
 			message: message, // Message text
 		};
@@ -81,19 +59,27 @@ const MessageSend = ({ data, selectedUser }) => {
 				body: JSON.stringify(newMessage),
 			});
 
+			const parseRes = await response.json();
+			console.log(parseRes);
 			// Clear the message text area
 			setMessage("");
+			if (response.ok) {
+				toast.success("Message Sent Successfully");
+			} else {
+				toast.error("Message Not Sent");
+			}
 		} catch (error) {
 			console.error(error);
+			toast.error("Message Not Sent");
 		}
 	};
 
-	console.log("senderId:" + sender.user_id, sender.user_firstname);
+	console.log("senderId:" + sender.user_email);
 	console.log(
 		"user_email:" + selectedUser.user_email,
 		selectedUser.user_firstname
 	);
-	console.log("text:" + message);
+
 	return (
 		<>
 			<section className="container_all-message">

@@ -112,7 +112,7 @@ router.put("/update/:userId", async (req, res) => {
 
 router.post("/send-message", authorize, async (req, res) => {
 	try {
-		const { recipientEmail, message } = req.body;
+		const { recipientEmail, message, senderEmail } = req.body;
 		const senderId = req.user;
 
 		// Check if recipient exists
@@ -124,11 +124,9 @@ router.post("/send-message", authorize, async (req, res) => {
 		if (recipient.rows.length === 0) {
 			return res.status(404).json("Recipient not found");
 		}
-
-		// Insert message into database
 		const newMessage = await db.query(
-			"INSERT INTO messages (sender_id, recipient_id, message) VALUES ($1, $2, $3) RETURNING *",
-			[senderId, recipient.rows[0].user_id, message]
+			"INSERT INTO messages (sender_id, sender_email, recipient_id, recipient_email, message) VALUES ($1, $2, $3, $4, $5) RETURNING *",
+			[senderId, senderEmail, recipient.rows[0].user_id, recipientEmail, message]
 		);
 		if (!newMessage.rows[0]) {
 			return res
@@ -144,5 +142,21 @@ router.post("/send-message", authorize, async (req, res) => {
 });
 });
 
+router.get("/messages", authorize, async (req, res) => {
+	try {
+		const userId = req.user;
+		const messages = await db.query(
+			"SELECT * FROM messages WHERE sender_id = $1 OR recipient_id = $1 ORDER BY created_at DESC",
+			[userId]
+		);
+		//sender_id = $1 OR
+		res.json(messages.rows);
+	} catch (err) {
+		console.error(err.message);
+		res.status(500).send("Server error");
+	}
+});
 
 module.exports = router;
+
+//how to delete table in postgresql=> DROP TABLE messages;
