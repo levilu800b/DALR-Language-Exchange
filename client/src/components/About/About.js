@@ -1,71 +1,64 @@
-import React from "react";
-import { Typography, Divider, Row, Col, Card, Avatar } from "antd";
-import { UserOutlined } from "@ant-design/icons";
-import "./About.css";
+import React, { useState, useEffect } from "react";
 
-const { Title, Paragraph } = Typography;
+const teamMembers = [  {    id: 1,    name: "AHMED",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/ahmed-mohamed-193005242/",    image: require("./ahm.jpg"),  },  {    id: 2,    name: "REBWAR",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/anvar-azizi/",    image: require("./reb.jpg"),  },  {    id: 3,    name: "LEVI",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/leviudeh/",    image: require("./levi.jpg"),  },  {    id: 4,    name: "DAVOOD",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/davood-moradi-2279539a/",    image: require("./dav.jpg"),  },];
 
-const testimonials = [
-  {
-    name: "John Doe",
-    avatar: "/images/testimonial1.png",
-    text: "I have been using this language exchange website for a few months now and it is been an amazing experience. I have met so many new people from different parts of the world and improved my language skills in the process. Highly recommended!",
-  },
-  {
-    name: "Jane Smith",
-    avatar: "/images/testimonial2.png",
-    text: "I was hesitant to try a language exchange website at first, but I am so glad I did. The platform is easy to use and the community is very welcoming. I have made some great connections and improved my language skills significantly.",
-  },
-  {
-    name: "Mark Lee",
-    avatar: "/images/testimonial3.png",
-    text: "As someone who loves traveling and learning new languages, this language exchange website is a dream come true. I can connect with people from all over the world and practice speaking different languages. It is been a game changer for me!",
-  },
-];
+function About() {
+  const [showMembers, setShowMembers] = useState(false);
+  const [showProject, setShowProject] = useState(false);
 
-const About = () => {
+  useEffect(() => {
+    setTimeout(() => {
+      setShowMembers(true);
+    }, 2000);
+  }, []);
+
+  useEffect(() => {
+    if (showMembers) {
+      setTimeout(() => {
+        setShowProject(true);
+      }, 2000);
+    }
+  }, [showMembers]);
+
   return (
-    <>
-      <Title>About Us</Title>
-      <Paragraph>
-        Our language exchange website was founded with the goal of connecting people from around the world who are interested in learning and practicing different languages. Whether you are a beginner or an advanced learner, our platform offers a welcoming and supportive community where you can connect with others and improve your language skills.
-      </Paragraph>
-      <Divider />
-      <Title level={2}>Our Team</Title>
-      <Row gutter={[16, 16]}>
-        <Col span={8}>
-          <Card hoverable>
-            <Avatar size={64} icon={<UserOutlined />} />
-            <Title level={4}>John Smith</Title>
-            <Paragraph>Co-founder and CEO</Paragraph>
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card hoverable>
-            <Avatar size={64} icon={<UserOutlined />} />
-            <Title level={4}>Jane Doe</Title>
-            <Paragraph>Co-founder and CTO</Paragraph>
-          </Card>
-        </Col>
-        <Col span={8}>
-          <Card hoverable>
-            <Avatar size={64} icon={<UserOutlined />} />
-            <Title level={4}>Mark Johnson</Title>
-            <Paragraph>Lead Developer</Paragraph>
-          </Card>
-        </Col>
-      </Row>
-      <Divider />
-      <Title level={2}>Testimonials</Title>
-      {testimonials.map((testimonial, index) => (
-        <Card key={index} hoverable>
-          <Avatar size={64} src={testimonial.avatar} />
-          <Title level={4}>{testimonial.name}</Title>
-          <Paragraph>{testimonial.text}</Paragraph>
-        </Card>
-      ))}
-    </>
+    <div style={{ backgroundColor: "black", minHeight: "100vh" }}>
+      <div style={{ padding: "20px", color: "black" }}>
+        <h1 style={{ textAlign: "center" }}>WHO WE ARE</h1>
+        <p style={{ textAlign: "center", fontSize: "28px"}}>
+          We are team DALR, including Ahmed, Rebwar, Levi and Davood and this is our final project to create a website called Language Exchange for CodeYourFuture.
+        </p>
+      </div>
+
+      {showMembers && (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          {teamMembers.map((member) => (
+            <div key={member.id} style={{ textAlign: "center", margin: "20px" }}>
+              <img
+                src={member.image.default}
+                alt={member.name}
+                style={{ width: "150px", height: "150px", borderRadius: "50%" }}
+              />
+              <h3>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  {member.name}
+                </a>
+              </h3>
+              <p>{member.position}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {showProject && (
+        <>
+          <h2 style={{ textAlign: "center", marginTop: "100px", color: "white" }}>OUR PROJECT</h2>
+          <p style={{ textAlign: "center", color: "white", fontSize: "28px" }}>
+          Language Exchange is a platform designed to help individuals learn new languages and discover events in their community. If attending events in person is not feasible, participants can join virtually via Zoom. In addition to learning, participants can also teach their native language to others who are interested. Users are free to join any event they wish, as well as create their own events. For inquiries, please feel free to contact us via email on our contact page. Users can view their dashboard to access a list of events and a user directory
+          </p>
+        </>
+      )}
+    </div>
   );
-};
+}
 
 export default About;
