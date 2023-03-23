@@ -1,6 +1,35 @@
 import React, { useState, useEffect } from "react";
 
-const teamMembers = [  {    id: 1,    name: "AHMED",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/ahmed-mohamed-193005242/",    image: require("./ahm.jpg"),  },  {    id: 2,    name: "REBWAR",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/anvar-azizi/",    image: require("./reb.jpg"),  },  {    id: 3,    name: "LEVI",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/leviudeh/",    image: require("./levi.jpg"),  },  {    id: 4,    name: "DAVOOD",    position: "FULL-STACK DEVELOPER",    linkedin: "https://www.linkedin.com/in/davood-moradi-2279539a/",    image: require("./dav.jpg"),  },];
+const teamMembers = [
+	{
+		id: 1,
+		name: "AHMED",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/ahmed-mohamed-193005242/",
+		image: require("./ahm.jpg"),
+	},
+	{
+		id: 2,
+		name: "REBWAR",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/anvar-azizi/",
+		image: require("./reb.jpg"),
+	},
+	{
+		id: 3,
+		name: "LEVI",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/leviudeh/",
+		image: require("./levi.jpg"),
+	},
+	{
+		id: 4,
+		name: "DAVOOD",
+		position: "FULL-STACK DEVELOPER",
+		linkedin: "https://www.linkedin.com/in/davood-moradi-2279539a/",
+		image: require("./dav.jpg"),
+	},
+];
 
 function About() {
   const [showMembers, setShowMembers] = useState(false);
@@ -24,7 +53,7 @@ function About() {
     <div style={{ backgroundColor: "black", minHeight: "100vh" }}>
       <div style={{ padding: "20px", color: "black" }}>
         <h1 style={{ textAlign: "center" }}>WHO WE ARE</h1>
-        <p style={{ textAlign: "center", fontSize: "28px"}}>
+        <p style={{ textAlign: "center", fontSize: "28px" }}>
           We are team DALR, including Ahmed, Rebwar, Levi and Davood and this is our final project to create a website called Language Exchange for CodeYourFuture.
         </p>
       </div>
