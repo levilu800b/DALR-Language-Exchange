@@ -58,6 +58,7 @@ const MessageSend = ({ data, selectedUser }) => {
 				body: JSON.stringify(newMessage),
 			});
 
+
 			// Clear the message text area
 			setMessage("");
 			if (response.ok) {

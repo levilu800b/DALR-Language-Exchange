@@ -1,24 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+
 import imfg from "../../../assets/faceImoje.png";
 import "../massage.css";
 import "../navbar.css";
 import "./textErea/textErea.css";
 
 export default function Profile({ data, selectedUser }) {
-	// const [text, setText] = useState("");
+	const { userId } = useParams();
+	const user = data.find((u) => u.user_id === parseInt(userId));
+	const [sender, setSender] = useState("");
+
+	const getProfile = async () => {
+		try {
+			const res = await fetch("api/dashboard/", {
+				method: "GET",
+				headers: { token: localStorage.token },
+			});
+
+			const parseData = await res.json();
+			setSender(parseData);
+			// if else statement to check if the message was sent use toast to display a message to the user=>
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
+	useEffect(() => {
+		getProfile();
+	}, []);
+
 	const [message, setMessage] = useState("");
+	// const [text, setText] = useState("");
+
 
 	const handleChangeText = (event) => {
 		setMessage(event.target.value);
 	};
 
-	const handleClick = async () => {
+	//🏆
+
+	const handleClick = async (e) => {
+		e.preventDefault();
 		// Create a new message object
 		const newMessage = {
-			senderId: data.user_id, // Sender's user ID
-			recipientId: parseInt(userId), // Recipient's user ID from URL parameters
-			text: message, // Message text
+			senderId: sender.user_id, // Sender's user ID
+			recipientEmail: selectedUser.user_email, // Recipient's email
+			message: message, // Message text
 		};
 
 		try {
@@ -27,20 +56,27 @@ export default function Profile({ data, selectedUser }) {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
+					token: localStorage.token,
 				},
-				body: JSON.stringify(newMessage),
+				body: JSON.stringify(newMessage),// body data type must match "Content-Type" header => "Content-Type": "application/json",the body takes a JSON string so we need to stringify the object and log it to the console to see what it looks like
+
 			});
 
 			// Clear the message text area
 			setMessage("");
+			if (response.ok) {
+				toast.success("Message Sent Successfully");
+			} else {
+				toast.error("Message Not Sent");
+			}
 		} catch (error) {
 			console.error(error);
+			toast.error("Message Not Sent");
 		}
 	};
 
-	const { userId } = useParams();
-	const user = data.find((u) => u.user_id === parseInt(userId));
-	console.log(message);
+	console.log(sender);
+	// selectedUser(selectedUser.user_firstname);
 	return (
 		<div>
 			<section className="container_all">
@@ -82,6 +118,7 @@ export default function Profile({ data, selectedUser }) {
 				</div>
 			</section>
 			<div style={{ marginLeft: "10%" }}>New message</div>
+
 			<form className="container-textArea-message" onSubmit={handleClick}>
 				<textarea
 					className="textArea-message"
