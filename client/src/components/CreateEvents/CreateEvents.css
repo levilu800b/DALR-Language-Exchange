@@ -1,3 +1,6 @@
+.create_form{
+  margin-top: 7rem;
+}
 form {
   display: flex;
   flex-direction: column;
@@ -20,6 +23,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 100%;
+  text-align: left;
 }
 
 button {
