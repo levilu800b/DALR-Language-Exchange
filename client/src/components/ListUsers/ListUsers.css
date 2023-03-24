@@ -3,7 +3,9 @@
 	flex-wrap: wrap;
 	justify-content: center;
 }
-
+.list_user_con{
+	margin-top: 7rem;
+}
 .card {
 	width: 300px;
 	margin: 1rem;
