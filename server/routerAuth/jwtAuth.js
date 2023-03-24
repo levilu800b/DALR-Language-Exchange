@@ -75,7 +75,6 @@ router.post("/login", validInfo, async (req, res) => {
 		return res.json({ jwtToken });
 	} catch (err) {
 		res.status(500).send("Server error");
-		console.log(err.message);
 	}
 });
 
