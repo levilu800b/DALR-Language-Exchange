@@ -3,118 +3,119 @@ import axios from "axios";
 import "./CreateEvents.css";
 
 const CreateEvents = () => {
-  const [formData, setFormData] = useState({
-    languages: "",
-    location: "",
-    link: "",
-    title: "",
-    description: "",
-    datetime: "",
-  });
+	const [formData, setFormData] = useState({
+		languages: "",
+		location: "",
+		link: "",
+		title: "",
+		description: "",
+		datetime: "",
+	});
 
-  const [formErrors, setFormErrors] = useState({});
-  const [formSuccess, setFormSuccess] = useState(false);
+	const [formErrors, setFormErrors] = useState({});
+	const [formSuccess, setFormSuccess] = useState(false);
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+	const handleInputChange = (event) => {
+		const { name, value } = event.target;
+		setFormData({ ...formData, [name]: value });
 
-    if (formErrors[name]) {
-      setFormErrors({ ...formErrors, [name]: "" });
-    }
+		if (formErrors[name]) {
+			setFormErrors({ ...formErrors, [name]: "" });
+		}
 
-    if (formSuccess) {
-      setFormSuccess(false);
-    }
+		if (formSuccess) {
+			setFormSuccess(false);
+		}
 
-    if (formErrors.submit) {
-      setFormErrors({ ...formErrors, submit: "" });
-    }
+		if (formErrors.submit) {
+			setFormErrors({ ...formErrors, submit: "" });
+		}
 
-    if (formErrors.cancel) {
-      setFormErrors({ ...formErrors, cancel: "" });
-    }
-  };
+		if (formErrors.cancel) {
+			setFormErrors({ ...formErrors, cancel: "" });
+		}
+	};
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+	const handleSubmit = async (event) => {
+		event.preventDefault();
 
-    const { languages, location, link, title, description, datetime } = formData;
+		const { languages, location, link, title, description, datetime } =
+			formData;
 
-    const errors = {};
+		const errors = {};
 
-    if (!languages) {
-      errors.languages = "Languages is required";
-    }
+		if (!languages) {
+			errors.languages = "Languages is required";
+		}
 
-    if (!location) {
-      errors.location = "Location is required";
-    }
+		if (!location) {
+			errors.location = "Location is required";
+		}
 
-    if (!link) {
-      errors.link = "Link is required";
-    }
+		if (!link) {
+			errors.link = "Link is required";
+		}
 
-    if (!title) {
-      errors.title = "Title is required";
-    }
+		if (!title) {
+			errors.title = "Title is required";
+		}
 
-    if (!description) {
-      errors.description = "Description is required";
-    }
+		if (!description) {
+			errors.description = "Description is required";
+		}
 
-    if (!datetime) {
-      errors.datetime = "Date and time is required";
-    }
+		if (!datetime) {
+			errors.datetime = "Date and time is required";
+		}
 
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-    } else {
-      try {
-        const result = await axios.post("/api/dashboard/create_events", {
-          languages,
-          location,
-          link,
-          title,
-          description,
-          datetime,
-        });
+		if (Object.keys(errors).length > 0) {
+			setFormErrors(errors);
+		} else {
+			try {
+				const result = await axios.post("/api/create_events", {
+					languages,
+					location,
+					link,
+					title,
+					description,
+					datetime,
+				});
 
-        if (result.status === 201) {
-          setFormSuccess(true);
-          setFormData({
-            languages: "",
-            location: "",
-            link: "",
-            title: "",
-            description: "",
-            datetime: "",
-          });
-        }
-      } catch (error) {
-        console.error(error);
-        setFormErrors({ submit: "Something went wrong, please try again." });
-      }
-    }
-  };
+				if (result.status === 201) {
+					setFormSuccess(true);
+					setFormData({
+						languages: "",
+						location: "",
+						link: "",
+						title: "",
+						description: "",
+						datetime: "",
+					});
+				}
+			} catch (error) {
+				console.error(error);
+				setFormErrors({ submit: "Something went wrong, please try again." });
+			}
+		}
+	};
 
-  const handleCancel = (event) => {
-    event.preventDefault();
+	const handleCancel = (event) => {
+		event.preventDefault();
 
-    setFormData({
-      languages: "",
-      location: "",
-      link: "",
-      title: "",
-      description: "",
-      datetime: "",
-    });
+		setFormData({
+			languages: "",
+			location: "",
+			link: "",
+			title: "",
+			description: "",
+			datetime: "",
+		});
 
-    if (formErrors.cancel) {
-      setFormErrors({ ...formErrors, cancel: "" });
-    }
-  };
-//className="create_form"
+		if (formErrors.cancel) {
+			setFormErrors({ ...formErrors, cancel: "" });
+		}
+	};
+	//className="create_form"
 	return (
 		<form onSubmit={handleSubmit} className="cont-form">
 			<div>
@@ -186,7 +187,9 @@ const CreateEvents = () => {
 			</div>
 			<button type="submit">Submit</button>
 			{formErrors.submit && <span>{formErrors.submit}</span>}
-      <button type="cancel" onClick={handleCancel}>Cancel</button>
+			<button type="cancel" onClick={handleCancel}>
+				Cancel
+			</button>
 		</form>
 	);
 };

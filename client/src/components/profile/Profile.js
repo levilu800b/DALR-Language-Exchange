@@ -11,7 +11,7 @@ const Profile = () => {
 
 	const getProfile = async () => {
 		try {
-			const res = await fetch("api/dashboard/", {
+			const res = await fetch("api/", {
 				method: "GET",
 				headers: { token: localStorage.token },
 			});
