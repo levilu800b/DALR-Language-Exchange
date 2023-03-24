@@ -50,7 +50,7 @@ const MessageSend = ({ data, selectedUser }) => {
 
 		try {
 			// Send the message to the server
-			const response = await fetch("/api/dashboard/send-message", {
+			const response = await fetch("api/send-message", {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",

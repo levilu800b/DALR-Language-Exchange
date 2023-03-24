@@ -29,7 +29,7 @@ function UserList() {
 
 	const getProfile = async () => {
 		try {
-			const res = await fetch("api/dashboard/all/", {
+			const res = await fetch("api/all", {
 				method: "GET",
 				headers: { token: localStorage.token },
 			});
