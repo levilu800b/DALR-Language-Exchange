@@ -4,6 +4,8 @@
 	"description": "Starter kit for full-stack JavaScript projects",
 	"private": true,
 	"scripts": {
+		"db:createusers": "node -r dotenv ./server/db/scripts/users/createTable.js",
+		"db:papulateusers": "node -r dotenv ./server/db/scripts/users/populateTable.js",
 		"prebuild": "npm run cleanup",
 		"build": "npm run build:server && npm run build:client",
 		"postbuild": "buildinfo dist/static/build-info.txt",
