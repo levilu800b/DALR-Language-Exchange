@@ -31,12 +31,12 @@ router.get("/all", authorize, async (req, res) => {
 //💫
 
 router.post("/create_events", async (req, res) => {
-	const { Languages, Location, Link, Title, Description, Datetime } = req.body;
+	const { languages, location, link, title, description, datetime } = req.body;
 
 	try {
 		const result = await db.query(
-			"INSERT INTO create_events (Languages, Location, Link, Title, Description, Datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-			[Languages, Location, Link, Title, Description, Datetime]
+			"INSERT INTO create_events (languages, location, link, title, description, datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
+			[languages, location, link, title, description, datetime]
 		);
 
 		res.status(201).json(result.rows[0]);

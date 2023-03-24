@@ -71,7 +71,7 @@ const CreateEvents = () => {
       setFormErrors(errors);
     } else {
       try {
-        const result = await axios.post("/api/dashboard/create_events", {
+        const result = await axios.post("api/dashboard/create_events", {
           languages,
           location,
           link,
