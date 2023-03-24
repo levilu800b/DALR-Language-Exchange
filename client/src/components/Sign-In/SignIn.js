@@ -19,7 +19,7 @@ const SignIn = ({ setAuth }) => {
 		e.preventDefault();
 		try {
 			const body = { email, password };
-			const response = await fetch("/api/login", {
+			const response = await fetch("api/login", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
@@ -64,7 +64,9 @@ const SignIn = ({ setAuth }) => {
 				/>
 				<button className="btn btn-success btn-block">Log in</button>
 			</form>
-			<Link to="/signup" className="register">I do not have an Account. Please, register.</Link>
+			<Link to="/signup" className="register">
+				I do not have an Account. Please, register.
+			</Link>
 		</div>
 	);
 };

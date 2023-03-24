@@ -42,7 +42,7 @@ const SignUp = ({ setAuth }) => {
 				city,
 				country,
 			};
-			const response = await fetch("/api/register", {
+			const response = await fetch("api/register", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
@@ -135,10 +135,9 @@ const SignUp = ({ setAuth }) => {
 
 				<button className="btn btn-success btn-block">Sign up</button>
 				<Link className="login_button at" to="/signin">
-				I already Have an Account, Please Login.
-			</Link>
+					I already Have an Account, Please Login.
+				</Link>
 			</form>
-
 		</div>
 	);
 };
