@@ -42,7 +42,7 @@ const SignUp = ({ setAuth }) => {
 				city,
 				country,
 			};
-			const response = await fetch("api/register", {
+			const response = await fetch("api/dashboard/register", {
 				method: "POST",
 				headers: {
 					"Content-type": "application/json",
