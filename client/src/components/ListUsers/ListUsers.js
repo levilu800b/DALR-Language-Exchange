@@ -51,7 +51,8 @@ function UserList() {
 	};
 
 	return (
-		<>
+
+		<div className="list_user_con">
 			{showWelcome ? (
 				<Massage data={data} selectedUser={selectedUser} />
 			) : (
@@ -91,7 +92,7 @@ function UserList() {
 					)}
 				</>
 			)}
-		</>
+			</div>
 	);
 }
 
