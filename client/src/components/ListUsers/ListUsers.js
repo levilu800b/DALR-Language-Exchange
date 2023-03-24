@@ -52,45 +52,47 @@ function UserList() {
 
 	return (
 		<>
-			{showWelcome ? (
-				<Massage data={data} selectedUser={selectedUser} />
-			) : (
-				<>
-					{Array.isArray(data) && data.length > 0 ? (
-						data.map((user) => (
-							<Card
-								key={user.user_id}
-								hoverable
-								style={{
-									width: 200,
-									height: 200,
-									display: "inline-block",
-									margin: "3em",
-								}}
-								cover={
-									<img
-										alt={`${user.user_firstname} `}
-										src={allImages["faceImoje.png"]?.default}
+			<div className="list_user_con">
+				{showWelcome ? (
+					<Massage data={data} selectedUser={selectedUser} />
+				) : (
+					<>
+						{Array.isArray(data) && data.length > 0 ? (
+							data.map((user) => (
+								<Card
+									key={user.user_id}
+									hoverable
+									style={{
+										width: 200,
+										height: 200,
+										display: "inline-block",
+										margin: "3em",
+									}}
+									cover={
+										<img
+											alt={`${user.user_firstname} `}
+											src={allImages["faceImoje.png"]?.default}
+										/>
+									}
+									onClick={() => handleCardClick(user)}
+								>
+									<Meta
+										Link
+										to={"/profile"}
+										title={`${user.user_secondname} `}
+										description={`Languages spoken: ${user.user_language_speak}`}
 									/>
-								}
-								onClick={() => handleCardClick(user)}
-							>
-								<Meta
-									Link
-									to={"/profile"}
-									title={`${user.user_secondname} `}
-									description={`Languages spoken: ${user.user_language_speak}`}
-								/>
-								<Meta
-									description={`Languages interested: ${user.user_language_interest}`}
-								/>
-							</Card>
-						))
-					) : (
-						<div>No users found</div>
-					)}
-				</>
-			)}
+									<Meta
+										description={`Languages interested: ${user.user_language_interest}`}
+									/>
+								</Card>
+							))
+						) : (
+							<div>No users found</div>
+						)}
+					</>
+				)}
+			</div>
 		</>
 	);
 }
