@@ -6,6 +6,8 @@ import "./ProfileStyle.css";
 import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
 
+// user profile
+
 const Profile = () => {
 	const [data, setData] = useState("");
 
