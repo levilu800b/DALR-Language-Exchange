@@ -63,7 +63,11 @@ span {
     padding: 10px 15px;
   }
 } */
-
+button {
+  font-size: 16px;
+  padding: 10px 15px;
+  border-radius: 10px;
+}
 button,
 fieldset,
 input,
