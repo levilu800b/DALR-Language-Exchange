@@ -2,6 +2,7 @@
 display: flex;
 justify-content: center;
 margin-top: 15rem;
+
 }
 header {
     display: flex;
@@ -15,18 +16,14 @@ header {
     border-radius: 10px;
 
   }
-  
-  .profile-header{
-   
+
+  .bt-profile{
+  color: white;
   }
   .profile-info{
     text-align: center;
   }
-  .bt-profile{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+
   .profile-header img {
     width: 150px;
     height: 150px;
@@ -41,4 +38,5 @@ header {
   margin-left: 30px;
    background-color: #eaeff1;
   border-radius: 10px;
+  background-color: #0077B5;
   } 
