@@ -1,4 +1,4 @@
-.create_form{
+/* .create_form{
   margin-top: 7rem;
 }
 form {
@@ -62,4 +62,54 @@ span {
     font-size: 16px;
     padding: 10px 15px;
   }
+} */
+
+button,
+fieldset,
+input,
+legend,
+select,
+textarea {
+  appearance: none;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  font: 1.25rem / 1.5 sans-serif;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+}
+body {
+  margin: 0;
+  background-color: hsl(0, 0%, 98%);
+  color: #333;
+  font: 100% / normal sans-serif;
+}
+.span_rec{
+  color: red;
+}
+main {
+  margin: 0 auto;
+  padding: 4rem 0;
+  width: 90%;
+  max-width: 60rem;
+}
+
+form {
+  box-sizing: border-box;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: hsl(0, 0%, 100%);
+  border: 4px solid hsl(0, 0%, 90%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.full-width {
+  grid-column: span 2;
 }
