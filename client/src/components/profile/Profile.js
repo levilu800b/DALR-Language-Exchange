@@ -145,7 +145,7 @@ const Profile = () => {
 					</div>
 				</header>
 
-
+				<EditProfile user={data} setUser={setData} />
 			</div>
 		</>
 	);
