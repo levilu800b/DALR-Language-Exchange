@@ -128,7 +128,6 @@ console.log("Failed:", errorInfo);
 
 return (
 <div>
-<h1 className="text-center my-5">Edit Profile</h1>
 <Form
   form={form}
   layout="vertical"
