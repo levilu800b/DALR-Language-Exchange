@@ -26,6 +26,9 @@ textarea {
   width: 100%;
   text-align: left;
 }
+#description{
+  width: 37rem;
+}
 input[type="text"],
 input[type="email"],
 select,
