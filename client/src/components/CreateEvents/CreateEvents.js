@@ -72,6 +72,7 @@ const CreateEvents = () => {
 			setFormErrors(errors);
 		} else {
 			try {
+<<<<<<< HEAD
 				const result = await axios.post("/api/create_events", {
 					languages,
 					location,
@@ -80,6 +81,32 @@ const CreateEvents = () => {
 					description,
 					datetime,
 				});
+=======
+				// const result = await axios.post("api/create_events", {
+				// 	languages,
+				// 	location,
+				// 	link,
+				// 	title,
+				// 	description,
+				// 	datetime,
+				// });
+				const response = await fetch("api/create_events", {
+					method: "POST",
+					headers: {
+						"Content-type": "application/json",
+					},
+					body: JSON.stringify({
+						languages,
+						location,
+						link,
+						title,
+						description,
+						datetime,
+					}),
+				});
+				const result = await response.json();
+				console.log(result);
+>>>>>>> main
 
 				if (result.status === 201) {
 					setFormSuccess(true);

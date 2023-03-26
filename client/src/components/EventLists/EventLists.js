@@ -9,7 +9,11 @@ const EventsList = () => {
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {
+<<<<<<< HEAD
 				const response = await fetch("/api/events");
+=======
+				const response = await fetch("api/events");
+>>>>>>> main
 				const data = await response.json();
 				setEvents(data);
 			} catch (error) {

@@ -1,10 +1,6 @@
 import { useState, useEffect } from "react";
 import "react-toastify/dist/ReactToastify.css";
-import {
-	Routes,
-	Route,
-	Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
@@ -25,7 +21,7 @@ function App() {
 
 	const checkAuthenticated = async () => {
 		try {
-			const res = await fetch("/api/verify", {
+			const res = await fetch("api/verify", {
 				method: "GET",
 				headers: { token: localStorage.token },
 			});
