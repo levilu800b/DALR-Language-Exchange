@@ -98,6 +98,7 @@
 //🌧🍉✅
 import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
+import { toast } from "react-toastify";
 
 export default function EditProfile({ user, setUser, handleOk }) {
 	const [form] = Form.useForm();
@@ -115,14 +116,17 @@ const response = await fetch(`api/register/${user.user_email}`, {
 const updatedUser = await response.json();
 setUser(updatedUser);
 handleOk();
+toast.success("Profile updated successfully!");
 console.log(response);
 } catch (err) {
+  toast.error("Something went wrong! Please try again later.");
 console.error(err.message);
 }
 setLoading(false);
 };
 
 const onFinishFailed = (errorInfo) => {
+  toast.error("Failed:  Please fill in all the fields!");
 console.log("Failed:", errorInfo);
 };
 
