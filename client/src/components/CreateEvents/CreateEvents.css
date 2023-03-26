@@ -68,3 +68,18 @@ width: 100%;
   grid-column: span 2;
 margin-left: 40px;
 }
+
+@media screen and (max-width :640px){
+  .one{
+    flex-direction: column;
+  }
+  .form_cont{
+    border: 2px solid red;
+    width: 30rem;
+    margin: 0px;
+  }
+  
+  #description{
+    width: 20rem;
+  }
+}
