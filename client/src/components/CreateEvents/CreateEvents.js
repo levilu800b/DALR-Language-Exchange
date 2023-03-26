@@ -114,9 +114,10 @@ const CreateEvents = () => {
       setFormErrors({ ...formErrors, cancel: "" });
     }
   };
-//className="create_form"
 	return (
+    <div className="form_cont">
 		<form onSubmit={handleSubmit} className="cont-form">
+      <div className="one">
 			<div className="full-width">
 				<label htmlFor="languages">Language(s):</label>
 				<input
@@ -128,7 +129,7 @@ const CreateEvents = () => {
 				/>
 				{formErrors.languages && <span className="span_rec">{formErrors.languages}</span>}
 			</div>
-			<div className="full-width">
+			<div className="full-width l">
 				<label htmlFor="location">Location:</label>
 				<input
 					type="text"
@@ -139,9 +140,12 @@ const CreateEvents = () => {
 				/>
 				{formErrors.location && <span className="span_rec">{formErrors.location}</span>}
 			</div>
+      </div>
+      <div className="one">
+
 			<div className="full-width">
 				<label htmlFor="link">
-					Link for Zoom or Google Meeting(if online):
+					Link for Zoom (if online):
 				</label>
 				<input
 					type="text"
@@ -163,6 +167,8 @@ const CreateEvents = () => {
 				/>
 				{formErrors.title && <span className="span_rec">{formErrors.title}</span>}
 			</div>
+
+    </div>
 			<div className="full-width">
 				<label htmlFor="description">Description:</label>
 				<textarea
@@ -184,10 +190,13 @@ const CreateEvents = () => {
 				/>
 				{formErrors.datetime && <span className="span_rec">{formErrors.datetime}</span>}
 			</div>
-			<button type="submit">Submit</button>
+      <div>
+			<button type="submit" className="btn-light">Submit</button>
 			{formErrors.submit && <span className="span_rec">{formErrors.submit}</span>}
-      <button type="cancel" onClick={handleCancel}>Cancel</button>
+      <button type="cancel" onClick={handleCancel} className="btn-light">Cancel</button>
+      </div>
 		</form>
+    </div>
 	);
 };
 

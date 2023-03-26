@@ -63,19 +63,26 @@ span {
     padding: 10px 15px;
   }
 } */
+.form_cont{
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 90%;
+  /* padding: 4rem 0; */
+  /* width: 90%; */
+  /* max-width: 60rem; */
+  /* border: 2px red solid; */
+}
 button {
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px 15px;
   border-radius: 10px;
+  margin-left: 40px;
+  margin-top: 10px;
+
 }
-button,
-fieldset,
-input,
-legend,
-select,
-textarea {
-  appearance: none;
-}
+
 
 input[type="text"],
 input[type="email"],
@@ -85,7 +92,7 @@ textarea {
   display: block;
   box-sizing: border-box;
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 1rem;
 }
 body {
   margin: 0;
@@ -96,24 +103,27 @@ body {
 .span_rec{
   color: red;
 }
-main {
-  margin: 0 auto;
-  padding: 4rem 0;
-  width: 90%;
-  max-width: 60rem;
-}
 
-form {
+
+.cont-form {
+  border: 2px red solid;
+width: 100%;
   box-sizing: border-box;
   padding: 2rem;
   border-radius: 1rem;
   background-color: hsl(0, 0%, 100%);
   border: 4px solid hsl(0, 0%, 90%);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
 
-.full-width {
+  /* display: grid; */
+  /* grid-template-rows: 1fr; */
+  /* gap: 2rem; */
+}
+.one{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+}
+.full-width {  
   grid-column: span 2;
+margin-left: 40px;
 }
