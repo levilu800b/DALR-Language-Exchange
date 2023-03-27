@@ -62,8 +62,7 @@
 //🌧🍉✅
 import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
-// import EditProfile from "./EditProfile";
-
+import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
 
 import { Link } from "react-router-dom";
@@ -90,6 +89,14 @@ const Profile = () => {
 	useEffect(() => {
 		getProfile();
 	}, []);
+
+	const handleOk = () => {
+		setIsModalVisible(false);
+	};
+
+	const handleCancel = () => {
+		setIsModalVisible(false);
+	};
 
 	return (
 		<>
@@ -119,8 +126,21 @@ const Profile = () => {
 							</Descriptions.Item>
 						</Descriptions>
 						<br />
+						<Button type="primary" onClick={() => setIsModalVisible(true)}>
+							Edit Profile
+						</Button>
 					</div>
 				</header>
+
+				<Modal
+					title="Edit Profile"
+					visible={isModalVisible}
+					onOk={handleOk}
+					onCancel={handleCancel}
+					footer={null}
+				>
+					<EditProfile user={data} setUser={setData} handleOk={handleOk} />
+				</Modal>
 			</div>
 		</>
 	);

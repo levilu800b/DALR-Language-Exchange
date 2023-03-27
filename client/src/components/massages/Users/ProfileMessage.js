@@ -42,7 +42,10 @@ export default function Profile({ data, selectedUser }) {
 
 	const handleClick = async (e) => {
 		e.preventDefault();
-		// Create a new message object
+		if (!message) {
+			toast.error("Message cannot be empty");
+			return;
+		}
 		const newMessage = {
 			senderId: sender.user_id, // Sender's user ID
 			senderEmail: sender.user_email, // Sender's email

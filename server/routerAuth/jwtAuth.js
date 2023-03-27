@@ -52,6 +52,52 @@ router.post("/register", validInfo, async (req, res) => {
 	}
 });
 
+router.put("/register/:email", validInfo, async (req, res) => {
+	try {
+		const {
+			firstname,
+			secondname,
+			email,
+			password,
+			language_speak,
+			language_interest,
+			city,
+			country,
+		} = req.body;
+
+		const user = await db.query(
+			"SELECT * FROM user_profiles WHERE user_email = $1",
+			[req.params.email]
+		);
+
+		if (user.rows.length === 0) {
+			return res.status(404).json("User not found");
+		}
+
+		const salt = await bcrypt.genSalt(10);
+		const bcryptPassword = await bcrypt.hash(password, salt);
+
+		const updatedUser = await db.query(
+			"UPDATE user_profiles SET user_firstname = $1, user_secondname = $2, user_email = $3, user_password = $4, user_language_speak = $5, user_language_interest = $6, user_city = $7, user_country = $8 WHERE user_email = $9 RETURNING *",
+			[
+				firstname,
+				secondname,
+				email,
+				bcryptPassword,
+				language_speak,
+				language_interest,
+				city,
+				country,
+				req.params.email,
+			]
+		);
+
+		res.json(updatedUser.rows[0]);
+	} catch (err) {
+		res.status(500).send("Server error");
+	}
+});
+
 router.post("/login", validInfo, async (req, res) => {
 	try {
 		const { email, password } = req.body;
