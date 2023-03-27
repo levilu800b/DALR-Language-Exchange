@@ -64,9 +64,8 @@ import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
-import { Descriptions, Button, Modal } from "antd";
 
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { Descriptions, Button, Modal } from "antd";
 
 const Profile = () => {
