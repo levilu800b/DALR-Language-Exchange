@@ -114,10 +114,11 @@ const CreateEvents = () => {
       setFormErrors({ ...formErrors, cancel: "" });
     }
   };
-//className="create_form"
 	return (
+    <div className="form_cont">
 		<form onSubmit={handleSubmit} className="cont-form">
-			<div>
+      <div className="one">
+			<div className="full-width">
 				<label htmlFor="languages">Language(s):</label>
 				<input
 					type="text"
@@ -126,9 +127,9 @@ const CreateEvents = () => {
 					value={formData.languages}
 					onChange={handleInputChange}
 				/>
-				{formErrors.languages && <span>{formErrors.languages}</span>}
+				{formErrors.languages && <span className="span_rec">{formErrors.languages}</span>}
 			</div>
-			<div>
+			<div className="full-width l">
 				<label htmlFor="location">Location:</label>
 				<input
 					type="text"
@@ -137,11 +138,14 @@ const CreateEvents = () => {
 					value={formData.location}
 					onChange={handleInputChange}
 				/>
-				{formErrors.location && <span>{formErrors.location}</span>}
+				{formErrors.location && <span className="span_rec">{formErrors.location}</span>}
 			</div>
-			<div>
+      </div>
+      <div className="one">
+
+			<div className="full-width">
 				<label htmlFor="link">
-					Link for Zoom or Google Meeting(if online):
+					Link for Zoom (if online):
 				</label>
 				<input
 					type="text"
@@ -150,9 +154,9 @@ const CreateEvents = () => {
 					value={formData.link}
 					onChange={handleInputChange}
 				/>
-				{formErrors.link && <span>{formErrors.link}</span>}
+				{formErrors.link && <span className="span_rec">{formErrors.link}</span>}
 			</div>
-			<div>
+			<div className="full-width">
 				<label htmlFor="title">Title:</label>
 				<input
 					type="text"
@@ -161,9 +165,11 @@ const CreateEvents = () => {
 					value={formData.title}
 					onChange={handleInputChange}
 				/>
-				{formErrors.title && <span>{formErrors.title}</span>}
+				{formErrors.title && <span className="span_rec">{formErrors.title}</span>}
 			</div>
-			<div>
+
+    </div>
+			<div className="full-width">
 				<label htmlFor="description">Description:</label>
 				<textarea
 					id="description"
@@ -171,9 +177,9 @@ const CreateEvents = () => {
 					value={formData.description}
 					onChange={handleInputChange}
 				/>
-				{formErrors.description && <span>{formErrors.description}</span>}
+				{formErrors.description && <span className="span_rec">{formErrors.description}</span>}
 			</div>
-			<div>
+			<div className="full-width">
 				<label htmlFor="datetime">Date & Time:</label>
 				<input
 					type="datetime-local"
@@ -182,12 +188,15 @@ const CreateEvents = () => {
 					value={formData.datetime}
 					onChange={handleInputChange}
 				/>
-				{formErrors.datetime && <span>{formErrors.datetime}</span>}
+				{formErrors.datetime && <span className="span_rec">{formErrors.datetime}</span>}
 			</div>
-			<button type="submit">Submit</button>
-			{formErrors.submit && <span>{formErrors.submit}</span>}
-      <button type="cancel" onClick={handleCancel}>Cancel</button>
+      <div>
+			<button type="submit" className="btn-light">Submit</button>
+			{formErrors.submit && <span className="span_rec">{formErrors.submit}</span>}
+      <button type="cancel" onClick={handleCancel} className="btn-light">Cancel</button>
+      </div>
 		</form>
+    </div>
 	);
 };
 
