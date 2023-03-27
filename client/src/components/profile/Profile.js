@@ -1,5 +1,3 @@
-
-
 // import React, { useEffect, useState } from "react";
 // import profile from "../../assets/bg2.jpg";
 // import EditProfile from "./EditProfile";
@@ -64,7 +62,7 @@
 //🌧🍉✅
 import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
-import EditProfile from "./EditProfile";
+// import EditProfile from "./EditProfile";
 
 import "./ProfileStyle.css";
 
@@ -112,11 +110,21 @@ const Profile = () => {
 							{data.user_firstname} {data.user_secondname}
 						</h2>
 						<Descriptions bordered>
-							<Descriptions.Item label="Email">{data.user_email}</Descriptions.Item>
-							<Descriptions.Item label="City">{data.user_city}</Descriptions.Item>
-							<Descriptions.Item label="Country">{data.user_country}</Descriptions.Item>
-							<Descriptions.Item label="Language You Speak">{data.user_language_speak}</Descriptions.Item>
-							<Descriptions.Item label="Language You're Interested In">{data.user_language_interest}</Descriptions.Item>
+							<Descriptions.Item label="Email">
+								{data.user_email}
+							</Descriptions.Item>
+							<Descriptions.Item label="City">
+								{data.user_city}
+							</Descriptions.Item>
+							<Descriptions.Item label="Country">
+								{data.user_country}
+							</Descriptions.Item>
+							<Descriptions.Item label="Language You Speak">
+								{data.user_language_speak}
+							</Descriptions.Item>
+							<Descriptions.Item label="Language You're Interested In">
+								{data.user_language_interest}
+							</Descriptions.Item>
 						</Descriptions>
 						<br />
 						<Button type="primary" onClick={() => setIsModalVisible(true)}>
@@ -125,8 +133,14 @@ const Profile = () => {
 					</div>
 				</header>
 
-				<Modal title="Edit Profile" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={null}>
-					<EditProfile user={data} setUser={setData} handleOk={handleOk} />
+				<Modal
+					title="Edit Profile"
+					visible={isModalVisible}
+					onOk={handleOk}
+					onCancel={handleCancel}
+					footer={null}
+				>
+					{/* <EditProfile user={data} setUser={setData} handleOk={handleOk} /> */}
 				</Modal>
 			</div>
 		</>
