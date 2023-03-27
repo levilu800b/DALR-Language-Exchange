@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
+import EditProfile from "../../components/EditProfile/EditProfile";
 
 import "./ProfileStyle.css";
 
@@ -45,12 +46,7 @@ const Profile = () => {
 						</h3>
 						<br />
 						<div className="bt-profile">
-							<Link to="/" className="btn-light">
-								Follow
-							</Link>
-							<Link to="/" className="btn-light">
-								Chat
-							</Link>
+							<Link to={EditProfile}>Edit</Link>
 						</div>
 					</div>
 				</header>

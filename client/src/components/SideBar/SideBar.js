@@ -9,7 +9,6 @@ import {
 	SearchOutlined,
 	DashboardOutlined,
 	ProfileOutlined,
-	EditOutlined,
 	UsergroupAddOutlined,
 } from "@ant-design/icons";
 import "./SideBar.css";
@@ -22,25 +21,32 @@ const items = [
 		label: "Dashboard",
 		children: [
 			{ key: "profile", icon: <ProfileOutlined />, label: "Profile" },
-			{ key: "edit-profile", icon: <EditOutlined />, label: "Edit Profile" },
 			{
-				key: "manageProfile",
+				key: "message",
 				icon: <UsergroupAddOutlined />,
-				label: "manage profile",
+				label: "message",
 			},
 		],
 	},
 
 	{
-		key: "user",
+		key: "users",
 		icon: <UserSwitchOutlined />,
-		label: "User management",
+		label: "Users",
 		children: [
 			{
 				key: "user-lists",
 				icon: <OrderedListOutlined />,
 				label: "List of Users",
 			},
+		],
+	},
+
+	{
+		key: "events",
+		icon: <CalendarOutlined />,
+		label: "events",
+		children: [
 			{
 				key: "create-events",
 				icon: <CalendarOutlined />,
@@ -53,6 +59,8 @@ const items = [
 			},
 		],
 	},
+
+
 	{
 		key: "search",
 		icon: <SearchOutlined />,
