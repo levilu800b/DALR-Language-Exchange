@@ -4,15 +4,14 @@ import EditProfile from "../../components/EditProfile/EditProfile";
 
 import "./ProfileStyle.css";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
 
 // user profile
 
 const Profile = () => {
 	const [data, setData] = useState("");
-	const [showEditProfile, setShowEditProfile] = useState(false);
-
+	const [showEditProfile, setShowEditProfile] = useState(false); // add showEditProfile state
 
 	const getProfile = async () => {
 		try {
@@ -34,9 +33,6 @@ const Profile = () => {
 
 	return (
 		<>
-		{showEditProfile ? (
-        <EditProfile />
-      ) : (
 			<div className="profile-content">
 				<header className="profile-header">
 					<img src={profile} alt="Profile picture" aria-hidden />
@@ -51,9 +47,7 @@ const Profile = () => {
 						</h3>
 						<br />
 						<div className="bt-profile">
-							<Link to="#" onClick={() => setShowEditProfile(true)}>
-								Edit
-							</Link>
+							<button onClick={() => setShowEditProfile(true)}>Edit</button>
 						</div>
 					</div>
 				</header>
@@ -83,7 +77,7 @@ const Profile = () => {
 					</Descriptions>
 				</main>
 			</div>
-			)}
+			{showEditProfile && <EditProfile />}
 		</>
 	);
 };
