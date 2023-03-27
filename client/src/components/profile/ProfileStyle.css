@@ -2,6 +2,7 @@
 display: flex;
 justify-content: center;
 margin-top: 15rem;
+
 }
 header {
     display: flex;
@@ -15,18 +16,14 @@ header {
     border-radius: 10px;
 
   }
-  
-  .profile-header{
-   
+
+  .bt-profile{
+  color: white;
   }
   .profile-info{
     text-align: center;
   }
-  .bt-profile{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
+
   .profile-header img {
     width: 150px;
     height: 150px;
@@ -41,39 +38,5 @@ header {
   margin-left: 30px;
    background-color: #eaeff1;
   border-radius: 10px;
+  background-color: #0077B5;
   } 
-
-  .edit-profile-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.edit-profile-popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  max-width: 600px;
-  width: 90%;
-  max-height: 90%;
-  overflow: auto;
-}
-
-.edit-profile-popup-content button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
