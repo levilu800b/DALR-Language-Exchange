@@ -40,7 +40,7 @@ export default function Massage({ data, selectedUser }) {
 			),
 		},
 		{
-			name: "Corrections",
+			name: "Chat",
 			path: "/corrections",
 			component: (
 				<div>
