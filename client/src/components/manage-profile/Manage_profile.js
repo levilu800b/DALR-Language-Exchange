@@ -81,23 +81,25 @@ const filteredRecipientMessage = messageData.filter((message) => message.recipie
         </div>
         <Table
           columns={columns}
-		dataSource={""}
+          dataSource={""}
           rowKey={(record) => record.id}
         />
       </div>
-
+  
       <div className="containerTable">
         <div className="bordered-box">
-          <h3 className="section-title">Message sent</h3>
-        </div>
-        <Table columns={columns} dataSource={filteredSenderMessage} rowKey={(record) => record.id} />
-      </div>
-	<div className="containerTable">
-        <div className="bordered-box">
-          <h3 className="section-title">Messages received </h3>
+          <h3 className="section-title">Messages received</h3>
         </div>
         <Table columns={columns} dataSource={filteredRecipientMessage} rowKey={(record) => record.id} />
       </div>
+  
+      <div className="containerTable">
+        <div className="bordered-box">
+          <h3 className="section-title">Messages sent</h3>
+        </div>
+        <Table columns={columns} dataSource={filteredSenderMessage} rowKey={(record) => record.id} />
+      </div>
     </div>
   );
+  
 }
