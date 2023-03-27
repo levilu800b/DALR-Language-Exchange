@@ -102,9 +102,17 @@ export default function Manage_profile() {
 				<div className="bordered-box">
 					<h3 className="section-title">Message sent</h3>
 				</div>
-				<Table
+				{/* <Table
 					columns={columns}
 					dataSource={filteredSenderMessage}
+					rowKey={(record) => record.id}
+				/> */}
+				<Table
+					columns={columns}
+					dataSource={filteredRecipientMessage.map((message) => ({
+						...message,
+						created_at: formatDate(message.created_at),
+					}))}
 					rowKey={(record) => record.id}
 				/>
 			</div>
@@ -112,9 +120,17 @@ export default function Manage_profile() {
 				<div className="bordered-box">
 					<h3 className="section-title">Messages received </h3>
 				</div>
-				<Table
+				{/* <Table
 					columns={columns}
 					dataSource={filteredRecipientMessage}
+					rowKey={(record) => record.id}
+				/> */}
+				<Table
+					columns={columns}
+					dataSource={filteredSenderMessage.map((message) => ({
+						...message,
+						created_at: formatDate(message.created_at),
+					}))}
 					rowKey={(record) => record.id}
 				/>
 			</div>
