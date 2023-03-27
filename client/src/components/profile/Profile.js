@@ -4,14 +4,11 @@ import EditProfile from "../../components/EditProfile/EditProfile";
 
 import "./ProfileStyle.css";
 
-// import { Link } from "react-router-dom";
 import { Descriptions } from "antd";
-
-// user profile
 
 const Profile = () => {
 	const [data, setData] = useState("");
-	const [showEditProfile, setShowEditProfile] = useState(false); // add showEditProfile state
+	const [showEditProfile, setShowEditProfile] = useState(false);
 
 	const getProfile = async () => {
 		try {
@@ -31,6 +28,14 @@ const Profile = () => {
 		getProfile();
 	}, []);
 
+	const handleEditProfileClick = () => {
+		setShowEditProfile(true);
+	};
+
+	const handleEditProfileClose = () => {
+		setShowEditProfile(false);
+	};
+
 	return (
 		<>
 			<div className="profile-content">
@@ -47,7 +52,7 @@ const Profile = () => {
 						</h3>
 						<br />
 						<div className="bt-profile">
-							<button onClick={() => setShowEditProfile(true)}>Edit</button>
+							<button onClick={handleEditProfileClick}>Edit</button>
 						</div>
 					</div>
 				</header>
@@ -67,17 +72,21 @@ const Profile = () => {
 						<Descriptions.Item label="Language Interest">
 							{data.user_language_interest}
 						</Descriptions.Item>
-						<Descriptions.Item label="city">
-							{" "}
-							{data.user_city}{" "}
-						</Descriptions.Item>
+						<Descriptions.Item label="city">{data.user_city}</Descriptions.Item>
 						<Descriptions.Item label="Country">
-							{data.user_country}{" "}
+							{data.user_country}
 						</Descriptions.Item>
 					</Descriptions>
 				</main>
 			</div>
-			{showEditProfile && <EditProfile />}
+			{showEditProfile && (
+				<div className="edit-profile-popup">
+					<div className="edit-profile-popup-content">
+						<button onClick={handleEditProfileClose}>Close</button>
+						<EditProfile />
+					</div>
+				</div>
+			)}
 		</>
 	);
 };
