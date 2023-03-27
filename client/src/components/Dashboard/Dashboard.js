@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Layout } from "antd";
 import Sidebar from "../../components/SideBar/SideBar";
 import Profile from "../../components/profile/Profile";
-import EditProfile from "../../components/EditProfile/EditProfile";
 import UserLists from "../../components/ListUsers/ListUsers";
 import SearchCity from "../../components/SearchCity/SearchCity";
 import SearchLanguage from "../../components/SearchLanguage/SearchLanguage";
@@ -27,8 +26,6 @@ function Head({ setAuth }) {
 		switch (selectedMenu) {
 			case "profile":
 				return <Profile setAuth={setAuth} />;
-			case "edit-profile":
-				return <EditProfile />;
 			case "user-lists":
 				return <UserLists />;
 			case "search-city":
