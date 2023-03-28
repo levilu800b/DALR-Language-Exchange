@@ -35,6 +35,19 @@ const EventsList = () => {
 		setSearchText(text);
 		setSearchLocation(location);
 	};
+	const formatDate = (dateString) => {
+		const date = new Date(dateString);
+		const options = {
+			weekday: "long",
+			year: "numeric",
+			month: "long",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+			second: "numeric",
+		};
+		return date.toLocaleDateString("en-US", options);
+	};
 
 	return (
 		<div className="event_conte">
@@ -75,7 +88,7 @@ const EventsList = () => {
 										<span>Description:</span> {event.description}
 									</p>
 									<p>
-										<span>Datetime:</span> {event.datetime}
+										<span>Datetime:</span> {formatDate(event.datetime)}
 									</p>
 								</div>
 								<div>
