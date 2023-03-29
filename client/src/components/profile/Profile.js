@@ -61,7 +61,7 @@
 // export default Profile;
 //🌧🍉✅
 import React, { useEffect, useState } from "react";
-import profile from "../../../../uploads/4f947eebc4bcf871ac9322a338fc10d5.jpeg";
+import profile from "../../../../uploads/7916f16e9eddaff99d729092d258a3a0.png";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
 
