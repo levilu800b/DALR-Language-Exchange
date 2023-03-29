@@ -57,10 +57,11 @@ const EventsList = () => {
 				/>
 			</div>
 			<List
+
 				itemLayout="vertical"
 				dataSource={filteredEvents}
 				renderItem={(event) => (
-					<section className="container_all-message" key={event.id}>
+					<section className="container_all-message" key={event.id} >
 						<div className="overall_detail-message">
 							<div>
 								<img className="img-message" src={img} alt="" />
@@ -69,24 +70,24 @@ const EventsList = () => {
 							<div className="text-message">
 								<div className="Native">
 									<p>
-										<span>Title:</span> {event.title}
+										<span className="span_text">Title:</span> <span className="span_des"> {event.title} </span>
 									</p>
 									<p>
-										<span>Description:</span> {event.description}
+										<span className="span_text">Description:</span> <span className="span_des">  {event.description} </span>
 									</p>
 									<p>
-										<span>Datetime:</span> {event.datetime}
+										<span className="span_text">Datetime:</span>  <span className="span_des">{event.datetime} </span>
 									</p>
 								</div>
 								<div>
 									<p>
-										<span>Languages:</span> {event.languages}
+										<span className="span_text">Languages:</span>  <span className="span_des">{event.languages} </span>
 									</p>
 									<p>
-										<span>Location:</span> {event.location}
+										<span className="span_text">Location:</span> <span className="span_des">{event.location} </span>
 									</p>
 									<p>
-										<span>Link:</span> {event.link}
+										<span className="span_text">Link:</span> <a href={event.link}> Link </a>
 									</p>
 								</div>
 							</div>

@@ -51,3 +51,18 @@
 	margin-left: 6rem;
 }
 
+.overall_detail-message{
+	background-color: rgb(85, 196, 247);
+	border-radius: 20px;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+.span_text{
+font-weight: bold;
+}
+.span_des{
+	color: #000000;
+
+}
