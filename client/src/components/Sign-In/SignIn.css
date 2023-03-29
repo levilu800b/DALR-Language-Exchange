@@ -42,6 +42,8 @@
   border: none;
   border-radius: 0.25rem;
   margin-top: 1rem;
+  margin-right: 35px;
+
   font-size: 1.2rem;
   font-weight: bold;
   background-color: #c6d30f;
@@ -64,4 +66,10 @@
 
 .register:hover {
   text-decoration: underline;
+}
+
+@media screen and (max-width :640px){
+  .btn-success {
+margin-right: 35px;
+  }
 }
