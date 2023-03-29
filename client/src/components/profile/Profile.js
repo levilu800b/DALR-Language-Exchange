@@ -72,32 +72,48 @@ const Profile = () => {
 	const [data, setData] = useState("");
 	const [isModalVisible, setIsModalVisible] = useState(false);
 
+	const getProfile = async () => {
+		try {
+			const res = await fetch("api/dashboard/", {
+				method: "GET",
+				headers: { token: localStorage.token },
+			});
 
- const getProfile = async () => {
-  try {
-   const res = await fetch("api/dashboard/", {
-    method: "GET",
-    headers: { token: localStorage.token },
-   });
+			const parseData = await res.json();
+			setData(parseData);
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
 
-   const parseData = await res.json();
-   setData(parseData);
-  } catch (err) {
-   console.error(err.message);
-  }
- };
+	useEffect(() => {
+		getProfile();
+	}, []);
 
- useEffect(() => {
-  getProfile();
- }, []);
+	const handleOk = () => {
+		setIsModalVisible(false);
+	};
 
- const handleOk = () => {
-  setIsModalVisible(false);
- };
+	const handleCancel = () => {
+		setIsModalVisible(false);
+	};
+	const [image, setImage] = useState({});
+	const fileOnchange = (e) => {
+		setImage(e.target.files[0]);
+	};
+	const sendImage = (e) => {
+		e.preventDefault();
 
- const handleCancel = () => {
-  setIsModalVisible(false);
- };
+		const formData = new FormData();
+		formData.append("avatar", image);
+		fetch("api/uploadFile/", {
+			method: "POST",
+			body: formData,
+		})
+			.then((res) => res.text())
+			.then((data) => console.log(data));
+	};
+
 	return (
 		<>
 			<div className="profile-content">
@@ -130,50 +146,62 @@ const Profile = () => {
 							{data.user_city}, {data.user_country}
 						</h3>
 						<br />
-						<div >
-             <br />
-      <Button type="primary"   onClick={() => setIsModalVisible(true)}>
-     <span className="bt-profile">  Edit Profile </span>
-      </Button>
+						<div>
+							<br />
+							<Button type="primary" onClick={() => setIsModalVisible(true)}>
+								<span className="bt-profile"> Edit Profile </span>
+							</Button>
 						</div>
 					</div>
 				</header>
 				<main className="main-profile">
 					<Descriptions title="User Info" className="bt-profile">
 						<Descriptions.Item label="UserName" className="bt-profile">
-						<span className="bt-profile"> {data.user_firstname} {data.user_secondname} </span>
+							<span className="bt-profile">
+								{" "}
+								{data.user_firstname} {data.user_secondname}{" "}
+							</span>
 						</Descriptions.Item>
 						<Descriptions.Item label="Email" className="bt-profile">
-							<a href="#email" style={{ color: "black" }} >
-							<span className="bt-profile"> {data.user_email} </span>
+							<a href="#email" style={{ color: "black" }}>
+								<span className="bt-profile"> {data.user_email} </span>
 							</a>
 						</Descriptions.Item>
 						<Descriptions.Item label="Language Speak">
-						<span className="bt-profile">	{data.user_language_speak} </span>
+							<span className="bt-profile"> {data.user_language_speak} </span>
 						</Descriptions.Item>
 						<Descriptions.Item label="Language Interest">
-						<span className="bt-profile">	{data.user_language_interest} </span>
+							<span className="bt-profile">
+								{" "}
+								{data.user_language_interest}{" "}
+							</span>
 						</Descriptions.Item>
 						<Descriptions.Item label="city">
 							{" "}
-							<span className="bt-profile">	{data.user_city}{" "} </span>
+							<span className="bt-profile"> {data.user_city} </span>
 						</Descriptions.Item>
 						<Descriptions.Item label="Country">
-						<span className="bt-profile">	{data.user_country}{" "} </span>
+							<span className="bt-profile"> {data.user_country} </span>
 						</Descriptions.Item>
 					</Descriptions>
-<Modal title="Edit Profile" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={null}>
-     <EditProfile user={data} setUser={setData} handleOk={handleOk} />
-    </Modal>
-</main>
-		</div>
+					<Modal
+						title="Edit Profile"
+						visible={isModalVisible}
+						onOk={handleOk}
+						onCancel={handleCancel}
+						footer={null}
+					>
+						<EditProfile user={data} setUser={setData} handleOk={handleOk} />
+					</Modal>
+				</main>
+				<input type="file" onChange={fileOnchange} />
+				<button onClick={sendImage}>submit</button>
+			</div>
 		</>
 	);
 };
 
 export default Profile;
-
-
 
 // import React, { useEffect, useState } from "react";
 // import profile from "../../assets/bg2.jpg";
