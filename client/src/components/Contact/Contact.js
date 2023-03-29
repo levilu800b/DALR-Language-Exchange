@@ -17,6 +17,8 @@ const Contact = () => {
   };
 
   return (
+	<div className="cont_contener">
+		<></>
 		<div className="cont">
 			<h1 className="con_text">contact</h1>
 			<form ref={form} onSubmit={sendEmail}>
@@ -33,8 +35,10 @@ const Contact = () => {
 					<textarea name="message" />
 				</label>
 				{/* <input type="submit" value="Send" className="sub" /> */}
-				<button className="btn btn-success btn-block">Send</button>
+				<button className="btn">Send</button>
 			</form>
+		</div>
+		<></>
 		</div>
 	);
 };
