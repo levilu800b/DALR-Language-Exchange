@@ -61,7 +61,7 @@
 // export default Profile;
 //🌧🍉✅
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/bg2.jpg";
+import profile from "../../../../uploads/4f947eebc4bcf871ac9322a338fc10d5.jpeg";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
 
