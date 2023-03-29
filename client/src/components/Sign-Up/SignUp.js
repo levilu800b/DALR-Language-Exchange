@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import { toast } from "react-toastify";
 import "./SignUp.css";
 
@@ -135,10 +136,9 @@ const SignUp = ({ setAuth }) => {
 
 				<button className="btn btn-success btn-block">Sign up</button>
 				<Link className="login_button at" to="/signin">
-				I already Have an Account, Please Login.
-			</Link>
+					I already Have an Account, Please Login.
+				</Link>
 			</form>
-
 		</div>
 	);
 };
