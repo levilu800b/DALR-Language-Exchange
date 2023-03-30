@@ -37,6 +37,18 @@ CREATE TABLE create_events (
   description TEXT NOT NULL,
   datetime TIMESTAMP NOT NULL
 );
+
+CREATE TABLE create_events_email (
+  id SERIAL PRIMARY KEY,
+  languages TEXT NOT NULL,
+  location TEXT NOT NULL,
+  link TEXT NOT NULL,
+  title TEXT NOT NULL,
+  description TEXT NOT NULL,
+  datetime TIMESTAMP NOT NULL,
+  senderEmail VARCHAR(255) NOT NULL,
+  senderId uuid REFERENCES user_profiles(user_id) NOT NULL
+);
 INSERT INTO create_events (languages, location, link, title, description, datetime)
 VALUES ('Arabic BahBah', 'Manchester BahBah', 'https://www.meetup.com/Manchester-Arabic-Language-Meetup/', 'Manchester Arabic Language Meetup', 'Manchester Arabic Language Meetup', '2020-10-10 10:00:00');
 

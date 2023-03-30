@@ -48,7 +48,7 @@ const EventsList = () => {
 		};
 		return date.toLocaleDateString("en-US", options);
 	};
-
+	console.log(events);
 	return (
 		<div className="event_conte">
 			<div className="search-container">
@@ -89,6 +89,9 @@ const EventsList = () => {
 									</p>
 									<p>
 										<span>Datetime:</span> {formatDate(event.datetime)}
+									</p>
+									<p>
+										<span>Sender:</span> {event.senderemail}
 									</p>
 								</div>
 								<div>
