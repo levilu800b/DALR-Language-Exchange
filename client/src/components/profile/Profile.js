@@ -85,7 +85,7 @@ const [data, setData] = useState("");
 <Modal title="Edit Profile" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} footer={null}>
      <EditProfile user={data} setUser={setData} handleOk={handleOk} />
     </Modal>
- 				</main>
+    </main>
 		</div>
 		</>
 	);
