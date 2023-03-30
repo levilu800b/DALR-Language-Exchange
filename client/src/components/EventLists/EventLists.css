@@ -28,6 +28,8 @@
 	height: 100px;
 	line-height: 15px;
 	font-size: 1rem;
+	border-radius: 50%;
+	background-color: #0077B5;
 }
 
 .text-message {
@@ -65,4 +67,39 @@ font-weight: bold;
 .span_des{
 	color: #000000;
 
+}
+@media screen and (max-width :640px){
+	.text-message {
+		display: flex;
+		margin-top: 0.5rem;
+		
+		/* margin-left: 3rem; */
+		font-size: 10px;
+		font-weight: 300;
+	}
+	.overall_detail-message {
+		/* width: 80%; */
+		flex-wrap: wrap;
+		justify-content: space-between;
+         margin-right: 20px;
+		/* flex-direction: row; */
+		align-items: center;
+	}
+	.Native{
+		display: flex;
+		flex-direction: column-reverse;
+		/* margin-right: 30px; */
+	}
+	.Nav2{
+		margin-right: 30px;
+
+align-items: stretch;
+	}
+.event_conte{
+	width: 20rem;
+}
+.img-message {
+	width: 50px;
+	height: 50px;
+}
 }

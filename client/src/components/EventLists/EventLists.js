@@ -62,10 +62,10 @@ const EventsList = () => {
 				dataSource={filteredEvents}
 				renderItem={(event) => (
 					<section className="container_all-message" key={event.id} >
-						<div className="overall_detail-message">
 							<div>
-								<img className="img-message" src={img} alt="" />
+								<img className="img-message" src={img} alt="img" />
 							</div>
+						<div className="overall_detail-message">
 
 							<div className="text-message">
 								<div className="Native">
@@ -79,13 +79,14 @@ const EventsList = () => {
 										<span className="span_text">Datetime:</span>  <span className="span_des">{event.datetime} </span>
 									</p>
 								</div>
-								<div>
+								<div className="Nav2">
 									<p>
 										<span className="span_text">Languages:</span>  <span className="span_des">{event.languages} </span>
 									</p>
 									<p>
 										<span className="span_text">Location:</span> <span className="span_des">{event.location} </span>
 									</p>
+									<br />
 									<p>
 										<span className="span_text">Link:  <a href={event.link}> Link </a></span>
 									</p>
