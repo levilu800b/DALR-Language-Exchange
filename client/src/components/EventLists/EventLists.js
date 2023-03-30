@@ -104,6 +104,10 @@ const EventsList = () => {
 									<p>
 										<span>Link:</span> {event.link}
 									</p>
+									<p>
+										<span>full name: </span>{" "}
+										{`${event.user_firstname} ${event.user_secondname}`}
+									</p>
 								</div>
 							</div>
 						</div>
