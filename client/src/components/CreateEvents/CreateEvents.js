@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CreateEvents.css";
 
@@ -11,6 +11,24 @@ const CreateEvents = () => {
     description: "",
     datetime: "",
   });
+
+  const getProfile = async () => {
+		try {
+			const res = await fetch("api/dashboard/", {
+				method: "GET",
+				headers: { token: localStorage.token },
+			});
+
+			const parseData = await res.json();
+			setFormData({ ...parseData, user_id: parseData.id });
+		} catch (err) {
+			console.error(err.message);
+		}
+	};
+
+  useEffect(() => {
+    getProfile();
+  }, []);
 
   const [formErrors, setFormErrors] = useState({});
   const [formSuccess, setFormSuccess] = useState(false);
@@ -37,66 +55,69 @@ const CreateEvents = () => {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
+		event.preventDefault();
 
-    const { languages, location, link, title, description, datetime } = formData;
+		const { languages, location, link, title, description, datetime, user_id } =
+			formData;
 
-    const errors = {};
+		const errors = {};
 
-    if (!languages) {
-      errors.languages = "Languages is required";
-    }
+		if (!languages) {
+			errors.languages = "Languages is required";
+		}
 
-    if (!location) {
-      errors.location = "Location is required";
-    }
+		if (!location) {
+			errors.location = "Location is required";
+		}
 
-    if (!link) {
-      errors.link = "Link is required";
-    }
+		if (!link) {
+			errors.link = "Link is required";
+		}
 
-    if (!title) {
-      errors.title = "Title is required";
-    }
+		if (!title) {
+			errors.title = "Title is required";
+		}
 
-    if (!description) {
-      errors.description = "Description is required";
-    }
+		if (!description) {
+			errors.description = "Description is required";
+		}
 
-    if (!datetime) {
-      errors.datetime = "Date and time is required";
-    }
+		if (!datetime) {
+			errors.datetime = "Date and time is required";
+		}
 
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-    } else {
-      try {
-        const result = await axios.post("api/dashboard/create_events", {
-          languages,
-          location,
-          link,
-          title,
-          description,
-          datetime,
-        });
+		if (Object.keys(errors).length > 0) {
+			setFormErrors(errors);
+		} else {
+			try {
+				const result = await axios.post("api/dashboard/create_events", {
+					user_id,
+					languages,
+					location,
+					link,
+					title,
+					description,
+					datetime,
+				});
 
-        if (result.status === 201) {
-          setFormSuccess(true);
-          setFormData({
-            languages: "",
-            location: "",
-            link: "",
-            title: "",
-            description: "",
-            datetime: "",
-          });
-        }
-      } catch (error) {
-        console.error(error);
-        setFormErrors({ submit: "Something went wrong, please try again." });
-      }
-    }
-  };
+				if (result.status === 201) {
+					setFormSuccess(true);
+					setFormData({
+						languages: "",
+						location: "",
+						link: "",
+						title: "",
+						description: "",
+						datetime: "",
+					});
+				}
+			} catch (error) {
+				console.error(error);
+				setFormErrors({ submit: "Something went wrong, please try again." });
+			}
+		}
+	};
+
 
   const handleCancel = (event) => {
     event.preventDefault();

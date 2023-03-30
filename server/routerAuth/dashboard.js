@@ -30,17 +30,19 @@ router.get("/all", authorize, async (req, res) => {
 });
 //💫
 
-router.post("/create_events", async (req, res) => {
-	const { languages, location, link, title, description, datetime } = req.body;
-
+router.post("/create-event", async (req, res) => {
 	try {
+		const { user_id, title, location, datetime, languages, link, description } =
+			req.body;
+
 		const result = await db.query(
-			"INSERT INTO create_events (languages, location, link, title, description, datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-			[languages, location, link, title, description, datetime]
+			"INSERT INTO create_events (user_id, title, location, datetime, languages, link, description) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+			[user_id, title, location, datetime, languages, link, description]
 		);
 
 		res.status(201).json(result.rows[0]);
-	} catch (error) {
+	} catch (err) {
+		console.error(err);
 		res.status(500).json({ error: "Server error" });
 	}
 });
