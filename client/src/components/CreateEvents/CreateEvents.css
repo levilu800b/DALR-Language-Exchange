@@ -74,11 +74,11 @@ margin-left: 40px;
     flex-direction: column;
   }
   .form_cont{
-    width: 30rem;
+    width: 20rem;
     margin: 0px;
   }
   
   #description{
-    width: 20rem;
+    width: 14rem;
   }
 }

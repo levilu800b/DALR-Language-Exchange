@@ -6,6 +6,12 @@
 .list_user_con{
 	margin-top: 7rem;
 }
+
+.card_st{
+	background-color: #0077B5;
+/* height: 200px; */
+}
+
 .card {
 	width: 300px;
 	margin: 1rem;
