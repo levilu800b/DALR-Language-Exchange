@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, List } from "antd";
 import "./EventLists.css";
-import img from "../../assets/faceImoje.png";
+import img from "../../assets/profile.jpg";
 
 const { Search } = Input;
 

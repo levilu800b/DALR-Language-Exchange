@@ -1,6 +1,5 @@
 .event_conte{
-    margin-top: 7rem;
- 
+    margin-top: 5.7rem;
 }
 .text-message {
 	display: flex;
@@ -35,9 +34,10 @@
 .text-message {
 	display: flex;
 	margin-top: 0.5rem;
-	margin-left: 2rem;
+	/* margin-left: 2rem; */
 	font-size: 16px;
 	font-weight: 300;
+	text-align:left;
 }
 .text-message h2 {
 	margin-bottom: 2rem;
@@ -50,9 +50,12 @@
 	margin-left: 2rem;
 }
 .Native {
-	margin-left: 6rem;
+align-content: start;
+/* border: pink 2px solid; */
 }
+.Nav2{
 
+}
 .overall_detail-message{
 	background-color: #0077B5;
 	border-radius: 20px;
@@ -65,7 +68,7 @@
 font-weight: bold;
 }
 .span_des{
-	color: #000000;
+	color: #ffffff;
 
 }
 @media screen and (max-width :640px){
