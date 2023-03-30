@@ -100,12 +100,14 @@ const Profile = () => {
 	const [image, setImage] = useState({});
 	const fileOnchange = (e) => {
 		setImage(e.target.files[0]);
+		console.log(e.target.files);
 	};
 	const sendImage = (e) => {
 		e.preventDefault();
 
 		const formData = new FormData();
 		formData.append("avatar", image);
+		formData.append("user_id", data.user_id);
 		fetch("api/uploadFile/", {
 			method: "POST",
 			body: formData,

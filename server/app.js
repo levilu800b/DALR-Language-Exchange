@@ -14,7 +14,7 @@ import {
 const apiRoot = "/api";
 
 const app = express();
-
+app.use("/midia", express.static("./uploads"));
 app.use(express.json());
 app.use(configuredHelmet());
 app.use(configuredMorgan());

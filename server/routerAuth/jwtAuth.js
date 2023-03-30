@@ -1,20 +1,27 @@
 const express = require("express");
 
 const multer = require("multer");
-const upload = multer({ dest: "./uploads" });
+const upload = multer({
+	dest: "./uploads",
+	filename: function (req, file, cb) {
+		cb(null, req.body.user_id + file.mimetype.split("/")[1]);
+	},
+});
 const fs = require("fs");
 const router = express.Router();
 // router.use(express.static("./uploads"));
 
 const bcrypt = require("bcrypt");
+import { request } from "http";
 import db from "../db.js";
 const validInfo = require("../middleware/validInfo");
 const jwtGenerator = require("../utils-copy/jwtGenerator");
 const authorize = require("../middleware/authorize");
 
 router.post("/uploadFile", validInfo, upload.single("avatar"), (req, res) => {
+	console.log("testing" + req.body.user_id);
 	let fileType = req.file.mimetype.split("/")[1];
-	let newFileName = req.file.filename + "." + fileType;
+	let newFileName = req.body.user_id + "." + fileType;
 	fs.rename(
 		`./uploads/${req.file.filename}`,
 		`./uploads/${newFileName}`,
