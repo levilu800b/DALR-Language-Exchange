@@ -39,12 +39,12 @@ const Profile = () => {
 				<header className="profile-header">
 					<img src={profile} alt="Profile picture" aria-hidden />
 					<br />
-					<div className="profile-info">
+					<div className="profile-info marg">
 						<h2>
 							{data.user_firstname} {data.user_secondname}
 						</h2>
 						<br />
-						<h3 className="bt-profile">
+						<h3 className="bt-profile marg">
 							{data.user_city}, {data.user_country}
 						</h3>
 						<br />
@@ -86,15 +86,18 @@ const Profile = () => {
 							<span className="bt-profile"> {data.user_country} </span>
 						</Descriptions.Item>
 					</Descriptions>
+					<span className="edit_bt">
 					<Modal
 						title="Edit Profile"
 						visible={isModalVisible}
 						onOk={handleOk}
 						onCancel={handleCancel}
 						footer={null}
+
 					>
-						<EditProfile user={data} setUser={setData} handleOk={handleOk} />
+						<EditProfile user={data} setUser={setData} handleOk={handleOk}  />
 					</Modal>
+					</span>
 				</main>
 			</div>
 		</>
