@@ -3,9 +3,6 @@ const express = require("express");
 const multer = require("multer");
 const upload = multer({
 	dest: "./uploads",
-	filename: function (req, file, cb) {
-		cb(null, req.body.user_id + file.mimetype.split("/")[1]);
-	},
 });
 const fs = require("fs");
 const router = express.Router();
