@@ -23,7 +23,7 @@ router.post("/uploadFile", validInfo, upload.single("avatar"), (req, res) => {
 		`./uploads/${req.file.filename}`,
 		`./uploads/${newFileName}`,
 		() => {
-			res.send("File uploaded okok");
+			res.send({ newFileName });
 		}
 	);
 });

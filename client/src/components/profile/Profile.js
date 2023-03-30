@@ -62,7 +62,7 @@
 //🌧🍉✅
 import React, { useEffect, useState } from "react";
 // import profile from "../../../../uploads/7916f16e9eddaff99d729092d258a3a0.png";
-import profile from "../../../../uploads/7916f16e9eddaff99d729092d258a3a0.png";
+// import profile from "../../../../uploads/7916f16e9eddaff99d729092d258a3a0.png";
 
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
@@ -70,10 +70,31 @@ import "./ProfileStyle.css";
 //import { Link } from "react-router-dom";
 import { Descriptions, Button, Modal } from "antd";
 
+function handleClick() {
+	function importAllImages(requiredImages) {
+		const images = {};
+		requiredImages.keys().map((item) => {
+			images[item.replace("./", "")] = requiredImages(item);
+		});
+		return images;
+	}
+
+	const allImages = importAllImages(
+		// require.context("../../../../uploads", false)
+		require.context("../../../../uploads", false, /\.(png|jpe?g|svg)$/)
+	);
+	console.log({ allImages });
+	return allImages;
+	// you should save the image names and send it to the FE when we fetch the data .. 454DDFgfgf.jpeg
+	//Refactor function name and maybe state
+	//update the img url
+}
+
 const Profile = () => {
 	const [data, setData] = useState("");
 	const [isModalVisible, setIsModalVisible] = useState(false);
 
+	const allImages = handleClick(); /// refactor
 	const getProfile = async () => {
 		try {
 			const res = await fetch("api/dashboard/", {
@@ -115,14 +136,19 @@ const Profile = () => {
 			body: formData,
 		})
 			.then((res) => res.text())
-			.then((data) => console.log(data));
+			.then((data) => console.log(data, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
 	};
 
 	return (
 		<>
 			<div className="profile-content">
 				<header className="profile-header">
-					<img src={profile} alt="Profile picture" aria-hidden />
+					<button onClick={handleClick}>GET ALL IMAGES</button>
+					<img
+						src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
+						alt="Profile picture"
+						aria-hidden
+					/>
 					<br />
 					<div className="profile-info">
 						<h2>
