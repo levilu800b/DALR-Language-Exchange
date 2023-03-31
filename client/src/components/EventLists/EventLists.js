@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, List } from "antd";
 import "./EventLists.css";
-import img from "../../assets/profile.jpg";
+import img from "../../assets/faceImoje.png";
 
 const { Search } = Input;
 
@@ -74,45 +74,35 @@ const EventsList = () => {
 				dataSource={filteredEvents}
 				renderItem={(event) => (
 					<section className="container_all-message" key={event.id}>
-						<div>
-							<img className="img-message" src={img} alt="img" />
-						</div>
 						<div className="overall_detail-message">
+							<div>
+								<img className="img-message" src={img} alt="" />
+							</div>
+
 							<div className="text-message">
 								<div className="Native">
 									<p>
-										<span className="span_text">Title:</span>{" "}
-										<span className="span_des"> {event.title} </span>
+										<span>Title:</span> {event.title}
 									</p>
 									<p>
-										<span className="span_text">Description:</span>{" "}
-										<span className="span_des"> {event.description} </span>
+										<span>Description:</span> {event.description}
 									</p>
 									<p>
 										<span>Datetime:</span> {formatDate(event.datetime)}
 									</p>
 									<p>
 										<span>Sender:</span> {event.senderemail}
-										<span className="span_text">Datetime:</span>{" "}
-										<span className="span_des">
-											{formatDate(event.datetime)}{" "}
-										</span>
 									</p>
 								</div>
-								<div className="Nav2">
+								<div>
 									<p>
-										<span className="span_text">Languages:</span>{" "}
-										<span className="span_des">{event.languages} </span>
+										<span>Languages:</span> {event.languages}
 									</p>
 									<p>
-										<span className="span_text">Location:</span>{" "}
-										<span className="span_des">{event.location} </span>
+										<span>Location:</span> {event.location}
 									</p>
-									<br />
 									<p>
-										<span className="span_text">
-											Link: <a href={event.link}> Link </a>
-										</span>
+										<span>Link:</span> {event.link}
 									</p>
 									<p>
 										<span>full name: </span>{" "}
