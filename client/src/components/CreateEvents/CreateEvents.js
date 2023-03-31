@@ -3,16 +3,9 @@ import axios from "axios";
 import "./CreateEvents.css";
 
 const CreateEvents = () => {
-  const [formData, setFormData] = useState({
-    languages: "",
-    location: "",
-    link: "",
-    title: "",
-    description: "",
-    datetime: "",
-  });
+  const [sender, setSender] = useState("");
 
-  const getProfile = async () => {
+	const getProfile = async () => {
 		try {
 			const res = await fetch("api/dashboard/", {
 				method: "GET",
@@ -20,44 +13,55 @@ const CreateEvents = () => {
 			});
 
 			const parseData = await res.json();
-			setFormData({ ...parseData, user_id: parseData.id });
+			setSender(parseData);
 		} catch (err) {
 			console.error(err.message);
 		}
 	};
 
-  useEffect(() => {
-    getProfile();
-  }, []);
+	useEffect(() => {
+		getProfile();
+	}, []);
 
-  const [formErrors, setFormErrors] = useState({});
-  const [formSuccess, setFormSuccess] = useState(false);
+	const [formData, setFormData] = useState({
+		languages: "",
+		location: "",
+		link: "",
+		title: "",
+		description: "",
+		datetime: "",
+		senderEmail: "",
+		senderId: "",
+	});
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
+	const [formErrors, setFormErrors] = useState({});
+	const [formSuccess, setFormSuccess] = useState(false);
 
-    if (formErrors[name]) {
-      setFormErrors({ ...formErrors, [name]: "" });
-    }
+	const handleInputChange = (event) => {
+		const { name, value } = event.target;
+		setFormData({ ...formData, [name]: value });
 
-    if (formSuccess) {
-      setFormSuccess(false);
-    }
+		if (formErrors[name]) {
+			setFormErrors({ ...formErrors, [name]: "" });
+		}
 
-    if (formErrors.submit) {
-      setFormErrors({ ...formErrors, submit: "" });
-    }
+		if (formSuccess) {
+			setFormSuccess(false);
+		}
 
-    if (formErrors.cancel) {
-      setFormErrors({ ...formErrors, cancel: "" });
-    }
-  };
+		if (formErrors.submit) {
+			setFormErrors({ ...formErrors, submit: "" });
+		}
 
-  const handleSubmit = async (event) => {
+		if (formErrors.cancel) {
+			setFormErrors({ ...formErrors, cancel: "" });
+		}
+	};
+
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
-		const { languages, location, link, title, description, datetime, user_id } =
+		const { languages, location, link, title, description, datetime } =
 			formData;
 
 		const errors = {};
@@ -90,27 +94,29 @@ const CreateEvents = () => {
 			setFormErrors(errors);
 		} else {
 			try {
-				const result = await axios.post("api/dashboard/create_events", {
-					user_id,
+				await axios.post("api/dashboard/create_events", {
 					languages,
 					location,
 					link,
 					title,
 					description,
 					datetime,
+					senderEmail: sender.user_email,
+					senderId: sender.user_id,
 				});
 
-				if (result.status === 201) {
-					setFormSuccess(true);
-					setFormData({
-						languages: "",
-						location: "",
-						link: "",
-						title: "",
-						description: "",
-						datetime: "",
-					});
-				}
+				setFormSuccess(true);
+
+				setFormData({
+					languages: "",
+					location: "",
+					link: "",
+					title: "",
+					description: "",
+					datetime: "",
+					senderEmail: "",
+					senderId: "",
+				});
 			} catch (error) {
 				console.error(error);
 				setFormErrors({ submit: "Something went wrong, please try again." });
@@ -118,23 +124,22 @@ const CreateEvents = () => {
 		}
 	};
 
+	const handleCancel = (event) => {
+		event.preventDefault();
 
-  const handleCancel = (event) => {
-    event.preventDefault();
+		setFormData({
+			languages: "",
+			location: "",
+			link: "",
+			title: "",
+			description: "",
+			datetime: "",
+			senderEmail: "",
+			senderId: "",
+		});
+		setFormErrors({});
+	};
 
-    setFormData({
-      languages: "",
-      location: "",
-      link: "",
-      title: "",
-      description: "",
-      datetime: "",
-    });
-
-    if (formErrors.cancel) {
-      setFormErrors({ ...formErrors, cancel: "" });
-    }
-  };
 	return (
     <div className="form_cont">
 		<form onSubmit={handleSubmit} className="cont-form">
