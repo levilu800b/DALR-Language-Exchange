@@ -62,9 +62,9 @@ text-transform: uppercase;
    
     }
     .content_hero .btn{
-    padding: 2px 2px;
-    font-size: 0.8rem;
-    font-weight: 600;
+    padding: 10px 10px;
+    font-size: 0.9rem;
+    font-weight: 700;
 
    }
 }

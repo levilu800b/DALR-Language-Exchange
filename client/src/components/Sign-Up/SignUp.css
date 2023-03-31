@@ -1,6 +1,14 @@
 .signip_container{
     margin-top: 7rem;
-}
+display: flex;
+flex-direction: column;
+align-items: center;}
 .at{
     text-align: center;
 }
+
+@media screen and (max-width :640px){
+    .signip_container{
+        margin-top: 5rem;
+    }
+  }

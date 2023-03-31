@@ -24,7 +24,8 @@ input {
 	display: flex;
 }
 .img {
-	margin: 2rem 2rem 0 2.5rem;
+	/* margin: 2rem 2rem 0 2.5rem; */
+	margin-left: 4rem;
 }
 
 .text {

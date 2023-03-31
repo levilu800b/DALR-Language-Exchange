@@ -27,3 +27,21 @@ h3 {
 	margin: auto;
 	padding: 7.3px;
 }
+
+@media screen and (max-width :640px){
+	.containerTable{
+		/* width: 100%; */
+		font-size: 9px;
+
+	}
+	Table{
+width: 200px;
+font-size: 6px;
+font-weight: bold;
+margin: 0;
+
+}
+.table_contener{
+}
+}
+

@@ -1,4 +1,4 @@
-import React from "react";
+import React , { useState } from "react";
 import { Menu, Layout } from "antd";
 import {
 	LogoutOutlined,
@@ -109,10 +109,18 @@ const Sidebar = ({ onMenuClick }) => {
 				</Menu.Item>
 			)
 		);
+		const [collapsed, setCollapsed] = useState(false);
 
 	return (
-		<Sider className="sider">
-			<Menu mode="inline" style={{ height: "100%", borderRight: 0 }}>
+<Sider className="sider" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+{/* <div
+          style={{
+            height: 32,
+            margin: 16,
+            background: "rgba(255, 255, 255, 0.2)",
+          }}
+        /> */}
+	<Menu mode="inline"  theme="dark"  className="menu_cont">
 				{renderMenuItems(items)}
 			</Menu>
 		</Sider>

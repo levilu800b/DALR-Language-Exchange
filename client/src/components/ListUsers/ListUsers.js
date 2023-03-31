@@ -60,30 +60,33 @@ function UserList() {
 					{Array.isArray(data) && data.length > 0 ? (
 						data.map((user) => (
 							<Card
+							className="card_st"
 								key={user.user_id}
 								hoverable
 								style={{
-									width: 200,
-									height: 200,
+									// width: 200,
+									// height: 200,
 									display: "inline-block",
 									margin: "3em",
 								}}
-								cover={
+
+								onClick={() => handleCardClick(user)}
+							>
 									<img
 										alt={`${user.user_firstname} `}
 										src={allImages["faceImoje.png"]?.default}
+										width="200px"
+										height="200px"
+										style={{ marginBottom:20 }}
 									/>
-								}
-								onClick={() => handleCardClick(user)}
-							>
 								<Meta
 									Link
 									to={"/profile"}
-									title={`${user.user_secondname} `}
-									description={`Languages spoken: ${user.user_language_speak}`}
+									title={`${user.user_firstname} `}
+									description={` Languages spoken :   ${user.user_language_speak}`}
 								/>
 								<Meta
-									description={`Languages interested: ${user.user_language_interest}`}
+								 	description={`Languages interested :  ${user.user_language_interest}`}
 								/>
 							</Card>
 						))

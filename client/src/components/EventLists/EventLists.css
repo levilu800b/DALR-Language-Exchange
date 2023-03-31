@@ -1,6 +1,5 @@
 .event_conte{
-    margin-top: 7rem;
- 
+    margin-top: 5.7rem;
 }
 .text-message {
 	display: flex;
@@ -28,14 +27,17 @@
 	height: 100px;
 	line-height: 15px;
 	font-size: 1rem;
+	border-radius: 50%;
+	background-color: #0077B5;
 }
 
 .text-message {
 	display: flex;
 	margin-top: 0.5rem;
-	margin-left: 2rem;
+	/* margin-left: 2rem; */
 	font-size: 16px;
 	font-weight: 300;
+	text-align:left;
 }
 .text-message h2 {
 	margin-bottom: 2rem;
@@ -48,6 +50,59 @@
 	margin-left: 2rem;
 }
 .Native {
-	margin-left: 6rem;
+align-content: start;
+/* border: pink 2px solid; */
 }
+.Nav2{
 
+}
+.overall_detail-message{
+	background-color: #0077B5;
+	border-radius: 20px;
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-items: center;
+}
+.span_text{
+font-weight: bold;
+}
+.span_des{
+	color: #ffffff;
+
+}
+@media screen and (max-width :640px){
+	.text-message {
+		display: flex;
+		margin-top: 0.5rem;
+		
+		/* margin-left: 3rem; */
+		font-size: 10px;
+		font-weight: 300;
+	}
+	.overall_detail-message {
+		/* width: 80%; */
+		flex-wrap: wrap;
+		justify-content: space-between;
+         margin-right: 20px;
+		/* flex-direction: row; */
+		align-items: center;
+	}
+	.Native{
+		display: flex;
+		flex-direction: column-reverse;
+		/* margin-right: 30px; */
+	}
+	.Nav2{
+		margin-right: 30px;
+
+align-items: stretch;
+	}
+.event_conte{
+	width: 20rem;
+}
+.img-message {
+	width: 50px;
+	height: 50px;
+}
+}

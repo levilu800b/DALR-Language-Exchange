@@ -38,7 +38,7 @@ ul{
 }
 
 .btn:hover{
-	background: rgba(255,255,255,0.2);
+	background: rgba(112, 112, 112, 0.2);
 	color: #fff;
 	transition: 0.3s;
 }
