@@ -93,10 +93,6 @@ const EventsList = () => {
 									</p>
 									<p>
 										<span>Sender:</span> {event.senderemail}
-										<span className="span_text">Datetime:</span>{" "}
-										<span className="span_des">
-											{formatDate(event.datetime)}{" "}
-										</span>
 									</p>
 								</div>
 								<div className="Nav2">
