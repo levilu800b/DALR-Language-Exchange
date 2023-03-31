@@ -1,7 +1,7 @@
 import React from "react";
 import "../massage.css";
 import "../navbar.css";
-
+import "./Friends.css";
 import { useParams } from "react-router-dom";
 import imfg from "../../../assets/faceImoje.png";
 
@@ -12,7 +12,7 @@ const Friends = ({ data, selectedUser }) => {
 		<section className="container">
 			<div className="overall_ditail">
 				<div className="img">
-					<img src={imfg} alt="" width="150px" height="200px" />
+					<img src={imfg} alt=""  />
 				</div>
 
 				<div className="text">
