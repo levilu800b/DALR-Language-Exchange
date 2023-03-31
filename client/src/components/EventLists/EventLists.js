@@ -70,42 +70,49 @@ const EventsList = () => {
 				/>
 			</div>
 			<List
-
 				itemLayout="vertical"
 				dataSource={filteredEvents}
 				renderItem={(event) => (
-					<section className="container_all-message" key={event.id} >
-							<div>
-								<img className="img-message" src={img} alt="img" />
-							</div>
+					<section className="container_all-message" key={event.id}>
+						<div>
+							<img className="img-message" src={img} alt="img" />
+						</div>
 						<div className="overall_detail-message">
-
 							<div className="text-message">
 								<div className="Native">
 									<p>
-										<span className="span_text">Title:</span> <span className="span_des"> {event.title} </span>
+										<span className="span_text">Title:</span>{" "}
+										<span className="span_des"> {event.title} </span>
 									</p>
 									<p>
-										<span className="span_text">Description:</span> <span className="span_des">  {event.description} </span>
+										<span className="span_text">Description:</span>{" "}
+										<span className="span_des"> {event.description} </span>
 									</p>
 									<p>
 										<span>Datetime:</span> {formatDate(event.datetime)}
 									</p>
 									<p>
 										<span>Sender:</span> {event.senderemail}
-										<span className="span_text">Datetime:</span>  <span className="span_des">{event.datetime} </span>
+										<span className="span_text">Datetime:</span>{" "}
+										<span className="span_des">
+											{formatDate(event.datetime)}{" "}
+										</span>
 									</p>
 								</div>
 								<div className="Nav2">
 									<p>
-										<span className="span_text">Languages:</span>  <span className="span_des">{event.languages} </span>
+										<span className="span_text">Languages:</span>{" "}
+										<span className="span_des">{event.languages} </span>
 									</p>
 									<p>
-										<span className="span_text">Location:</span> <span className="span_des">{event.location} </span>
+										<span className="span_text">Location:</span>{" "}
+										<span className="span_des">{event.location} </span>
 									</p>
 									<br />
 									<p>
-										<span className="span_text">Link:  <a href={event.link}> Link </a></span>
+										<span className="span_text">
+											Link: <a href={event.link}> Link </a>
+										</span>
 									</p>
 									<p>
 										<span>full name: </span>{" "}
