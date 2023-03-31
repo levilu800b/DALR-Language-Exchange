@@ -13,7 +13,9 @@
 }
 
 .card {
-	width: 300px;
+	/* width: 300px; */
+	width: 100%;
+
 	margin: 1rem;
 }
 
@@ -28,6 +30,7 @@
 	}
 	
 	.card {
+		width: 100%;
 		margin: 1rem 0;
 	}
 }
