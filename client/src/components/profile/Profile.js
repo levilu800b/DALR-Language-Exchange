@@ -4,31 +4,32 @@ import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
 import { Descriptions, Button, Modal, Upload } from "antd";
 
-function handleClick() {
-	function importAllImages(requiredImages) {
-		const images = {};
-		requiredImages.keys().map((item) => {
-			images[item.replace("./", "")] = requiredImages(item);
-		});
-		return images;
-	}
+// function handleClick() {
+// 	function importAllImages(requiredImages) {
+// 		const images = {};
+// 		requiredImages.keys().map((item) => {
+// 			images[item.replace("./", "")] = requiredImages(item);
+// 		});
+// 		return images;
+// 	}
 
-	const allImages = importAllImages(
-		// require.context("../../../../uploads", false)
-		require.context("../../../../uploads", false, /\.(png|jpe?g|svg)$/)
-	);
-	console.log({ allImages });
-	return allImages;
-	// you should save the image names and send it to the FE when we fetch the data .. 454DDFgfgf.jpeg
-	//Refactor function name and maybe state
-	//update the img url
-}
+// 	const allImages = importAllImages(
+// 		// require.context("../../../../uploads", false)
+// 		require.context("../../../../uploads", false, /\.(png|jpe?g|svg)$/)
+// 	);
+// 	console.log({ allImages });
+// 	return allImages;
+// 	// you should save the image names and send it to the FE when we fetch the data .. 454DDFgfgf.jpeg
+// 	//Refactor function name and maybe state
+// 	//update the img url
+// }
 
 const Profile = () => {
 	const [data, setData] = useState("");
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [image, setImage] = useState({});
-	const allImages = handleClick();
+	// const allImages = handleClick();
+
 	const fileOnchange = (e) => {
 		setImage(e.target.files[0]);
 		console.log(e.target.files);
@@ -76,7 +77,7 @@ const Profile = () => {
 		<>
 			<div className="profile-content">
 				<header className="profile-header">
-					<div className="upload-container">
+					{/* <div className="upload-container">
 						<input
 							className="upload-input"
 							type="file"
@@ -85,9 +86,9 @@ const Profile = () => {
 						<button className="upload-button" onClick={sendImage}>
 							submit
 						</button>
-					</div>
+					</div> */}
 					<img
-						src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
+						// src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
 						alt="Profile picture"
 						aria-hidden
 					/>
