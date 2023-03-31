@@ -97,25 +97,6 @@ export default function Manage_profile() {
 					rowKey={(record) => record.id}
 				/>
 			</div>
-
-			<div className="containerTable">
-				<div className="bordered-box">
-					<h3 className="section-title">Message sent</h3>
-				</div>
-				{/* <Table
-					columns={columns}
-					dataSource={filteredSenderMessage}
-					rowKey={(record) => record.id}
-				/> */}
-				<Table
-					columns={columns}
-					dataSource={filteredRecipientMessage.map((message) => ({
-						...message,
-						created_at: formatDate(message.created_at),
-					}))}
-					rowKey={(record) => record.id}
-				/>
-			</div>
 			<div className="containerTable">
 				<div className="bordered-box">
 					<h3 className="section-title">Messages received </h3>
@@ -128,6 +109,24 @@ export default function Manage_profile() {
 				<Table
 					columns={columns}
 					dataSource={filteredSenderMessage.map((message) => ({
+						...message,
+						created_at: formatDate(message.created_at),
+					}))}
+					rowKey={(record) => record.id}
+				/>
+			</div>
+			<div className="containerTable">
+				<div className="bordered-box">
+					<h3 className="section-title">Message sent</h3>
+				</div>
+				{/* <Table
+					columns={columns}
+					dataSource={filteredSenderMessage}
+					rowKey={(record) => record.id}
+				/> */}
+				<Table
+					columns={columns}
+					dataSource={filteredRecipientMessage.map((message) => ({
 						...message,
 						created_at: formatDate(message.created_at),
 					}))}
