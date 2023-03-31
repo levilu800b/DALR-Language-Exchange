@@ -1,76 +1,89 @@
-.profile-content{
-display: flex;
-justify-content: center;
-margin-top: 15rem;
-
+.profile-content {
+	display: flex;
+	justify-content: center;
+	margin-top: 15rem;
 }
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #0077B5;
-    color: #fff;
-    box-shadow: 5px 10px #dad9d9;
-    border-radius: 10px;
-
-  }
-
-  .bt-profile{
-  color: white;
-  }
-  .profile-info{
-    text-align: center;
-  }
-
-  .profile-header img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 2rem;
-    
-   }
-  .main-profile{
-    border: 1px solid black;
-  width: 50rem;
-  height: 10rem; 
-  margin-left: 30px;
-   background-color: #eaeff1;
-  border-radius: 10px;
-  background-color: #0077B5;
-  } 
-  @media screen and (max-width :640px){
-    .profile-content{
-flex-direction: column;
-margin-top: 5.6rem;
-justify-content: center;
-    }
-    .main-profile{
-      /* border: 1px solid black; */
-    width: 19.3rem;
-    height: 21rem; 
-   margin: 0;
-   padding-left: 20px;
-   margin-top: 10px;
-  text-align: center;
-    } 
-    .edit_bt{
-      align-items: center;
-      margin-right: 50px;
-    }
-    .profile-header img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin-right: 0;
-      
-     }
-     .profile-info{
-display: flex;
-flex-direction: column;
-align-content: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	background-color: #0077b5;
+	color: #fff;
+	box-shadow: 5px 10px #dad9d9;
+	border-radius: 10px;
 }
-.marg{
+
+.bt-profile {
+	color: white;
 }
-  }
+.profile-info {
+	text-align: center;
+}
+
+.profile-header img {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin-right: 2rem;
+}
+.main-profile {
+	border: 1px solid black;
+	width: 50rem;
+	height: 10rem;
+	margin-left: 30px;
+	background-color: #eaeff1;
+	border-radius: 10px;
+	background-color: #0077b5;
+}
+@media screen and (max-width: 640px) {
+	.profile-content {
+		flex-direction: column;
+		margin-top: 5.6rem;
+		justify-content: center;
+	}
+	.main-profile {
+		/* border: 1px solid black; */
+		width: 19.3rem;
+		height: 21rem;
+		margin: 0;
+		padding-left: 20px;
+		margin-top: 10px;
+		text-align: center;
+	}
+	.edit_bt {
+		align-items: center;
+		margin-right: 50px;
+	}
+	.profile-header img {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		margin-right: 0;
+	}
+	.profile-info {
+		display: flex;
+		flex-direction: column;
+		align-content: center;
+	}
+	.marg {
+	}
+}
+
+.upload-container {
+	display: flex;
+
+	/* justify-content: center; */
+	/* align-items: center; */
+	padding: 0;
+	border-radius: 10px;
+}
+.upload-input {
+	width: 60%;
+}
+.upload-button {
+	width: auto;
+	padding: 0 2px;
+	margin: 0 0 20px 3rem;
+}

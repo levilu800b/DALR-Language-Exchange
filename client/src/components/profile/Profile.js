@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
-import { Descriptions, Button, Modal } from "antd";
+import { Descriptions, Button, Modal, Upload } from "antd";
 
 function handleClick() {
 	function importAllImages(requiredImages) {
@@ -76,6 +76,16 @@ const Profile = () => {
 		<>
 			<div className="profile-content">
 				<header className="profile-header">
+					<div className="upload-container">
+						<input
+							className="upload-input"
+							type="file"
+							onChange={fileOnchange}
+						/>
+						<button className="upload-button" onClick={sendImage}>
+							submit
+						</button>
+					</div>
 					<img
 						src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
 						alt="Profile picture"
