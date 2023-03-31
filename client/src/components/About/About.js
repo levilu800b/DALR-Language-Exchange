@@ -62,7 +62,7 @@ function About() {
       {showMembers && (
         <div style={{ display: "flex", justifyContent: "center" }} className="card_about">
           {teamMembers.map((member) => (
-            <div key={member.id} style={{ textAlign: "center", margin: "20px" }}>
+            <div key={member.id} style={{ textAlign: "center", margin: "20px" }} className="card_info">
               <img
                 src={member.image.default}
                 alt={member.name}
