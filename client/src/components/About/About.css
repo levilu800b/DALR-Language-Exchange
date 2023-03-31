@@ -1,3 +1,16 @@
 .about_cont{
-    margin-top: 6rem;
+    margin-top: 5.6rem;
+}
+.card_about{
+    border: 2px solid rgb(248, 248, 248);
+    /* width: 200px; */
+    /* padding: 20px; */
+}
+@media screen and (max-width :640px){
+.card_about{
+flex-direction: column;
+}
+.font_p{
+    font-size: medium;
+}
 }

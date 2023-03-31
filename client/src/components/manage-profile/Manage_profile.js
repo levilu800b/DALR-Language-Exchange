@@ -84,7 +84,7 @@ export default function Manage_profile() {
 	};
 
 	return (
-		<div>
+		<div className="table_contener">
 			<h1 className="Manage">Dashboard</h1>
 			<h3>Welcome {data.user_firstname}</h3>
 			<div className="containerTable">

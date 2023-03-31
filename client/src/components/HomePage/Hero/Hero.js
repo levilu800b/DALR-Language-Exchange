@@ -1,6 +1,6 @@
 import React from "react";
 import "../Hero/HeroStyle.css";
-import bg1 from "../../../assets/bg1.jpg";
+import bg1 from "../../../assets/bg2.jpg";
 import { Link } from "react-router-dom";
 const Hero = () => {
   return (

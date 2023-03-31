@@ -1,0 +1,12 @@
+
+@media screen and (max-width :640px){
+    .profile_message{
+display: flex;
+width: 100%;
+flex-direction: column;
+
+}
+.container_all{
+    margin: 0;
+}
+}

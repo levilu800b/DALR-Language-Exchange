@@ -31,27 +31,56 @@ router.get("/all", authorize, async (req, res) => {
 //💫
 
 router.post("/create_events", async (req, res) => {
-	const { languages, location, link, title, description, datetime } = req.body;
+	const {
+		languages,
+		location,
+		link,
+		title,
+		description,
+		datetime,
+		senderEmail,
+		senderId,
+	} = req.body;
 
 	try {
 		const result = await db.query(
-			"INSERT INTO create_events (languages, location, link, title, description, datetime) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *",
-			[languages, location, link, title, description, datetime]
+			"INSERT INTO create_events_email (languages, location, link, title, description, datetime,senderEmail,senderId) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *",
+			[
+				languages,
+				location,
+				link,
+				title,
+				description,
+				datetime,
+				senderEmail,
+				senderId,
+			]
 		);
 
 		res.status(201).json(result.rows[0]);
 	} catch (error) {
+		console.error(error);
 		res.status(500).json({ error: "Server error" });
 	}
 });
 
+// router.get("/events", async (req, res) => {
+// 	try {
+// 		const result = await db.query("SELECT * FROM create_events_email");
+// 		res.status(200).json(result.rows);
+// 	} catch (error) {
+// 		res.status(500).json({ error: "Server error" });
+// 	}
+// });
 router.get("/events", async (req, res) => {
- try {
-  const result = await db.query("SELECT * FROM create_events");
-  res.status(200).json(result.rows);
- } catch (error) {
-  res.status(500).json({ error: "Server error" });
- }
+	try {
+		const result = await db.query(
+			"SELECT e.*, u.user_firstname, u.user_secondname FROM create_events_email e JOIN user_profiles u ON e.senderid = u.user_id"
+		);
+		res.status(200).json(result.rows);
+	} catch (error) {
+		res.status(500).json({ error: "Server error" });
+	}
 });
 
 router.post("/send-message", authorize, async (req, res) => {
@@ -70,7 +99,13 @@ router.post("/send-message", authorize, async (req, res) => {
 		}
 		const newMessage = await db.query(
 			"INSERT INTO messages (sender_id, sender_email, recipient_id, recipient_email, message) VALUES ($1, $2, $3, $4, $5) RETURNING *",
-			[senderId, senderEmail, recipient.rows[0].user_id, recipientEmail, message]
+			[
+				senderId,
+				senderEmail,
+				recipient.rows[0].user_id,
+				recipientEmail,
+				message,
+			]
 		);
 		if (!newMessage.rows[0]) {
 			return res
@@ -98,7 +133,4 @@ router.get("/messages", authorize, async (req, res) => {
 	}
 });
 
-
-
 module.exports = router;
-

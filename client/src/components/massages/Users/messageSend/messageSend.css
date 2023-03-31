@@ -77,3 +77,15 @@
 .Native {
 	margin-left: 6rem;
 }
+
+
+
+@media screen and (max-width :640px){
+.pm{
+	width: 100%;
+}
+.text-message{
+flex-direction: column;
+width: 100%;
+}
+}

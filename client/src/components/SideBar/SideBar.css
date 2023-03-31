@@ -1,3 +1,10 @@
 .sider{
-    margin-top: 5rem;
+    margin-top: 5.6rem;
 }
+.menu_cont{
+    height: 100%;
+    border-right: 0;
+    /* width: 180px; */
+}
+
+/* invalid */

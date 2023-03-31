@@ -6,7 +6,7 @@ import imfg from "../../../assets/faceImoje.png";
 import "../massage.css";
 import "../navbar.css";
 import "./textErea/textErea.css";
-
+import "./ProfileMessage.css";
 export default function Profile({ data, selectedUser }) {
 	const [sender, setSender] = useState("");
 
@@ -79,7 +79,7 @@ export default function Profile({ data, selectedUser }) {
 	return (
 		<div>
 			<section className="container_all">
-				<div className="overall_ditail">
+				<div className="overall_ditail profile_message">
 					<div className="img">
 						<img src={imfg} alt="" />
 					</div>
@@ -126,7 +126,7 @@ export default function Profile({ data, selectedUser }) {
 					placeholder="Enter your text here"
 				/>
 				<button className="button-message" type="submit">
-					Submit
+					Send
 				</button>
 			</form>
 		</div>

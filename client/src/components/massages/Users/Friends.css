@@ -1,0 +1,8 @@
+@media screen and (max-width :640px){
+
+.overall_ditail{
+    flex-direction: column;
+    width: 100%;
+}
+
+}

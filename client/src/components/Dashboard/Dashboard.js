@@ -52,8 +52,8 @@ function Head({ setAuth }) {
 	return (
 		<Layout style={{ minHeight: "100vh" }}>
 			<Sidebar onMenuClick={handleMenuClick} />
-			<Layout className="site-layout">
-				<Content style={{ margin: "0 16px" }}>{renderContent()}</Content>
+			<Layout className="site-layout ">
+				<Content  className="main_content">{renderContent()}</Content>
 			</Layout>
 		</Layout>
 	);

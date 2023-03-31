@@ -83,12 +83,12 @@ const MessageSend = ({ data, selectedUser }) => {
 	return (
 		<>
 			<section className="container_all-message">
-				<div className="overall_ditail-message">
-					<div>
-						<img className="img-message" src={imfg} alt="" />
+				<div className="overall_ditail-message profile_message pm">
+					<div className="img">
+						<img  src={imfg} alt="" />
 					</div>
 
-					<div className="text-message">
+					<div className="text">
 						<div>
 							<p>
 								<span>First name:</span>
@@ -99,14 +99,6 @@ const MessageSend = ({ data, selectedUser }) => {
 							<p>
 								<span>City:</span>
 							</p>
-						</div>
-
-						<div>
-							<p>{selectedUser.user_firstname}</p>
-							<p>{selectedUser.user_secondname}</p>
-							<p>{selectedUser.user_city}</p>
-						</div>
-						<div className="Native">
 							<p>
 								<span>Native country:</span>
 							</p>
@@ -118,6 +110,9 @@ const MessageSend = ({ data, selectedUser }) => {
 							</p>
 						</div>
 						<div>
+							<p>{selectedUser.user_firstname}</p>
+							<p>{selectedUser.user_secondname}</p>
+							<p>{selectedUser.user_city}</p>
 							<p>{selectedUser.user_country}</p>
 							<p>{selectedUser.user_language_speak}</p>
 							<p>{selectedUser.user_language_interest}</p>
@@ -133,7 +128,7 @@ const MessageSend = ({ data, selectedUser }) => {
 					placeholder="Enter your text here"
 				/>
 				<button className="button-message" type="submit">
-					Submit
+					Send
 				</button>
 			</form>
 		</>

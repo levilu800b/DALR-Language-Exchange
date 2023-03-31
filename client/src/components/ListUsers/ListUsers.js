@@ -68,13 +68,13 @@ function UserList() {
         <>
           <div style={{ display: 'flex', marginBottom: '1em' }}>
             <Input
-              placeholder="Name"
+              placeholder="Search by name"
               value={searchName}
               onChange={handleSearchNameChange}
               style={{ width: 400, marginRight: '1cm' }}
             />
             <Input
-              placeholder="Interested language"
+              placeholder="Search by interested language"
               value={searchInterest}
               onChange={handleSearchInterestChange}
               style={{ width: 400 }}
@@ -95,21 +95,20 @@ function UserList() {
               .map((user) => (
                 <Card
                   key={user.user_id}
-                  hoverable
+                  hoverable 
+                  className="card_st"
                   style={{
-                    width: 200,
-                    height: 200,
+                    // width: 200,
+                    // height: 200,
                     display: "inline-block",
                     margin: "3em",
                   }}
-                  cover={
-                    <img
+                  onClick={() => handleCardClick(user)}
+                >
+                  <img
                       alt={`${user.user_firstname} `}
                       src={allImages["faceImoje.png"]?.default}
                     />
-                  }
-                  onClick={() => handleCardClick(user)}
-                >
                   <Meta
                     Link
                     to={"/profile"}
