@@ -79,7 +79,7 @@ router.get("/events", async (req, res) => {
 		);
 		res.status(200).json(result.rows);
 	} catch (error) {
-		res.status(500).json({ error: "Server error" });
+		res.status(500).json({ error });
 	}
 });
 
