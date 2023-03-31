@@ -35,6 +35,7 @@ const EventsList = () => {
 		setSearchText(text);
 		setSearchLocation(location);
 	};
+
 	const formatDate = (dateString) => {
 		const date = new Date(dateString);
 		const options = {
@@ -49,6 +50,7 @@ const EventsList = () => {
 		return date.toLocaleDateString("en-US", options);
 	};
 	console.log(events);
+
 	return (
 		<div className="event_conte">
 			<div className="search-container">
@@ -89,10 +91,8 @@ const EventsList = () => {
 										<span className="span_des"> {event.description} </span>
 									</p>
 									<p>
-										<span>Datetime:</span> {formatDate(event.datetime)}
-									</p>
-									<p>
-										<span>Sender:</span> {event.senderemail}
+										<span className="span_text">Datetime:</span>{" "}
+										<span className="span_des">{event.datetime} </span>
 									</p>
 								</div>
 								<div className="Nav2">
@@ -109,10 +109,6 @@ const EventsList = () => {
 										<span className="span_text">
 											Link: <a href={event.link}> Link </a>
 										</span>
-									</p>
-									<p>
-										<span>full name: </span>{" "}
-										{`${event.user_firstname} ${event.user_secondname}`}
 									</p>
 								</div>
 							</div>
