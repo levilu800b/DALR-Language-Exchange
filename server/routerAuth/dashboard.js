@@ -75,7 +75,7 @@ router.post("/create_events", async (req, res) => {
 router.get("/events", async (req, res) => {
 	try {
 		const result = await db.query(
-			"SELECT e.*, u.user_firstname, u.user_secondname FROM create_events_email e JOIN user_profiles u ON e.senderid = u.user_id"
+			"SELECT * FROM create_events_email JOIN user_profiles ON create_events_email.senderid = user_profiles.user_id;"
 		);
 		res.status(200).json(result.rows);
 	} catch (error) {
