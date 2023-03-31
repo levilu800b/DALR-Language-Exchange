@@ -30,6 +30,8 @@ const CreateEvents = () => {
 		title: "",
 		description: "",
 		datetime: "",
+		senderEmail: "",
+		senderId: "",
 	});
 
 	const [formErrors, setFormErrors] = useState({});
@@ -99,6 +101,8 @@ const CreateEvents = () => {
 					title,
 					description,
 					datetime,
+					senderEmail: sender.user_email,
+					senderId: sender.user_id,
 				});
 
 				setFormSuccess(true);
@@ -110,6 +114,8 @@ const CreateEvents = () => {
 					title: "",
 					description: "",
 					datetime: "",
+					senderEmail: "",
+					senderId: "",
 				});
 			} catch (error) {
 				console.error(error);
@@ -128,6 +134,8 @@ const CreateEvents = () => {
 			title: "",
 			description: "",
 			datetime: "",
+			senderEmail: "",
+			senderId: "",
 		});
 		setFormErrors({});
 	};
