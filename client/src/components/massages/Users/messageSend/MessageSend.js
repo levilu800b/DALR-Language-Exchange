@@ -40,7 +40,10 @@ const MessageSend = ({ data, selectedUser }) => {
 
 	const handleClick = async (e) => {
 		e.preventDefault();
-		// Create a new message object
+		if (!message) {
+			toast.error("Message cannot be empty");
+			return;
+		}
 		const newMessage = {
 			senderId: sender.user_id, // Sender's user ID
 			senderEmail: sender.user_email, // Sender's email
@@ -85,7 +88,7 @@ const MessageSend = ({ data, selectedUser }) => {
 			<section className="container_all-message">
 				<div className="overall_ditail-message profile_message pm">
 					<div className="img">
-						<img  src={imfg} alt="" />
+						<img src={imfg} alt="" />
 					</div>
 
 					<div className="text">

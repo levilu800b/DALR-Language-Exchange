@@ -2,11 +2,51 @@ import React, { useEffect, useState } from "react";
 import profile from "../../assets/bg2.jpg";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
-import { Descriptions, Button, Modal } from "antd";
+import { Descriptions, Button, Modal, Upload } from "antd";
+
+// function handleClick() {
+// 	function importAllImages(requiredImages) {
+// 		const images = {};
+// 		requiredImages.keys().map((item) => {
+// 			images[item.replace("./", "")] = requiredImages(item);
+// 		});
+// 		return images;
+// 	}
+
+// 	const allImages = importAllImages(
+// 		// require.context("../../../../uploads", false)
+// 		require.context("../../../../uploads", false, /\.(png|jpe?g|svg)$/)
+// 	);
+// 	console.log({ allImages });
+// 	return allImages;
+// 	// you should save the image names and send it to the FE when we fetch the data .. 454DDFgfgf.jpeg
+// 	//Refactor function name and maybe state
+// 	//update the img url
+// }
 
 const Profile = () => {
 	const [data, setData] = useState("");
 	const [isModalVisible, setIsModalVisible] = useState(false);
+	const [image, setImage] = useState({});
+	// const allImages = handleClick();
+
+	const fileOnchange = (e) => {
+		setImage(e.target.files[0]);
+		console.log(e.target.files);
+	};
+	const sendImage = (e) => {
+		e.preventDefault();
+
+		const formData = new FormData();
+		formData.append("avatar", image);
+		formData.append("user_id", data.user_id);
+		fetch("api/uploadFile/", {
+			method: "POST",
+			body: formData,
+		})
+			.then((res) => res.text())
+			.then((data) => console.log(data, ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"));
+	};
 
 	const getProfile = async () => {
 		try {
@@ -37,7 +77,21 @@ const Profile = () => {
 		<>
 			<div className="profile-content">
 				<header className="profile-header">
-					<img src={profile} alt="Profile picture" aria-hidden />
+					{/* <div className="upload-container">
+						<input
+							className="upload-input"
+							type="file"
+							onChange={fileOnchange}
+						/>
+						<button className="upload-button" onClick={sendImage}>
+							submit
+						</button>
+					</div> */}
+					<img
+						// src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
+						alt="Profile picture"
+						aria-hidden
+					/>
 					<br />
 					<div className="profile-info marg">
 						<h2>
@@ -87,16 +141,15 @@ const Profile = () => {
 						</Descriptions.Item>
 					</Descriptions>
 					<span className="edit_bt">
-					<Modal
-						title="Edit Profile"
-						visible={isModalVisible}
-						onOk={handleOk}
-						onCancel={handleCancel}
-						footer={null}
-
-					>
-						<EditProfile user={data} setUser={setData} handleOk={handleOk}  />
-					</Modal>
+						<Modal
+							title="Edit Profile"
+							visible={isModalVisible}
+							onOk={handleOk}
+							onCancel={handleCancel}
+							footer={null}
+						>
+							<EditProfile user={data} setUser={setData} handleOk={handleOk} />
+						</Modal>
 					</span>
 				</main>
 			</div>
