@@ -14,7 +14,7 @@ const EventsList = () => {
 	useEffect(() => {
 		const fetchEvents = async () => {
 			try {
-				const response = await fetch("/api/dashboard/events");
+				const response = await fetch("api/dashboard/events");
 				const data = await response.json();
 				setEvents(data);
 				setFilteredEvents(data);
