@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, List } from "antd";
 import "./EventLists.css";
-import img from "../../assets/profile.jpg";
+import img from "../../assets/faceImoje.png";
 
 const { Search } = Input;
 
@@ -55,20 +55,22 @@ const EventsList = () => {
 		<div className="event_conte">
 			<div className="search-container">
 				<Search
+				className="inputsearch"
 					placeholder="Search by language"
 					allowClear
 					onSearch={(value) => handleSearch(value, searchLocation)}
 					value={searchText}
 					onChange={(e) => setSearchText(e.target.value)}
-					style={{ width: 200 }}
+					style={{ width: 300 }}
 				/>
 				<Search
+				className="inputsearch"
 					placeholder="Search by location"
 					allowClear
 					onSearch={(value) => handleSearch(searchText, value)}
 					value={searchLocation}
 					onChange={(e) => setSearchLocation(e.target.value)}
-					style={{ width: 200 }}
+					style={{ width: 300 }}
 				/>
 			</div>
 			<List
@@ -97,8 +99,10 @@ const EventsList = () => {
 										</span>
 									</p>
 									<p>
-										<span className="span_text">Sender:</span>{" "}
+										<span className="span_text">Created by:</span>{" "}
+										<span className="span_des">
 										{event.senderemail}
+										</span>
 									</p>
 								</div>
 								<div className="Nav2">
@@ -112,13 +116,16 @@ const EventsList = () => {
 									</p>
 									<br />
 									<p>
+										<br />
 										<span className="span_text">
 											Link: <a href={event.link}> Link </a>
 										</span>
 									</p>
 									<p>
 										<span className="span_text">full name: </span>{" "}
+										<span className="span_des">
 										{`${event.user_firstname} ${event.user_secondname}`}
+										</span>
 									</p>
 								</div>
 							</div>

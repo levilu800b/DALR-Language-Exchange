@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import profile from "../../assets/bg2.jpg";
+import profile from "../../assets/faceImoje.png";
 import EditProfile from "./EditProfile";
 import "./ProfileStyle.css";
 import { Descriptions, Button, Modal, Upload } from "antd";
@@ -89,6 +89,7 @@ const Profile = () => {
 					</div> */}
 					<img
 						// src={allImages[`${data.user_id}.jpeg`]?.default} //allImages[data.imgUlr]?.default
+						src={profile}
 						alt="Profile picture"
 						aria-hidden
 					/>

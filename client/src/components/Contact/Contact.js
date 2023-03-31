@@ -1,19 +1,25 @@
-import React , { useRef } from "react";
+import React , { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "./Contact.css";
-
+import { toast } from "react-toastify";
 
 const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
+
     emailjs.sendForm("service_v6xbs76", "template_tcusoju", form.current, "XTtiq2GJ_9G06NXit")
       .then((result) => {
           console.log(result.text);
           console.log("Your Message has been sent");
+		  toast.success("Your Message has been sent");
+
       }, (error) => {
           console.log(error.text);
+		  toast.error("error");
+
       });
+
   };
 
   return (

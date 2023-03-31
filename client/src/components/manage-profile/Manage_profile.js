@@ -117,7 +117,7 @@ export default function Manage_profile() {
 			</div>
 			<div className="containerTable">
 				<div className="bordered-box">
-					<h3 className="section-title">Message sent</h3>
+					<h3 className="section-title">Messages sent</h3>
 				</div>
 				{/* <Table
 					columns={columns}

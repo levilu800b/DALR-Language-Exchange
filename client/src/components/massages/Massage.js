@@ -171,7 +171,7 @@ export default function Massage({ data, selectedUser }) {
 						navigationItems.find((item) => item.name === activeNavItem)
 							?.component //? is optional chaining operator this use for if the value is null or undefined then it will not throw an error
 					}
-					<Button onClick={handleGoBack}>Go back to User management</Button>
+					<Button className="button-message" id="backbutoon" onClick={handleGoBack}>Go back to User management</Button>
 				</Content>
 				<Footer className="footerMessage">
 					<p>©2023 All Rights Reserved | Language.Exchange Language Exchange</p>

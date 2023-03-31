@@ -12,9 +12,26 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	margin: 2rem 0 3rem 0;
+	margin: auto;
+	width: 65%;
 }
+.inputsearch{
+	font-size: 16px;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+	text-align: left;
 
+}
+.search-container{
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	justify-content: space-around
+	/* margin-bottom: 10px; */
+}
 .overall_detail-message {
 	width: 80%;
 	height: auto;
@@ -75,9 +92,10 @@ font-weight: bold;
 	.text-message {
 		display: flex;
 		margin-top: 0.5rem;
-		
+		flex-direction: row;
 		/* margin-left: 3rem; */
 		font-size: 10px;
+		justify-content: right;
 		font-weight: 300;
 	}
 	.overall_detail-message {
@@ -85,6 +103,7 @@ font-weight: bold;
 		flex-wrap: wrap;
 		justify-content: space-between;
          margin-right: 20px;
+		 flex-direction: column-reverse;
 		/* flex-direction: row; */
 		align-items: center;
 	}
@@ -104,5 +123,18 @@ align-items: stretch;
 .img-message {
 	width: 50px;
 	height: 50px;
+}
+.search-container{
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+	width: 50px;
+}
+.container_all-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
 }
 }
