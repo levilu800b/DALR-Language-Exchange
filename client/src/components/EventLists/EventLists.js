@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Input, List } from "antd";
 import "./EventLists.css";
-import img from "../../assets/faceImoje.png";
+import img from "../../assets/profile.jpg";
 
 const { Search } = Input;
 
@@ -74,18 +74,19 @@ const EventsList = () => {
 				dataSource={filteredEvents}
 				renderItem={(event) => (
 					<section className="container_all-message" key={event.id}>
+						<div>
+							<img className="img-message" src={img} alt="img" />
+						</div>
 						<div className="overall_detail-message">
-							<div>
-								<img className="img-message" src={img} alt="" />
-							</div>
-
 							<div className="text-message">
 								<div className="Native">
 									<p>
-										<span>Title:</span> {event.title}
+										<span className="span_text">Title:</span>{" "}
+										<span className="span_des"> {event.title} </span>
 									</p>
 									<p>
-										<span>Description:</span> {event.description}
+										<span className="span_text">Description:</span>{" "}
+										<span className="span_des"> {event.description} </span>
 									</p>
 									<p>
 										<span>Datetime:</span> {formatDate(event.datetime)}
@@ -94,15 +95,20 @@ const EventsList = () => {
 										<span>Sender:</span> {event.senderemail}
 									</p>
 								</div>
-								<div>
+								<div className="Nav2">
 									<p>
-										<span>Languages:</span> {event.languages}
+										<span className="span_text">Languages:</span>{" "}
+										<span className="span_des">{event.languages} </span>
 									</p>
 									<p>
-										<span>Location:</span> {event.location}
+										<span className="span_text">Location:</span>{" "}
+										<span className="span_des">{event.location} </span>
 									</p>
+									<br />
 									<p>
-										<span>Link:</span> {event.link}
+										<span className="span_text">
+											Link: <a href={event.link}> Link </a>
+										</span>
 									</p>
 									<p>
 										<span>full name: </span>{" "}
