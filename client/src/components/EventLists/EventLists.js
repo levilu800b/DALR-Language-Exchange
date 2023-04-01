@@ -5,6 +5,8 @@ import img from "../../assets/faceImoje.png";
 
 const { Search } = Input;
 
+// Events List page
+
 const EventsList = () => {
 	const [events, setEvents] = useState([]);
 	const [filteredEvents, setFilteredEvents] = useState([]);

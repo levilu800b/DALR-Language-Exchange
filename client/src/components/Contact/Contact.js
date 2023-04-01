@@ -3,6 +3,8 @@ import emailjs from "@emailjs/browser";
 import "./Contact.css";
 import { toast } from "react-toastify";
 
+// Contact page
+
 const Contact = () => {
   const form = useRef();
   const sendEmail = (e) => {
