@@ -45,7 +45,6 @@
 	line-height: 15px;
 	font-size: 1rem;
 	border-radius: 50%;
-	background-color: #0077B5;
 }
 
 .text-message {
@@ -74,7 +73,7 @@ align-content: start;
 
 }
 .overall_detail-message{
-	background-color: #0077B5;
+	background-color:rgb(239,238,238);
 	border-radius: 20px;
 	display: flex;
 	flex-direction: row-reverse;
@@ -85,7 +84,7 @@ align-content: start;
 font-weight: bold;
 }
 .span_des{
-	color: #ffffff;
+	color: #000000;
 
 }
 @media screen and (max-width :640px){

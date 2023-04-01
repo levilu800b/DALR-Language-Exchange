@@ -16,7 +16,7 @@ header {
 }
 
 .bt-profile {
-	color: white;
+	color: rgb(0, 0, 0);
 }
 .profile-info {
 	text-align: center;
@@ -35,7 +35,7 @@ header {
 	margin-left: 30px;
 	background-color: #eaeff1;
 	border-radius: 10px;
-	background-color: #0077b5;
+	background-color:#efeeee
 }
 @media screen and (max-width: 640px) {
 	.profile-content {

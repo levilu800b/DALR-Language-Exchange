@@ -118,7 +118,7 @@ const EventsList = () => {
 									<p>
 										<br />
 										<span className="span_text">
-											Link: <a href={event.link}> Link </a>
+											Link: <a href={event.link} className="span_des" > Link </a>
 										</span>
 									</p>
 									<p>
