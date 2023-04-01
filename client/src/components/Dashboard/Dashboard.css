@@ -1,3 +1,4 @@
 .main_content{
     background-color: aqua;
+    overflow: hidden;
 }
