@@ -45,7 +45,7 @@ const items = [
 	{
 		key: "events",
 		icon: <CalendarOutlined />,
-		label: "events",
+		label: "Events",
 		children: [
 			{
 				key: "create-events",

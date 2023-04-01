@@ -122,7 +122,7 @@ const EventsList = () => {
 										</span>
 									</p>
 									<p>
-										<span className="span_text">full name: </span>{" "}
+										<span className="span_text">Full name: </span>{" "}
 										<span className="span_des">
 										{`${event.user_firstname} ${event.user_secondname}`}
 										</span>
