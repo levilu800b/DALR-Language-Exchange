@@ -42,6 +42,7 @@ margin: 0;
 
 }
 .table_contener{
+	overflow: hidden;
 }
 }
 
