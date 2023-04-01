@@ -24,7 +24,7 @@ const items = [
 			{
 				key: "message",
 				icon: <UsergroupAddOutlined />,
-				label: "message",
+				label: "Message",
 			},
 		],
 	},

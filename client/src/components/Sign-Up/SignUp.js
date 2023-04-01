@@ -72,7 +72,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="firstname"
 					value={firstname}
-					placeholder="first name"
+					placeholder="First name"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -80,7 +80,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="secondname"
 					value={secondname}
-					placeholder="last name"
+					placeholder="Last name"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -88,7 +88,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="email"
 					value={email}
-					placeholder="email"
+					placeholder="Email"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -96,7 +96,7 @@ const SignUp = ({ setAuth }) => {
 					type="password"
 					name="password"
 					value={password}
-					placeholder="password"
+					placeholder="Password"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -104,7 +104,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="language_speak"
 					value={language_speak}
-					placeholder="language I speak"
+					placeholder="Language I speak"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -112,7 +112,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="language_interest"
 					value={language_interest}
-					placeholder="language of interest"
+					placeholder="Language of interest"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -120,7 +120,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="city"
 					value={city}
-					placeholder="city"
+					placeholder="City"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
@@ -128,7 +128,7 @@ const SignUp = ({ setAuth }) => {
 					type="text"
 					name="country"
 					value={country}
-					placeholder="country"
+					placeholder="Country"
 					onChange={(e) => onChange(e)}
 					className="form-control my-3"
 				/>
