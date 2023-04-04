@@ -109,7 +109,7 @@ const Sidebar = ({ onMenuClick }) => {
 				</Menu.Item>
 			)
 		);
-		const [collapsed, setCollapsed] = useState(false);
+		const [collapsed, setCollapsed] = useState(true);
 
 	return (
 <Sider className="sider" collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
