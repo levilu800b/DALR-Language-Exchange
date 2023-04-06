@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./CreateEvents.css";
 
+// Create Events list
+
 const CreateEvents = () => {
   const [sender, setSender] = useState("");
 
